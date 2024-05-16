@@ -18,4 +18,7 @@ public class Student {
         this.studId = studId;
     }
     
+    public void calculateGpa() {
+        
+    }
 }
