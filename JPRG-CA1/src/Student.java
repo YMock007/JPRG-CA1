@@ -9,4 +9,13 @@
  */
 public class Student {
     private int studId = 1;
+
+    public int getStudId() {
+        return studId;
+    }
+
+    public void setStudId(int studId) {
+        this.studId = studId;
+    }
+    
 }
