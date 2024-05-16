@@ -9,5 +9,5 @@ package CA1;
  * @author yeyin
  */
 public class Student {
-    this.student_id = 1;
+    private int student_id = 1;
 }
