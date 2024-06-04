@@ -1,3 +1,4 @@
+
 /**
  *
  * @author shinn
@@ -6,6 +7,10 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import java.util.Random;
 public class Main {
+    
+//*****************************************************************************
+    
+//Getting user option select
     
     private static int getSelect(String system) {
         // Initialize variables to store user input
@@ -41,7 +46,33 @@ public class Main {
             }
         }
     }
+    
+//*****************************************************************************
+    
+//Create New Student
+    
+    private static void createNewStudent(ArrayList<Student> students, String system){
+        String stdName;
+                String adminNo;
+                String classCode; //naming variabel as "class" will lead to error, it is reserved keyword
+                ArrayList<Module> modules = new ArrayList<>();// Creating a list to store modules
+                
+                // Prompting user to input student name, admin number, class, and modules
+                stdName = getStdName(system);
+                adminNo = getAdminNo(system);
+                classCode = getClassCode(system);
+                getModule(modules, system);
+                
+                // Creating a student object with the input data
+                Student student = new Student(stdName, adminNo, classCode, modules);
+                students.add(student);// Adding the student to the list of students
+                showFinishMessage("New student added successfully!");
+    }
    
+//*****************************************************************************
+    
+//Method to prompt student name
+    
     private static String getStdName(String system) {
         // Loop until a valid name is entered
         while (true) {
@@ -88,7 +119,11 @@ public class Main {
         // Convert StringBuilder to String, trim trailing space, and return
         return result.toString().trim();
     }
-
+    
+//*****************************************************************************
+   
+//Method to prompt student Admin Number
+    
     private static String getAdminNo(String system) {
         while (true) {
             // Prompt user to enter admin number 
@@ -122,6 +157,10 @@ public class Main {
             }
         }
     }
+    
+//*****************************************************************************
+   
+//Method to prompt student's Class
 
     // Method to prompt the user to enter a class code and validate the input
     private static String getClassCode(String system) {
@@ -186,7 +225,11 @@ public class Main {
             return classCode;
         }
     }
-
+    
+//*****************************************************************************
+   
+//Method to get student's modules
+    
     // Method to prompt the user to input module information and validate it
     private static void getModule(ArrayList<Module> modules, String system) {
         while (true) {
@@ -323,8 +366,12 @@ public class Main {
             }
         }
     }
+
+//*****************************************************************************
+   
+//Method to delete or add new module
     
-    //Method to prompt user admin number for adding new modules or deleting student
+    //Method to prpmpt user admin number for adding new modules or deleting student
     private static void getAdminNoForUpdateOrDeleteBothInOne(String system, int select, ArrayList<Student> students) {
         while (true) {
             // Prompt user to enter admin number 
@@ -446,8 +493,8 @@ public class Main {
     }
 
     // Check if first character is a digit and second character is a letter
-    private static boolean containsOnlyAlphanumeric(String adminNo) {
-        return !(!Character.isDigit(adminNo.charAt(0)) || !Character.isLetter(adminNo.charAt(1)));
+    private static boolean containsOnlyAlphanumeric(String s) {
+        return !(!Character.isDigit(s.charAt(0)) || !Character.isLetter(s.charAt(1)));
     }
 
     // Check if a string is empty or contains only whitespace characters
@@ -458,21 +505,32 @@ public class Main {
     // Method to check the lengths of components of the class code
     private static boolean checkClassCodeLength(String[] classArray) {
         // Check the length of each component and show error messages if invalid
-        if (classArray[0].length() < 3 || classArray[0].length() > 4) {
+        if (classArray[0].length() < 3 || classArray[0].length() > 4 || !checkUpperCase(classArray[0])) {
             showErrorMessage("Invalid input in course of class.");
             return false;
         }
-        if (classArray[1].length() != 2) {
+        if (classArray[1].length() != 2 || !checkUpperCase(classArray[1])) {
             showErrorMessage("Invalid input in type of class.");
             return false;
         }
-        if (classArray[2].length() != 2) {
+        if (classArray[2].length() != 2 || !Character.isUpperCase(classArray[2].charAt(1))) {
             showErrorMessage("Invalid input in stage/path of class.");
             return false;
         }
         if (classArray[3].length() != 2) {
             showErrorMessage("Invalid input in class number.");
             return false;
+        }
+        return true;
+    }
+    
+    //Method to check user's input is Uppercase or not
+    private static boolean checkUpperCase(String s){
+        char[] sArray = s.toCharArray();
+        for(char c : sArray){
+            if(!Character.isUpperCase(c)){
+                return false;
+            }
         }
         return true;
     }
@@ -557,9 +615,6 @@ public class Main {
                 JOptionPane.INFORMATION_MESSAGE);
     }
     
-
-    
-
 //******************************************************************************
     
     public static void main(String[] args) {
@@ -579,21 +634,7 @@ public class Main {
             select = getSelect(system);
         switch(select){
             case 1 -> {
-                String stdName;
-                String adminNo;
-                String classCode; //naming variabel as "class" will lead to error, it is reserved keyword
-                ArrayList<Module> modules = new ArrayList<>();// Creating a list to store modules
-                
-                // Prompting user to input student name, admin number, class, and modules
-                stdName = getStdName(system);
-                adminNo = getAdminNo(system);
-                classCode = getClassCode(system);
-                getModule(modules, system);
-                
-                // Creating a student object with the input data
-                Student student = new Student(stdName, adminNo, classCode, modules);
-                students.add(student);// Adding the student to the list of students
-                System.out.println(student.toString());
+                createNewStudent(students, system);
             }
             
             case 2->{
@@ -610,12 +651,6 @@ public class Main {
                         "Message",
                         JOptionPane.INFORMATION_MESSAGE);
                 quit = true;
-            }
-            //Later will delete
-            case 5->{
-                for(Student s : students){
-                    System.out.println(s.toString());
-                }
             }
         }
         }  
