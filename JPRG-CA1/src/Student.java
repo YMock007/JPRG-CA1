@@ -14,9 +14,9 @@ public class Student {
     private String stdName;
     private String adminNo;
     private String classCode;
-    private ArrayList<StudentModule> modules;
+    private ArrayList<Module> modules;
 
-    public Student(String stdName, String adminNo, String classCode, ArrayList<StudentModule> modules) {
+    public Student(String stdName, String adminNo, String classCode, ArrayList<Module> modules) {
         this.stdName = stdName;
         this.adminNo = adminNo;
         this.classCode = classCode;
@@ -27,8 +27,8 @@ public class Student {
         return stdName;
     }
 
-    public void setStdName(String stdnName) {
-        this.stdName = stdnName;
+    public void setStdName(String stdName) {
+        this.stdName = stdName;
     }
 
 
@@ -48,19 +48,19 @@ public class Student {
         this.classCode = classCode;
     }
 
-    public ArrayList<StudentModule> getModules() {
+    public ArrayList<Module> getModules() {
         return modules;
     }
 
-    public void setModules(ArrayList<StudentModule> modules) {
+    public void setModules(ArrayList<Module> modules) {
         this.modules = modules;
     }
 
-    public void addModule(StudentModule module) {
+    public void addModule(Module module) {
         this.modules.add(module);
     }
 
-    public void removeModule(StudentModule module) {
+    public void removeModule(Module module) {
         this.modules.remove(module);
     }
 }

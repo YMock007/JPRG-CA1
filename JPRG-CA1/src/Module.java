@@ -9,13 +9,13 @@
  *
  * @author shinn
  */
-public class StudentModule {
+public class Module {
     String moduleCode;
     String moduleName;
     int creditUnit;
     int studentMark;
 
-    public StudentModule(String moduleCode, String moduleName, int creditUnit, int studentMark) {
+    public Module(String moduleCode, String moduleName, int creditUnit, int studentMark) {
         this.moduleCode = moduleCode;
         this.moduleName = moduleName;
         this.creditUnit = creditUnit;
