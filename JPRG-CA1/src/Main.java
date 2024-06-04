@@ -1,7 +1,10 @@
+/**
+ *
+ * @author shinn
+ */
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
-// import java.util.Arrays;
-
+import java.util.Random;
 public class Main {
     
     private static int getSelect(String system) {
@@ -38,8 +41,7 @@ public class Main {
             }
         }
     }
-
-    
+   
     private static String getStdName(String system) {
         // Loop until a valid name is entered
         while (true) {
@@ -87,7 +89,6 @@ public class Main {
         return result.toString().trim();
     }
 
-
     private static String getAdminNo(String system) {
         while (true) {
             // Prompt user to enter admin number 
@@ -120,45 +121,6 @@ public class Main {
                 return adminNo;
             }
         }
-    }
-
-    // Check if a string contains only digits
-    private static boolean containsOnlyDigits(String str) {
-        for (char c : str.toCharArray()) {
-            if (!Character.isDigit(c)) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    // Check if a string contains only letters and whitespace characters
-    private static boolean containsOnlyLetters(String s) {
-        for (char c : s.toCharArray()) {
-            if (!Character.isLetter(c) && !Character.isWhitespace(c)) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    // Check if first character is a digit and second character is a letter
-    private static boolean containsOnlyAlphanumeric(String adminNo) {
-        return !(!Character.isDigit(adminNo.charAt(0)) || !Character.isLetter(adminNo.charAt(1)));
-    }
-
-    // Check if a string is empty or contains only whitespace characters
-    private static boolean isEmpty(String str) {
-        return str == null || str.isBlank();
-    }
-
-
-    // Method to display an error message dialog box
-    private static void showErrorMessage(String message) {
-        JOptionPane.showMessageDialog(null, 
-                message, 
-                "Invalid Input", 
-                JOptionPane.ERROR_MESSAGE);
     }
 
     // Method to prompt the user to enter a class code and validate the input
@@ -225,29 +187,6 @@ public class Main {
         }
     }
 
-    // Method to check the lengths of components of the class code
-    private static boolean checkClassCodeLength(String[] classArray) {
-        // Check the length of each component and show error messages if invalid
-        if (classArray[0].length() < 3 || classArray[0].length() > 4) {
-            showErrorMessage("Invalid input in course of class.");
-            return false;
-        }
-        if (classArray[1].length() != 2) {
-            showErrorMessage("Invalid input in type of class.");
-            return false;
-        }
-        if (classArray[2].length() != 2) {
-            showErrorMessage("Invalid input in stage/path of class.");
-            return false;
-        }
-        if (classArray[3].length() != 2) {
-            showErrorMessage("Invalid input in class number.");
-            return false;
-        }
-        return true;
-    }
-
-
     // Method to prompt the user to input module information and validate it
     private static void getModule(ArrayList<Module> modules, String system) {
         while (true) {
@@ -267,8 +206,8 @@ public class Main {
 
                 // Loop to prompt user for module information for each module
                 for (int i = 1; i <= numberInt; i++) {
-                    String moduleCode = getModuleCode(i, system); // Get module code
-                    String moduleName = getModuleName(i, system); // Get module name
+                    String moduleCode = getModuleCode(i, system, modules); // Get module code
+                    String moduleName = getModuleName(i, system, modules); // Get module name
                     int creditUnit = getCreditUnit(i, system); // Get credit unit
                     int studentMark = getMark(i, system); // Get student mark
                     Module module = new Module(moduleCode, moduleName, creditUnit, studentMark); // Create module object
@@ -282,7 +221,7 @@ public class Main {
     }
 
     // Method to prompt user for module code input and validate it
-    private static String getModuleCode(int i, String system) {
+    private static String getModuleCode(int i, String system, ArrayList<Module> modules) {
         while (true) {
             // Prompt user for module code for a specific module
             String m = JOptionPane.showInputDialog(null,
@@ -299,41 +238,15 @@ public class Main {
             // Validate module code
             if (!validateModuleCode(m)) {
                 continue;
+            }else if(!checkDuplicateModuleCode(modules, m)){
+                continue;
             }
-
             return m; // Return valid module code
         }
     }
-
-    // Method to validate module code
-    private static boolean validateModuleCode(String m) {
-        // Convert module code to character array
-        char[] mArray = m.toCharArray();
-
-        // Check if module code is 6 characters long
-        if (mArray.length != 6) {
-            showErrorMessage("Module code must be 6 characters long.");
-            return false;
-        } 
-        // Check if first 2 characters are alphabets
-        else if (!Character.isLetter(mArray[0]) || !Character.isLetter(mArray[1])) {
-            showErrorMessage("First 2 characters must be alphabets in module code.");
-            return false;
-        }
-
-        // Check if last 4 characters are digits
-        for (int i = 2; i < mArray.length; i++) {
-            if (!Character.isDigit(mArray[i])) {
-                showErrorMessage("Last 4 characters must be digits in module code.");
-                return false;
-            }
-        }
-
-        return true;
-    }
-
+ 
     // Method to prompt user for module name input and validate it
-    private static String getModuleName(int i, String system) {
+    private static String getModuleName(int i, String system,  ArrayList<Module> modules) {
         while (true) {
             // Prompt user for module name for a specific module
             String m = JOptionPane.showInputDialog(null, 
@@ -350,6 +263,10 @@ public class Main {
             // Check if module name contains only letters
             if (!containsOnlyLetters(m)) {
                 showErrorMessage("Module name can only contain letters.");
+                continue;
+            }
+            
+            if(!checkDuplicateModuleName(modules, m)){
                 continue;
             }
 
@@ -406,22 +323,266 @@ public class Main {
             }
         }
     }
+    
+    //Method to prompt user admin number for adding new modules or deleting student
+    private static void getAdminNoForUpdateOrDeleteBothInOne(String system, int select, ArrayList<Student> students) {
+        while (true) {
+            // Prompt user to enter admin number 
+            String adminNo = JOptionPane.showInputDialog(null,
+                    "Enter Admin Number of student:", 
+                    system, 
+                    JOptionPane.QUESTION_MESSAGE).trim();
 
+            // Check if admin number is empty
+            if (isEmpty(adminNo)) {
+                showErrorMessage("Admin Number cannot be empty. Please enter a valid Admin Number.");
+            } 
+            // Check if admin number contains spaces
+            else if (adminNo.contains(" ")) {
+                showErrorMessage("Admin Number cannot contain spaces. Please enter a valid Admin Number.");
+            } 
+            // Check if admin number length is not equal to 8
+            else if (adminNo.length() != 8) {
+                showErrorMessage("Invalid input. Please enter a valid Admin Number.");
+            } 
+            // Check if first character of admin number is not 'p' or a letter
+            else if (adminNo.charAt(0) != 'p' || !Character.isLetter(adminNo.charAt(0))) {
+                showErrorMessage("Admin Number must start with a letter or 'p'. Please enter a valid Admin Number.");
+            } 
+            // Check if all characters after the first one are digits
+            else if (!containsOnlyDigits(adminNo.substring(1))) {
+                showErrorMessage("All characters after the first one must be numbers. Please enter a valid Admin Number.");
+            }else if(checkStudentExists(adminNo, students) != -1){
+                //Check students exitst or not if exitst it will return index of studetns
+                int index = checkStudentExists(adminNo, students);
+                switch(select){
+                    case 2 : 
+                        //Delete student
+                        deleteExistingStudent(index, students);
+                        break;
+                    case 3 :
+                        //Add new modules 
+                        updateStudentModule(index, students.get(index).getModules(), students, system);
+                        break;
+                }
+            }
+        break;
+        }
+    }
+    
+    //Method to delete existing student
+    private static void deleteExistingStudent(int index, ArrayList<Student> students){
+        //Delete student using remove method declared in Student Class
+        students.remove(index);
+        showFinishMessage("Student deleted!");
+    }
+    
+    // Method to prompt the user to input module information and validate it
+    private static void updateStudentModule(int index, ArrayList<Module> modules, ArrayList<Student> students, String system) {
+        //Get number of modules of specific student
+        int i = students.get(index).getModules().size() + 1;
+        String moduleCode = getModuleCode(i, system, modules); // Get module code
+        String moduleName = getModuleName(i, system, modules); // Get module name
+        int creditUnit = getCreditUnit(i, system); // Get credit unit
+        int studentMark = getMark(i, system); // Get student mark
+        Module module = new Module(moduleCode, moduleName, creditUnit, studentMark); // Create module object
+        //Add new module to modules of specific student using index and addModule method declared in Student Class
+        students.get(index).addModule(module);
+        showFinishMessage("Module added successfully");
+    }
+    
+    //adding students //Later might delete
+    private static void addStudents(ArrayList s){
+        int n = 6;
+        Random rand = new Random();
+        for(int i = 0;i<n;i++){
+            ArrayList<Module> moduleList = new ArrayList<>();
+            int numberOfModules = 1;
+            for(int j = 0; j < numberOfModules;j++){
+                int unit = (int) rand.nextInt(4, 7);
+                int mark = (int) (rand.nextInt(60, 90));
+                int r = (int) rand.nextInt(1, 5);
+                switch(r){
+                    case 1 -> moduleList.add(new Module("ST0509", "JPRG", unit, mark));
+                    case 2 -> moduleList.add(new Module("ST0503", "FOP", unit, mark));
+                    case 3 -> moduleList.add(new Module("ST0525", "DBS", unit, mark));
+                    case 4 -> moduleList.add(new Module("ST0506", "SEP", unit, mark));       
+                }  
+            }
+            switch(i){
+                case 0 -> s.add(new Student("Shinn", "p2340700", "DIT/FT/1B/11", moduleList));
+                case 1 -> s.add(new Student("Alice", "p2340701", "DIT/FT/1B/12", moduleList));
+                case 2 -> s.add(new Student("Bob", "p2340702", "DIT/FT/1B/13", moduleList));
+                case 3 -> s.add(new Student("Carol", "p2340703", "DIT/FT/1B/14", moduleList));
+                case 4 -> s.add(new Student("David", "p2340704", "DIT/FT/1B/15", moduleList));
+                case 5 -> s.add(new Student("Eve", "p2340705", "DIT/FT/1B/16", moduleList));
+            }
+        }   
+        
+    }
 
+//*****************************************************************************
+    
+//Validating methods
+    
+    // Check if a string contains only digits
+    private static boolean containsOnlyDigits(String str) {
+        for (char c : str.toCharArray()) {
+            if (!Character.isDigit(c)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    // Check if a string contains only letters and whitespace characters
+    private static boolean containsOnlyLetters(String s) {
+        for (char c : s.toCharArray()) {
+            if (!Character.isLetter(c) && !Character.isWhitespace(c)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    // Check if first character is a digit and second character is a letter
+    private static boolean containsOnlyAlphanumeric(String adminNo) {
+        return !(!Character.isDigit(adminNo.charAt(0)) || !Character.isLetter(adminNo.charAt(1)));
+    }
+
+    // Check if a string is empty or contains only whitespace characters
+    private static boolean isEmpty(String str) {
+        return str == null || str.isBlank();
+    }
+
+    // Method to check the lengths of components of the class code
+    private static boolean checkClassCodeLength(String[] classArray) {
+        // Check the length of each component and show error messages if invalid
+        if (classArray[0].length() < 3 || classArray[0].length() > 4) {
+            showErrorMessage("Invalid input in course of class.");
+            return false;
+        }
+        if (classArray[1].length() != 2) {
+            showErrorMessage("Invalid input in type of class.");
+            return false;
+        }
+        if (classArray[2].length() != 2) {
+            showErrorMessage("Invalid input in stage/path of class.");
+            return false;
+        }
+        if (classArray[3].length() != 2) {
+            showErrorMessage("Invalid input in class number.");
+            return false;
+        }
+        return true;
+    }
+    
+    // Method to validate module code
+    private static boolean validateModuleCode(String m) {
+        // Convert module code to character array
+        char[] mArray = m.toCharArray();
+
+        // Check if module code is 6 characters long
+        if (mArray.length != 6) {
+            showErrorMessage("Module code must be 6 characters long.");
+            return false;
+        } 
+        // Check if first 2 characters are alphabets
+        else if (!Character.isLetter(mArray[0]) || !Character.isLetter(mArray[1])) {
+            showErrorMessage("First 2 characters must be alphabets in module code.");
+            return false;
+        }
+
+        // Check if last 4 characters are digits
+        for (int i = 2; i < mArray.length; i++) {
+            if (!Character.isDigit(mArray[i])) {
+                showErrorMessage("Last 4 characters must be digits in module code.");
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    //Method to check not to add existing module code
+    private static boolean checkDuplicateModuleCode(ArrayList<Module> modules, String m){
+        for(int j = 0; j < modules.size(); j++){
+                if(modules.get(j).getModuleCode().equals(m)){
+                    showErrorMessage("The module code " + m + " is already added!");
+                    return false;
+                }
+            }
+        return true;
+    }
+        
+    //Method to check not to add existing module name
+    private static boolean checkDuplicateModuleName(ArrayList<Module> modules, String m){
+        for(int j = 0; j < modules.size(); j++){
+                if(modules.get(j).getModuleName().equals(m)){
+                    showErrorMessage("The module name " + m + " is already added!");
+                    return false;
+                }
+            }
+        return true;
+    }
+    
+        //Method to check student studtent exists or not
+    private static int checkStudentExists(String admNo, ArrayList<Student> students){
+        //loop through the students arrayList
+        for(int j = 0; j < students.size(); j++){
+            //Check exitsing admin numbers and input admin number equal or not
+                if(students.get(j).getAdminNo().equals(admNo)){
+                    return j;
+                }
+            }
+        //if not return not found message
+        showErrorMessage("Student with " + admNo + "not found!");
+        return -1;
+    }
+    
+    
+    // Method to display an error message dialog box
+    private static void showErrorMessage(String message) {
+        JOptionPane.showMessageDialog(null, 
+                message, 
+                "Student Enquiry System", 
+                JOptionPane.ERROR_MESSAGE);
+    }
+    
+    // Method to display an error message dialog box
+    private static void showFinishMessage(String message) {
+        JOptionPane.showMessageDialog(null, 
+                message, 
+                "Student Enquiry System", 
+                JOptionPane.INFORMATION_MESSAGE);
+    }
+    
+
+    
+
+//******************************************************************************
+    
     public static void main(String[] args) {
+        boolean quit = false;
         final String system = "Student Admin System";// Setting the system name
         int select;// Declaring variable to store user's selection
+        ArrayList<Student> students = new ArrayList<>(); // Creating a list to store students
+        
+        //Creating some students in database
+        addStudents(students);
+        for(Student student : students){
+                System.out.println(student.toString());
+            }
         
         // Prompting user to select an option from the menu and storing the selection
-        select = getSelect(system);
-        
+        while(!quit){
+            select = getSelect(system);
         switch(select){
             case 1 -> {
                 String stdName;
                 String adminNo;
                 String classCode; //naming variabel as "class" will lead to error, it is reserved keyword
                 ArrayList<Module> modules = new ArrayList<>();// Creating a list to store modules
-                ArrayList<Student> students = new ArrayList<>(); // Creating a list to store students
                 
                 // Prompting user to input student name, admin number, class, and modules
                 stdName = getStdName(system);
@@ -434,8 +595,32 @@ public class Main {
                 students.add(student);// Adding the student to the list of students
                 System.out.println(student.toString());
             }
+            
+            case 2->{
+                getAdminNoForUpdateOrDeleteBothInOne(system, select, students);
+            }
+            
+            case 3->{
+                getAdminNoForUpdateOrDeleteBothInOne(system, select, students);
+            }
+            
+            case 4->{
+                JOptionPane.showMessageDialog(null,
+                        "Program terminated. \nThank you!",
+                        "Message",
+                        JOptionPane.INFORMATION_MESSAGE);
+                quit = true;
+            }
+            //Later will delete
+            case 5->{
+                for(Student s : students){
+                    System.out.println(s.toString());
+                }
+            }
         }
-        
-        
+        }  
     }
 }
+
+
+
