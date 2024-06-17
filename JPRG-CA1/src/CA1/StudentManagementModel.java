@@ -145,4 +145,43 @@ public class StudentManagementModel {
         return -1;
     }
     
+    
+    //--------------------------------------------------------------------------
+    // Displaying All Student report 
+    //--------------------------------------------------------------------------
+    public static void displayAllStudent(ArrayList<Student> students) {
+        
+        int studentIndex = 1;
+        int moduleIndex;
+        String output = "";
+        for (Student student : students) {
+        moduleIndex = 1;
+        output += "Student " + studentIndex++ + ":\n" +
+                  "Name: " + student.getStdName() + "\n" + 
+                  "Admin: " + student.getAdminNo() + "\n" +
+                  "Class: " + student.getClassCode() + "\n";
+        
+        for(Module module: student.getModules()) {
+            output += "Modules Taken\n" + 
+                      moduleIndex++ + "." + module.getModuleCode() + "/" +
+                      module.getModuleName() + "/" + + module.getCreditUnit() +
+                      ": " + module.getStudentMark() +
+                      "\n----------------------------\n";
+        }            
+    }
+
+        JTextArea textArea = new JTextArea(30, 20); // Rows x Columns (increased columns for wider text)
+        textArea.setText(output);
+        textArea.setEditable(false);
+
+        JScrollPane scrollPane = new JScrollPane(textArea);
+        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+
+        JOptionPane.showMessageDialog(null,
+                scrollPane,
+                "All Student Report",
+                JOptionPane.INFORMATION_MESSAGE);
+    }
+
+    
 }

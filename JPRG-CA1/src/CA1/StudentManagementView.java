@@ -32,4 +32,11 @@ public class StudentManagementView {
                 system, 
                 JOptionPane.INFORMATION_MESSAGE);
     }
+    
+    public static void showTerminateMessage() {
+        JOptionPane.showMessageDialog(null,
+                        "Program terminated. \nThank you!",
+                        "Message",
+                        JOptionPane.INFORMATION_MESSAGE);
+    }
 }

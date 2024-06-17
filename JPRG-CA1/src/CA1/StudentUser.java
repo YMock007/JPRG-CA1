@@ -31,15 +31,17 @@ public class StudentUser {
             }
         
         while(!quit) {
-            system = StudentManagement.getSystem();
+            system = StudentManagementController.getSystem();
             switch (system) {
                 case 1 -> {
-                    StudentManagement.showAdminSystem(students);
-                    quit = true;
+                    StudentManagementController.showAdminSystem(students);
                 }
                 case 2 -> {
-                    StudentManagement.showUserSystem(students);
-                    quit = true;
+                    StudentManagementController.showUserSystem(students);
+                }
+                case 3 -> {
+                    StudentManagementView.showTerminateMessage();
+                    quit = true;                   
                 }
             }   
         }
