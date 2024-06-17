@@ -5,61 +5,12 @@
  */
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+
 import java.util.Random;
+import java.util.regex.Pattern;
 public class StudentManagement {
-    public StudentManagement() {
-        
-    }
-//*****************************************************************************
-    
-//Getting user option select
-    
-    private static int getSelect(String system) {
-        // Initialize variables to store user input
-        String userSelectStr;
-        int userSelectInt;
-        String options;
-                
-        if(system.equals("Student Admin System")) {
-            // Define admin options menu
-            options = "1. Add new student \n2. Delete student \n3. Add new module for student \n4. Quit";
-        } else {
-            options = "1. Display all students \n2. Search students by class \n3. Search student by name \n4. Quit";
-        }
-
-        // Loop until valid input is received
-        while (true) {
-            try {
-                userSelectStr = JOptionPane.showInputDialog(null,
-                        options,
-                        system,
-                        JOptionPane.QUESTION_MESSAGE
-                );
-                
-                // Check if the user clicked the cancel button or closed the dialog
-                if (userSelectStr == null) {
-                    showFinishMessage("Program terminated. Thank you!", system);
-                    System.exit(0);
-                }
-                
-                // Check if user input is empty
-                if (isEmpty(userSelectStr)) {
-                    showErrorMessage("Input cannot be empty!");
-                    continue;
-                }
-
-                // Parse user input to integer
-                userSelectInt = Integer.parseInt(userSelectStr);
-
-                return userSelectInt;
-            } catch (NumberFormatException e) {
-                // Catch exception if input cannot be parsed to integer
-                // Show error message and continue loop
-                showErrorMessage("Please enter a valid input!");
-            }
-        }
-    }
-    
 //*****************************************************************************
     
 //Create New Student
@@ -483,160 +434,13 @@ public class StudentManagement {
 
 //*****************************************************************************
     
-//Validating methods
-    
-    // Check if a string contains only digits
-    private static boolean containsOnlyDigits(String str) {
-        for (char c : str.toCharArray()) {
-            if (!Character.isDigit(c)) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    // Check if a string contains only letters and whitespace characters
-    private static boolean containsOnlyLetters(String s) {
-        for (char c : s.toCharArray()) {
-            if (!Character.isLetter(c) && !Character.isWhitespace(c)) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    // Check if first character is a digit and second character is a letter
-    private static boolean containsOnlyAlphanumeric(String s) {
-        return !(!Character.isDigit(s.charAt(0)) || !Character.isLetter(s.charAt(1)));
-    }
-
-    // Check if a string is empty or contains only whitespace characters
-    private static boolean isEmpty(String str) {
-        return str == null || str.isBlank();
-    }
-
-    // Method to check the lengths of components of the class code
-    private static boolean checkClassCodeLength(String[] classArray) {
-        // Check the length of each component and show error messages if invalid
-        if (classArray[0].length() < 3 || classArray[0].length() > 4 || !checkUpperCase(classArray[0])) {
-            showErrorMessage("Invalid input in course of class.");
-            return false;
-        }
-        if (classArray[1].length() != 2 || !checkUpperCase(classArray[1])) {
-            showErrorMessage("Invalid input in type of class.");
-            return false;
-        }
-        if (classArray[2].length() != 2 || !Character.isUpperCase(classArray[2].charAt(1))) {
-            showErrorMessage("Invalid input in stage/path of class.");
-            return false;
-        }
-        if (classArray[3].length() != 2) {
-            showErrorMessage("Invalid input in class number.");
-            return false;
-        }
-        return true;
-    }
-    
-    //Method to check user's input is Uppercase or not
-    private static boolean checkUpperCase(String s){
-        char[] sArray = s.toCharArray();
-        for(char c : sArray){
-            if(!Character.isUpperCase(c)){
-                return false;
-            }
-        }
-        return true;
-    }
-    
-    // Method to validate module code
-    private static boolean validateModuleCode(String m) {
-        // Convert module code to character array
-        char[] mArray = m.toCharArray();
-
-        // Check if module code is 6 characters long
-        if (mArray.length != 6) {
-            showErrorMessage("Module code must be 6 characters long.");
-            return false;
-        } 
-        // Check if first 2 characters are alphabets
-        else if (!Character.isLetter(mArray[0]) || !Character.isLetter(mArray[1])) {
-            showErrorMessage("First 2 characters must be alphabets in module code.");
-            return false;
-        }
-
-        // Check if last 4 characters are digits
-        for (int i = 2; i < mArray.length; i++) {
-            if (!Character.isDigit(mArray[i])) {
-                showErrorMessage("Last 4 characters must be digits in module code.");
-                return false;
-            }
-        }
-
-        return true;
-    }
-
-    //Method to check not to add existing module code
-    private static boolean checkDuplicateModuleCode(ArrayList<Module> modules, String m){
-        for(int j = 0; j < modules.size(); j++){
-                if(modules.get(j).getModuleCode().equals(m)){
-                    showErrorMessage("The module code " + m + " is already added!");
-                    return false;
-                }
-            }
-        return true;
-    }
-        
-    //Method to check not to add existing module name
-    private static boolean checkDuplicateModuleName(ArrayList<Module> modules, String m){
-        for(int j = 0; j < modules.size(); j++){
-                if(modules.get(j).getModuleName().equals(m)){
-                    showErrorMessage("The module name " + m + " is already added!");
-                    return false;
-                }
-            }
-        return true;
-    }
-    
-        //Method to check student studtent exists or not
-    private static int checkStudentExists(String admNo, ArrayList<Student> students){
-        //loop through the students arrayList
-        for(int j = 0; j < students.size(); j++){
-            //Check exitsing admin numbers and input admin number equal or not
-                if(students.get(j).getAdminNo().equals(admNo)){
-                    return j;
-                }
-            }
-        //if not return not found message
-        showErrorMessage("Student with " + admNo + "not found!");
-        return -1;
-    }
-    
-    
-    // Method to display an error message dialog box
-    private static void showErrorMessage(String message) {
-        JOptionPane.showMessageDialog(null, 
-                message, 
-                "Student Enquiry System", 
-                JOptionPane.ERROR_MESSAGE);
-    }
-    
-    // Method to display an error message dialog box
-    private static void showFinishMessage(String message, String system) {
-        JOptionPane.showMessageDialog(null, 
-                message, 
-                system, 
-                JOptionPane.INFORMATION_MESSAGE);
-    }
-    
-//******************************************************************************
-    
     public static void showAdminSystem(ArrayList<Student> students) {
         boolean quit = false;
         final String system = "Student Admin System";// Setting the system name
         int select;// Declaring variable to store user's selection
         // Prompting user to select an option from the menu and storing the selection
         while(!quit){
-            select = getSelect(system);
+            select = StudentManagementController.getSelect(system);
         switch(select){
             case 1 -> {
                 createNewStudent(students, system);
@@ -721,15 +525,15 @@ public class StudentManagement {
             select = getSelect(system);
         switch(select){
             case 1 -> {
-                createNewStudent(students, system);
+                displayAllStudent(students);
             }
             
             case 2->{
-                getAdminNoForUpdateOrDeleteBothInOne(system, select, students);
+                searchStudentByClass(students);
             }
             
             case 3->{
-                getAdminNoForUpdateOrDeleteBothInOne(system, select, students);
+//                searchStudentByName(system, select, students);
             }
             
             case 4->{
@@ -741,6 +545,83 @@ public class StudentManagement {
             }
         }
         }
+    }
+    
+    
+    //--------------------------------------------------------------------------
+    // Displaying All Student report 
+    //--------------------------------------------------------------------------
+    public static void displayAllStudent(ArrayList<Student> students) {
+        
+        int studentIndex = 1;
+        int moduleIndex;
+        String output = "";
+        for (Student student : students) {
+        moduleIndex = 1;
+        output += "Student " + studentIndex++ + ":\n" +
+                  "Name: " + student.getStdName() + "\n" + 
+                  "Admin: " + student.getAdminNo() + "\n" +
+                  "Class: " + student.getClassCode() + "\n";
+        
+        for(Module module: student.getModules()) {
+            output += "Modules Taken\n" + 
+                      moduleIndex++ + "." + module.getModuleCode() + "/" +
+                      module.getModuleName() + "/" + + module.getCreditUnit() +
+                      ": " + module.getStudentMark() +
+                      "\n----------------------------\n";
+        }            
+    }
+
+        JTextArea textArea = new JTextArea(30, 20); // Rows x Columns (increased columns for wider text)
+        textArea.setText(output.toString());
+        textArea.setEditable(false);
+
+        JScrollPane scrollPane = new JScrollPane(textArea);
+        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+
+        JOptionPane.showMessageDialog(null,
+                scrollPane,
+                "All Student Report",
+                JOptionPane.INFORMATION_MESSAGE);
+    }
+
+    //--------------------------------------------------------------------------
+    // Search student by Class 
+    //--------------------------------------------------------------------------
+    public static void searchStudentByClass(ArrayList<Student> students) {
+        String classCode = getClassCode();
+    }
+    
+    public static String getClassCode() {
+        String userInput = "";
+        String question = "Enter the class name to search";
+        
+        while(true) {
+            userInput = JOptionPane.showInputDialog(null,
+                        question,
+                        "Search",
+                        JOptionPane.QUESTION_MESSAGE;
+            
+        }
+        
+        return validatingClassCode(userInput) == false ? null : userInput;
+    }
+    
+    public static boolean validatingClassCode(String userInput) {
+        // Regular expression patterns for each part of the class code
+        String coursePattern = "[A-Z]+"; // One or more uppercase letters
+        String ftPtPattern = "FT|PT";
+        String yearPattern = "[A-Z]\\d"; // One uppercase letter followed by one digit
+        String classPattern = "\\d{2}"; // Two digits
+
+        // Combined regular expression for the whole class code
+        String classCodePattern = coursePattern + "/" + ftPtPattern + "/" + yearPattern + "/" + classPattern;
+
+        // Compile the pattern
+        Pattern pattern = Pattern.compile("^" + classCodePattern + "$");
+
+        // Match the given class code against the pattern
+        return pattern.matcher(userInput).matches();
     }
 }
 

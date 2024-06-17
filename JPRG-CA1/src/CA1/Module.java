@@ -52,6 +52,11 @@ public class Module {
     public void setStudentMark(int studentMark) {
         this.studentMark = studentMark;
     }
+    
+        @Override
+    public String toString() {
+        return moduleCode + "/n" + moduleName + "\n" + creditUnit + "\n" + studentMark;
+    }
 }
 
 

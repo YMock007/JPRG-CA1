@@ -58,4 +58,9 @@ public class Student {
     public void removeModule(Module module) {
         this.modules.remove(module);
     }
+    
+    @Override
+    public String toString() {
+        return stdName + "/n" + adminNo + "\n" + classCode + "\n" + modules;
+    }
 }
