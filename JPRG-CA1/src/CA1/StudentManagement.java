@@ -6,8 +6,10 @@
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import java.util.Random;
-public class Main {
-    
+public class StudentManagement {
+    public StudentManagement() {
+        
+    }
 //*****************************************************************************
     
 //Getting user option select
@@ -16,19 +18,30 @@ public class Main {
         // Initialize variables to store user input
         String userSelectStr;
         int userSelectInt;
-
-        // Define admin options menu
-        String adminOptions = "1. Add new student \n2. Delete student \n3. Add new module for student \n4. Quit";
+        String options;
+                
+        if(system.equals("Student Admin System")) {
+            // Define admin options menu
+            options = "1. Add new student \n2. Delete student \n3. Add new module for student \n4. Quit";
+        } else {
+            options = "1. Display all students \n2. Search students by class \n3. Search student by name \n4. Quit";
+        }
 
         // Loop until valid input is received
         while (true) {
             try {
                 userSelectStr = JOptionPane.showInputDialog(null,
-                        adminOptions,
+                        options,
                         system,
                         JOptionPane.QUESTION_MESSAGE
                 );
-
+                
+                // Check if the user clicked the cancel button or closed the dialog
+                if (userSelectStr == null) {
+                    showFinishMessage("Program terminated. Thank you!", system);
+                    System.exit(0);
+                }
+                
                 // Check if user input is empty
                 if (isEmpty(userSelectStr)) {
                     showErrorMessage("Input cannot be empty!");
@@ -66,7 +79,7 @@ public class Main {
                 // Creating a student object with the input data
                 Student student = new Student(stdName, adminNo, classCode, modules);
                 students.add(student);// Adding the student to the list of students
-                showFinishMessage("New student added successfully!");
+                showFinishMessage("New student added successfully!", "Student Enquiry System");
     }
    
 //*****************************************************************************
@@ -421,7 +434,7 @@ public class Main {
     private static void deleteExistingStudent(int index, ArrayList<Student> students){
         //Delete student using remove method declared in Student Class
         students.remove(index);
-        showFinishMessage("Student deleted!");
+        showFinishMessage("Student deleted!", "Student Enquiry System");
     }
     
     // Method to prompt the user to input module information and validate it
@@ -435,11 +448,11 @@ public class Main {
         Module module = new Module(moduleCode, moduleName, creditUnit, studentMark); // Create module object
         //Add new module to modules of specific student using index and addModule method declared in Student Class
         students.get(index).addModule(module);
-        showFinishMessage("Module added successfully");
+        showFinishMessage("Module added successfully", "Student Enquiry System");
     }
     
     //adding students //Later might delete
-    private static void addStudents(ArrayList s){
+    public static void addStudents(ArrayList s){
         int n = 6;
         Random rand = new Random();
         for(int i = 0;i<n;i++){
@@ -608,27 +621,19 @@ public class Main {
     }
     
     // Method to display an error message dialog box
-    private static void showFinishMessage(String message) {
+    private static void showFinishMessage(String message, String system) {
         JOptionPane.showMessageDialog(null, 
                 message, 
-                "Student Enquiry System", 
+                system, 
                 JOptionPane.INFORMATION_MESSAGE);
     }
     
 //******************************************************************************
     
-    public static void main(String[] args) {
+    public static void showAdminSystem(ArrayList<Student> students) {
         boolean quit = false;
         final String system = "Student Admin System";// Setting the system name
         int select;// Declaring variable to store user's selection
-        ArrayList<Student> students = new ArrayList<>(); // Creating a list to store students
-        
-        //Creating some students in database
-        addStudents(students);
-        for(Student student : students){
-                System.out.println(student.toString());
-            }
-        
         // Prompting user to select an option from the menu and storing the selection
         while(!quit){
             select = getSelect(system);
@@ -653,7 +658,89 @@ public class Main {
                 quit = true;
             }
         }
-        }  
+        }
+    }
+    
+    
+    //--------------------------------------------------------------------------
+    // User System starts from here
+    //--------------------------------------------------------------------------
+    
+    //--------------------------------------------------------------------------
+    // Selecting System
+    //--------------------------------------------------------------------------
+    public static int getSystem() {
+        String system;
+        int systemInt;
+        // Define system options menu
+        String systemOptions = "1. Admin System \n2. User system";
+        
+        // Loop until valid input is received
+        while (true) {
+            try {
+                system = JOptionPane.showInputDialog(null,
+                        systemOptions,
+                        "Selecing System",
+                        JOptionPane.QUESTION_MESSAGE
+                );
+
+                // Check if the user clicked the cancel button or closed the dialog
+                if (system == null) {
+                    showFinishMessage("Program terminated. Thank you!", "Seleting System");
+                    System.exit(0);
+                }
+                
+                // Check if user input is empty
+                if (isEmpty(system)) {
+                    showErrorMessage("Input cannot be empty!");
+                    continue;
+                }
+
+                // Parse user input to integer
+                systemInt = Integer.parseInt(system);
+
+                return systemInt;
+            } catch (NumberFormatException e) {
+                // Catch exception if input cannot be parsed to integer
+                // Show error message and continue loop
+                showErrorMessage("Please enter a valid input!");
+            }
+        }       
+    }
+    
+    
+    //--------------------------------------------------------------------------
+    // User system option
+    //--------------------------------------------------------------------------
+    public static void showUserSystem(ArrayList<Student> students) {
+        boolean quit = false;
+        final String system = "Student Enquiry System";// Setting the system name
+        int select;// Declaring variable to store user's selection
+        // Prompting user to select an option from the menu and storing the selection
+        while(!quit){
+            select = getSelect(system);
+        switch(select){
+            case 1 -> {
+                createNewStudent(students, system);
+            }
+            
+            case 2->{
+                getAdminNoForUpdateOrDeleteBothInOne(system, select, students);
+            }
+            
+            case 3->{
+                getAdminNoForUpdateOrDeleteBothInOne(system, select, students);
+            }
+            
+            case 4->{
+                JOptionPane.showMessageDialog(null,
+                        "Program terminated. \nThank you!",
+                        "Message",
+                        JOptionPane.INFORMATION_MESSAGE);
+                quit = true;
+            }
+        }
+        }
     }
 }
 
