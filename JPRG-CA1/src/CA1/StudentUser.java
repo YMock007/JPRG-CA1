@@ -25,7 +25,7 @@ public class StudentUser {
         //Creating some students in database
         // ------------------------------------------------------
         
-        StudentManagement.addStudents(students);
+        SimulateStudents.addStudents(students);
         for(Student student : students){
                 System.out.println(student.toString());
             }

@@ -43,7 +43,7 @@ public class StudentManagementController {
                 
                 // Check if user input is empty
                 if (StudentManagementModel.isEmpty(system)) {
-                    StudentManagementView.showErrorMessage("Input cannot be empty!");
+                    StudentManagementView.showErrorMessage("Input cannot be empty!", "System Selection");
                     continue;
                 }
 
@@ -54,7 +54,7 @@ public class StudentManagementController {
             } catch (NumberFormatException e) {
                 // Catch exception if input cannot be parsed to integer
                 // Show error message and continue loop
-                StudentManagementView.showErrorMessage("Please enter a valid input!");
+                StudentManagementView.showErrorMessage("Please enter a valid input!", "System Selection");
             }
         }       
     }
@@ -105,7 +105,7 @@ public class StudentManagementController {
             }
             
             case 2->{
-//                searchStudentByClass(students);
+                searchStudentByClass(students);
             }
             
             case 3->{
@@ -152,7 +152,7 @@ public class StudentManagementController {
                 
                 // Check if user input is empty
                 if (StudentManagementModel.isEmpty(userSelectStr)) {
-                    StudentManagementView.showErrorMessage("Input cannot be empty!");
+                    StudentManagementView.showErrorMessage("Input cannot be empty!", system);
                     continue;
                 }
 
@@ -163,10 +163,36 @@ public class StudentManagementController {
             } catch (NumberFormatException e) {
                 // Catch exception if input cannot be parsed to integer
                 // Show error message and continue loop
-                StudentManagementView.showErrorMessage("Please enter a valid input!");
+                StudentManagementView.showErrorMessage("Please enter a valid input!", system);
             }
         }
     }
     
-//*****************************************************************************
+    //--------------------------------------------------------------------------
+    // Search student by Class 
+    //--------------------------------------------------------------------------
+    public static void searchStudentByClass(ArrayList<Student> students) {
+        String classCode = StudentManagementModel.getClassCode();
+        if(classCode == null) {
+            StudentManagementView.showFinishMessage("Redirecting to Previous Page", "Redirect");
+        } else {
+            int studentCount = 0;
+            double totalGPA = 0.0;
+            double avgGPA;
+            Student student;
+            
+            for(int i = 0; i < students.size(); i++ ) {
+                student = students.get(i);
+                if(student.getClassCode().equals(classCode)){
+                    studentCount++;
+                    totalGPA += student.calculateGPA();
+                }
+            }
+            
+            avgGPA = totalGPA / studentCount;
+            avgGPA = Double.parseDouble(String.format("%.2f", avgGPA));
+            StudentManagementView.displayClassSummary(classCode,studentCount,avgGPA);
+        }
+    }
+    
 }

@@ -18,10 +18,13 @@ import java.util.regex.Pattern;
 
 public class StudentManagementView {
     // Method to display an error message dialog box
-    public static void showErrorMessage(String message) {
+    public static void showErrorMessage(String message, String system) {
+        if(system == null) {
+            system = "Student Enquiry System";
+        }
         JOptionPane.showMessageDialog(null, 
                 message, 
-                "Student Enquiry System", 
+                 system,
                 JOptionPane.ERROR_MESSAGE);
     }
     
@@ -39,4 +42,15 @@ public class StudentManagementView {
                         "Message",
                         JOptionPane.INFORMATION_MESSAGE);
     }
+    
+    
+    public static void displayClassSummary(String classCode, int studentCount, double avgGPA) {
+        String output = "Number of student(s) in " + classCode + ": " + studentCount
+                        + "\nAverage GPA: " + avgGPA;
+        JOptionPane.showMessageDialog(null,
+                        output,
+                        "Class Summary",
+                        JOptionPane.INFORMATION_MESSAGE);
+    }
+    
 }

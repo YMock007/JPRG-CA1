@@ -48,11 +48,11 @@ public class StudentManagement {
 
             // Check if name is empty
             if (StudentManagementModel.isEmpty(name)) {
-                StudentManagementView.showErrorMessage("Name cannot be empty. Please enter a valid name.");
+                StudentManagementView.showErrorMessage("Name cannot be empty. Please enter a valid name.", "Student Admin System");
             } 
             // Check if name contains only letters
             else if (!StudentManagementModel.containsOnlyLetters(name)) {
-                StudentManagementView.showErrorMessage("Name cannot contain numbers. Please enter a valid name.");
+                StudentManagementView.showErrorMessage("Name cannot contain numbers. Please enter a valid name.", "Student Admin System");
             } 
             else {
                 // If name is valid, format it and return
@@ -98,23 +98,23 @@ public class StudentManagement {
 
             // Check if admin number is empty
             if (StudentManagementModel.isEmpty(adminNo)) {
-                StudentManagementView.showErrorMessage("Admin Number cannot be empty. Please enter a valid Admin Number.");
+                StudentManagementView.showErrorMessage("Admin Number cannot be empty. Please enter a valid Admin Number.", "Student Admin System");
             } 
             // Check if admin number contains spaces
             else if (adminNo.contains(" ")) {
-                StudentManagementView.showErrorMessage("Admin Number cannot contain spaces. Please enter a valid Admin Number.");
+                StudentManagementView.showErrorMessage("Admin Number cannot contain spaces. Please enter a valid Admin Number.", "Student Admin System");
             } 
             // Check if admin number length is not equal to 8
             else if (adminNo.length() != 8) {
-                StudentManagementView.showErrorMessage("Invalid input. Please enter a valid Admin Number.");
+                StudentManagementView.showErrorMessage("Invalid input. Please enter a valid Admin Number.", "Student Admin System");
             } 
             // Check if first character of admin number is not 'p' or a letter
             else if (adminNo.charAt(0) != 'p' || !Character.isLetter(adminNo.charAt(0))) {
-                StudentManagementView.showErrorMessage("Admin Number must start with a letter or 'p'. Please enter a valid Admin Number.");
+                StudentManagementView.showErrorMessage("Admin Number must start with a letter or 'p'. Please enter a valid Admin Number.", "Student Admin System");
             } 
             // Check if all characters after the first one are digits
             else if (!StudentManagementModel.containsOnlyDigits(adminNo.substring(1))) {
-                StudentManagementView.showErrorMessage("All characters after the first one must be numbers. Please enter a valid Admin Number.");
+                StudentManagementView.showErrorMessage("All characters after the first one must be numbers. Please enter a valid Admin Number.", "Student Admin System");
             } 
             else {
                 return adminNo;
@@ -136,12 +136,12 @@ public class StudentManagement {
 
             // Check if class code is empty
             if (StudentManagementModel.isEmpty(classCode)) {
-                StudentManagementView.showErrorMessage("Class cannot be empty. Please enter a valid Class.");
+                StudentManagementView.showErrorMessage("Class cannot be empty. Please enter a valid Class.", "Student Admin System");
                 continue;
             } 
             // Check if class code contains spaces
             else if (classCode.contains(" ")) {
-                StudentManagementView.showErrorMessage("Class cannot contain spaces. Please enter a valid Class.");
+                StudentManagementView.showErrorMessage("Class cannot contain spaces. Please enter a valid Class.", "Student Admin System");
                 continue;
             } 
             // Check if class code length is either 12 or 13 characters
@@ -149,18 +149,18 @@ public class StudentManagement {
                 // Validate the format of class code based on its length
                 if (classCode.length() == 12) {
                     if (!(classCode.charAt(3) == '/' && classCode.charAt(6) == '/' && classCode.charAt(9) == '/')) {
-                        StudentManagementView.showErrorMessage("Please enter the class in valid format!");
+                        StudentManagementView.showErrorMessage("Please enter the class in valid format!", "Student Admin System");
                         continue;
                     }
                 } else if (classCode.length() == 13) {
                     if (!(classCode.charAt(4) == '/' && classCode.charAt(7) == '/' && classCode.charAt(10) == '/')) {
-                        StudentManagementView.showErrorMessage("Please enter the class in valid format!");
+                        StudentManagementView.showErrorMessage("Please enter the class in valid format!", "Student Admin System");
                         continue;
                     }
                 }
             } 
             else {
-                StudentManagementView.showErrorMessage("Invalid class code length.");
+                StudentManagementView.showErrorMessage("Invalid class code length.", "Student Admin System");
                 continue;
             }
 
@@ -169,7 +169,7 @@ public class StudentManagement {
 
             // Check if all components of the class code are present and have valid lengths
             if (classArray.length != 4) {
-                StudentManagementView.showErrorMessage("Some information is missing! Please enter a valid input.");
+                StudentManagementView.showErrorMessage("Some information is missing! Please enter a valid input.", "Student Admin System");
             } else {
                 // Check individual components for validity
                 if (!StudentManagementModel.checkClassCodeLength(classArray)) {
@@ -177,12 +177,12 @@ public class StudentManagement {
                 }
                 // Validate the format of each component
                 if (!StudentManagementModel.containsOnlyLetters(classArray[0]) || !StudentManagementModel.containsOnlyLetters(classArray[1]) || !StudentManagementModel.containsOnlyAlphanumeric(classArray[2]) || !StudentManagementModel.containsOnlyDigits(classArray[3])) {
-                    StudentManagementView.showErrorMessage("Please enter the class in valid format.");
+                    StudentManagementView.showErrorMessage("Please enter the class in valid format.", "Student Admin System");
                     continue;
                 }
                 // Check if the type of class is either "FT" or "PT"
                 if (!(classArray[1].equals("FT") || classArray[1].equals("PT"))) {
-                    StudentManagementView.showErrorMessage("Invalid input in type of class.");
+                    StudentManagementView.showErrorMessage("Invalid input in type of class.", "Student Admin System");
                     continue;
                 }
             }
@@ -207,7 +207,7 @@ public class StudentManagement {
 
                 // Check if number of modules is at least 1
                 if (numberInt <= 0) {
-                    StudentManagementView.showErrorMessage("Student must take at least one module!");
+                    StudentManagementView.showErrorMessage("Student must take at least one module!", "Student Admin System");
                     continue;
                 }
 
@@ -222,7 +222,7 @@ public class StudentManagement {
                 }
                 break; // Exit loop if all modules are successfully added
             } catch (NumberFormatException e) {
-                StudentManagementView.showErrorMessage("Invalid input for number of modules.");
+                StudentManagementView.showErrorMessage("Invalid input for number of modules.", "Student Admin System");
             }
         }
     }
@@ -238,7 +238,7 @@ public class StudentManagement {
 
             // Check if input is empty
             if (StudentManagementModel.isEmpty(m)) {
-                StudentManagementView.showErrorMessage("Input cannot be empty!");
+                StudentManagementView.showErrorMessage("Input cannot be empty!", "Student Admin System");
                 continue;
             }
 
@@ -263,13 +263,13 @@ public class StudentManagement {
 
             // Check if input is empty
             if (StudentManagementModel.isEmpty(m)) {
-                StudentManagementView.showErrorMessage("Input cannot be empty!");
+                StudentManagementView.showErrorMessage("Input cannot be empty!", "Student Admin System");
                 continue;
             }
 
             // Check if module name contains only letters
             if (!StudentManagementModel.containsOnlyLetters(m)) {
-                StudentManagementView.showErrorMessage("Module name can only contain letters.");
+                StudentManagementView.showErrorMessage("Module name can only contain letters.", "Student Admin System");
                 continue;
             }
             
@@ -293,7 +293,7 @@ public class StudentManagement {
 
                 // Check if input is empty
                 if (StudentManagementModel.isEmpty(m)) {
-                    StudentManagementView.showErrorMessage("Input cannot be empty!");
+                    StudentManagementView.showErrorMessage("Input cannot be empty!", "Student Admin System");
                     continue;
                 }
 
@@ -301,7 +301,7 @@ public class StudentManagement {
 
                 return creditUnit;
             } catch (NumberFormatException e) {
-                StudentManagementView.showErrorMessage("Invalid input for credit unit.");
+                StudentManagementView.showErrorMessage("Invalid input for credit unit.", "Student Admin System");
             }
         }
     }
@@ -318,7 +318,7 @@ public class StudentManagement {
 
                 // Check if input is empty
                 if (StudentManagementModel.isEmpty(m)) {
-                    StudentManagementView.showErrorMessage("Input cannot be empty!");
+                    StudentManagementView.showErrorMessage("Input cannot be empty!", "Student Admin System");
                     continue;
                 }
 
@@ -326,7 +326,7 @@ public class StudentManagement {
 
                 return mark; 
             } catch (NumberFormatException e) {
-                StudentManagementView.showErrorMessage("Invalid input for module mark.");
+                StudentManagementView.showErrorMessage("Invalid input for module mark.", "Student Admin System");
             }
         }
     }
@@ -346,23 +346,23 @@ public class StudentManagement {
 
             // Check if admin number is empty
             if (StudentManagementModel.isEmpty(adminNo)) {
-                StudentManagementView.showErrorMessage("Admin Number cannot be empty. Please enter a valid Admin Number.");
+                StudentManagementView.showErrorMessage("Admin Number cannot be empty. Please enter a valid Admin Number.", "Student Admin System");
             } 
             // Check if admin number contains spaces
             else if (adminNo.contains(" ")) {
-                StudentManagementView.showErrorMessage("Admin Number cannot contain spaces. Please enter a valid Admin Number.");
+                StudentManagementView.showErrorMessage("Admin Number cannot contain spaces. Please enter a valid Admin Number.", "Student Admin System");
             } 
             // Check if admin number length is not equal to 8
             else if (adminNo.length() != 8) {
-                StudentManagementView.showErrorMessage("Invalid input. Please enter a valid Admin Number.");
+                StudentManagementView.showErrorMessage("Invalid input. Please enter a valid Admin Number.", "Student Admin System");
             } 
             // Check if first character of admin number is not 'p' or a letter
             else if (adminNo.charAt(0) != 'p' || !Character.isLetter(adminNo.charAt(0))) {
-                StudentManagementView.showErrorMessage("Admin Number must start with a letter or 'p'. Please enter a valid Admin Number.");
+                StudentManagementView.showErrorMessage("Admin Number must start with a letter or 'p'. Please enter a valid Admin Number.", "Student Admin System");
             } 
             // Check if all characters after the first one are digits
             else if (!StudentManagementModel.containsOnlyDigits(adminNo.substring(1))) {
-                StudentManagementView.showErrorMessage("All characters after the first one must be numbers. Please enter a valid Admin Number.");
+                StudentManagementView.showErrorMessage("All characters after the first one must be numbers. Please enter a valid Admin Number.", "Student Admin System");
             }else if(StudentManagementModel.checkStudentExists(adminNo, students) != -1){
                 //Check students exitst or not if exitst it will return index of studetns
                 int index = StudentManagementModel.checkStudentExists(adminNo, students);
@@ -402,75 +402,49 @@ public class StudentManagement {
         StudentManagementView.showFinishMessage("Module added successfully", "Student Enquiry System");
     }
     
-    //adding students //Later might delete
-    public static void addStudents(ArrayList s){
-        int n = 6;
+    public static void addStudents(ArrayList<Student> students) {
+        int totalStudents = 300;
+        int totalClasses = 15;
+        String baseClassCode = "DIT/FT/1B/";
         Random rand = new Random();
-        for(int i = 0;i<n;i++){
+
+        // Create class codes list
+        ArrayList<String> classCodes = new ArrayList<>();
+        for (int i = 1; i <= totalClasses; i++) {
+            classCodes.add(baseClassCode + String.format("%02d", i));
+        }
+
+        // Add students
+        for (int i = 0; i < totalStudents; i++) {
             ArrayList<Module> moduleList = new ArrayList<>();
-            int numberOfModules = 1;
-            for(int j = 0; j < numberOfModules;j++){
-                int unit = (int) rand.nextInt(4, 7);
-                int mark = (int) (rand.nextInt(60, 90));
-                int r = (int) rand.nextInt(1, 5);
-                switch(r){
+            int numberOfModules = 2;
+
+            for (int j = 0; j < numberOfModules; j++) {
+                int unit = rand.nextInt(4) + 4;  // Random between 4 and 7
+                int mark = rand.nextInt(31) + 60; // Random between 60 and 90
+                int r = rand.nextInt(4) + 1;
+                switch (r) {
                     case 1 -> moduleList.add(new Module("ST0509", "JPRG", unit, mark));
                     case 2 -> moduleList.add(new Module("ST0503", "FOP", unit, mark));
                     case 3 -> moduleList.add(new Module("ST0525", "DBS", unit, mark));
-                    case 4 -> moduleList.add(new Module("ST0506", "SEP", unit, mark));       
-                }  
+                    case 4 -> moduleList.add(new Module("ST0506", "SEP", unit, mark));
+                }
             }
-            switch(i){
-                case 0 -> s.add(new Student("Shinn", "p2340700", "DIT/FT/1B/11", moduleList));
-                case 1 -> s.add(new Student("Alice", "p2340701", "DIT/FT/1B/12", moduleList));
-                case 2 -> s.add(new Student("Bob", "p2340702", "DIT/FT/1B/13", moduleList));
-                case 3 -> s.add(new Student("Carol", "p2340703", "DIT/FT/1B/14", moduleList));
-                case 4 -> s.add(new Student("David", "p2340704", "DIT/FT/1B/15", moduleList));
-                case 5 -> s.add(new Student("Eve", "p2340705", "DIT/FT/1B/16", moduleList));
-            }
-        }   
-        
+
+            // Randomly assign a class code
+            String classCode = classCodes.get(rand.nextInt(totalClasses));
+            String name = "Student" + (i + 1);
+            String id = "p23407" + String.format("%03d", i);
+
+            students.add(new Student(name, id, classCode, moduleList));
+        }
     }
 
 //*****************************************************************************
-    //--------------------------------------------------------------------------
-    // Search student by Class 
-    //--------------------------------------------------------------------------
-//    public static void searchStudentByClass(ArrayList<Student> students) {
-//        String classCode = getClassCode();
-//    }
-//    
-//    public static String getClassCode() {
-//        String userInput = "";
-//        String question = "Enter the class name to search";
-//        
-//        while(true) {
-//            userInput = JOptionPane.showInputDialog(null,
-//                        question,
-//                        "Search",
-//                        JOptionPane.QUESTION_MESSAGE;
-//            
-//        }
-//        
-//        return validatingClassCode(userInput) == false ? null : userInput;
-//    }
-//    
-//    public static boolean validatingClassCode(String userInput) {
-//        // Regular expression patterns for each part of the class code
-//        String coursePattern = "[A-Z]+"; // One or more uppercase letters
-//        String ftPtPattern = "FT|PT";
-//        String yearPattern = "[A-Z]\\d"; // One uppercase letter followed by one digit
-//        String classPattern = "\\d{2}"; // Two digits
-//
-//        // Combined regular expression for the whole class code
-//        String classCodePattern = coursePattern + "/" + ftPtPattern + "/" + yearPattern + "/" + classPattern;
-//
-//        // Compile the pattern
-//        Pattern pattern = Pattern.compile("^" + classCodePattern + "$");
-//
-//        // Match the given class code against the pattern
-//        return pattern.matcher(userInput).matches();
-//    }
+
+    
+
+
 }
 
 

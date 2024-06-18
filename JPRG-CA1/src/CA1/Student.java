@@ -59,6 +59,24 @@ public class Student {
         this.modules.remove(module);
     }
     
+    public double calculateGPA() {
+        double numerator = 0.0;
+        double denominator = 0.0;
+        int gradePoint;
+        for (Module module : this.modules) {
+            gradePoint = StudentManagementModel.getGradePoint(module.getStudentMark());
+
+            numerator += (module.getCreditUnit() * gradePoint);
+            denominator += module.getCreditUnit();
+            
+            System.out.println(numerator);
+            System.out.println(denominator);
+        }
+
+        double gpa = numerator / denominator;
+        return Double.parseDouble(String.format("%.2f", gpa));
+    }
+
     @Override
     public String toString() {
         return stdName + "/n" + adminNo + "\n" + classCode + "\n" + modules;
