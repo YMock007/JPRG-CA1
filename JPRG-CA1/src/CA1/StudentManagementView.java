@@ -13,37 +13,45 @@ import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
-import java.util.Random;
-import java.util.regex.Pattern;
+
 
 public class StudentManagementView {
-    // Method to display an error message dialog box
-    public static void showErrorMessage(String message, String system) {
+    //--------------------------------------------------------------------------
+    // Display error message
+    //--------------------------------------------------------------------------
+    public static void displayErrorMessage(String message, String system) {
         if(system == null) {
             system = "Student Enquiry System";
         }
         JOptionPane.showMessageDialog(null, 
                 message, 
-                 system,
+                system,
                 JOptionPane.ERROR_MESSAGE);
     }
     
-    // Method to display an error message dialog box
-    public static void showFinishMessage(String message, String system) {
+    //--------------------------------------------------------------------------
+    // Display information message  
+    //--------------------------------------------------------------------------
+    public static void displayFinishMessage(String message, String system) {
         JOptionPane.showMessageDialog(null, 
                 message, 
                 system, 
                 JOptionPane.INFORMATION_MESSAGE);
     }
     
-    public static void showTerminateMessage() {
+    //--------------------------------------------------------------------------
+    // Display terminate message
+    //--------------------------------------------------------------------------
+    public static void displayTerminateMessage() {
         JOptionPane.showMessageDialog(null,
                         "Program terminated. \nThank you!",
                         "Message",
                         JOptionPane.INFORMATION_MESSAGE);
     }
     
-    
+    //--------------------------------------------------------------------------
+    // Display Class Summary 
+    //--------------------------------------------------------------------------
     public static void displayClassSummary(String classCode, int studentCount, double avgGPA) {
         String output = "Number of student(s) in " + classCode + ": " + studentCount
                         + "\nAverage GPA: " + avgGPA;
@@ -51,6 +59,24 @@ public class StudentManagementView {
                         output,
                         "Class Summary",
                         JOptionPane.INFORMATION_MESSAGE);
+    }
+    
+    
+    //--------------------------------------------------------------------------
+    // Diplay All Students 
+    //--------------------------------------------------------------------------
+    public static void displayAllStudents(String output) {
+        JTextArea textArea = new JTextArea(30, 30); // Rows x Columns (increased columns for wider text)
+        textArea.setText(output);
+        textArea.setEditable(false);
+
+        JScrollPane scrollPane = new JScrollPane(textArea);
+        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+
+        JOptionPane.showMessageDialog(null,
+                scrollPane,
+                "All Student Report",
+                JOptionPane.INFORMATION_MESSAGE);
     }
     
 }

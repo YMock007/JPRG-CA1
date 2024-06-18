@@ -40,7 +40,7 @@ public class StudentUser {
                     StudentManagementController.showUserSystem(students);
                 }
                 case 3 -> {
-                    StudentManagementView.showTerminateMessage();
+                    StudentManagementView.displayTerminateMessage();
                     quit = true;                   
                 }
             }   

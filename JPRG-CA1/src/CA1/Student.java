@@ -68,9 +68,6 @@ public class Student {
 
             numerator += (module.getCreditUnit() * gradePoint);
             denominator += module.getCreditUnit();
-            
-            System.out.println(numerator);
-            System.out.println(denominator);
         }
 
         double gpa = numerator / denominator;
@@ -79,6 +76,15 @@ public class Student {
 
     @Override
     public String toString() {
-        return stdName + "/n" + adminNo + "\n" + classCode + "\n" + modules;
+        String string = "Name: " + this.stdName +
+                        "\nAdmin: " + this.adminNo + 
+                        "\nClass: " + this.classCode + 
+                        "\nModule taken:\n";
+        for(int i = 0; i < this.modules.size(); i++) {
+            string += (i+1) + ". " + this.modules.get(i) + "\n";
+        }
+        
+        string += "\nGPA: " + this.calculateGPA() + "\n----------------------";
+        return string;
     }
 }

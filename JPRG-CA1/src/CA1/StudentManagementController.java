@@ -37,13 +37,13 @@ public class StudentManagementController {
 
                 // Check if the user clicked the cancel button or closed the dialog
                 if (system == null) {
-                    StudentManagementView.showFinishMessage("Program terminated. Thank you!", "Seleting System");
+                    StudentManagementView.displayFinishMessage("Program terminated. Thank you!", "Seleting System");
                     System.exit(0);
                 }
                 
                 // Check if user input is empty
                 if (StudentManagementModel.isEmpty(system)) {
-                    StudentManagementView.showErrorMessage("Input cannot be empty!", "System Selection");
+                    StudentManagementView.displayErrorMessage("Input cannot be empty!", "System Selection");
                     continue;
                 }
 
@@ -54,7 +54,7 @@ public class StudentManagementController {
             } catch (NumberFormatException e) {
                 // Catch exception if input cannot be parsed to integer
                 // Show error message and continue loop
-                StudentManagementView.showErrorMessage("Please enter a valid input!", "System Selection");
+                StudentManagementView.displayErrorMessage("Please enter a valid input!", "System Selection");
             }
         }       
     }
@@ -109,7 +109,7 @@ public class StudentManagementController {
             }
             
             case 3->{
-//                searchStudentByName(system, select, students);
+                searchStudentByName(students);
             }
             
             case 4->{
@@ -146,13 +146,13 @@ public class StudentManagementController {
                 
                 // Check if the user clicked the cancel button or closed the dialog
                 if (userSelectStr == null) {
-                    StudentManagementView.showFinishMessage("Program terminated. Thank you!", system);
+                    StudentManagementView.displayFinishMessage("Program terminated. Thank you!", system);
                     System.exit(0);
                 }
                 
                 // Check if user input is empty
                 if (StudentManagementModel.isEmpty(userSelectStr)) {
-                    StudentManagementView.showErrorMessage("Input cannot be empty!", system);
+                    StudentManagementView.displayErrorMessage("Input cannot be empty!", system);
                     continue;
                 }
 
@@ -163,7 +163,7 @@ public class StudentManagementController {
             } catch (NumberFormatException e) {
                 // Catch exception if input cannot be parsed to integer
                 // Show error message and continue loop
-                StudentManagementView.showErrorMessage("Please enter a valid input!", system);
+                StudentManagementView.displayErrorMessage("Please enter a valid input!", system);
             }
         }
     }
@@ -173,9 +173,7 @@ public class StudentManagementController {
     //--------------------------------------------------------------------------
     public static void searchStudentByClass(ArrayList<Student> students) {
         String classCode = StudentManagementModel.getClassCode();
-        if(classCode == null) {
-            StudentManagementView.showFinishMessage("Redirecting to Previous Page", "Redirect");
-        } else {
+        if(classCode != null || classCode.isBlank() || classCode.isEmpty()){
             int studentCount = 0;
             double totalGPA = 0.0;
             double avgGPA;
@@ -195,4 +193,35 @@ public class StudentManagementController {
         }
     }
     
+    //--------------------------------------------------------------------------
+    // Search student by Name 
+    //--------------------------------------------------------------------------
+    public static void searchStudentByName(ArrayList<Student> students) {
+        String stdName;
+        String stdInfo = null;
+
+        while (true) {
+            stdName = StudentManagementModel.getStdName();
+            
+            if (stdName == null) {
+                // User clicked cancel or closed the dialog
+                return;
+            }
+
+            System.out.println(stdName);
+            
+            for (Student student : students) {
+                if (student.getStdName().toUpperCase().equals(stdName)) {
+                    stdInfo = student.toString();
+                    StudentManagementView.displayFinishMessage(stdInfo, "Student Info");
+                    return;  // Exit the method once the student is found
+                }
+            }
+
+            if (stdInfo == null) {
+                String errorMessage = "Cannot find the student \"" + stdName + "\"!!";
+                StudentManagementView.displayErrorMessage(errorMessage, "Info");
+            }
+        }
+    }       
 }

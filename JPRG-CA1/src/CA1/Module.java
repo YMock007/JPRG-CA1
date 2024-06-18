@@ -55,7 +55,7 @@ public class Module {
     
         @Override
     public String toString() {
-        return moduleCode + "/n" + moduleName + "\n" + creditUnit + "\n" + studentMark;
+        return this.getModuleCode() + "/" + this.moduleName + "/" + this.creditUnit + ": " + this.studentMark;
     }
 }
 
