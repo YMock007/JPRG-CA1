@@ -1,7 +1,3 @@
-
-import java.util.ArrayList;
-import java.util.Random;
-
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -11,8 +7,27 @@ import java.util.Random;
  *
  * @author yeyin
  */
+import java.util.ArrayList;
+import java.util.Random;
+
 public class SimulateStudents {
-     public static void addStudents(ArrayList<Student> students) {
+
+    // Generate a random name consisting of letters only
+    public static String generateRandomName(int length) {
+        String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        Random rand = new Random();
+        StringBuilder name = new StringBuilder(length);
+
+        for (int i = 0; i < length; i++) {
+            int index = rand.nextInt(alphabet.length());
+            char randomChar = alphabet.charAt(index);
+            name.append(randomChar);
+        }
+
+        return name.toString();
+    }
+
+    public static void addStudents(ArrayList<Student> students) {
         int totalStudents = 300;
         int totalClasses = 15;
         String baseClassCode = "DIT/FT/1B/";
@@ -43,10 +58,20 @@ public class SimulateStudents {
 
             // Randomly assign a class code
             String classCode = classCodes.get(rand.nextInt(totalClasses));
-            String name = "Student" + (i + 1);
+            String name = generateRandomName(6);  // Generate a 6-letter random name
             String id = "p23407" + String.format("%03d", i);
 
             students.add(new Student(name, id, classCode, moduleList));
+        }
+    }
+
+    public static void main(String[] args) {
+        ArrayList<Student> students = new ArrayList<>();
+        addStudents(students);
+
+        // Display the added students
+        for (Student student : students) {
+            System.out.println("Name: " + student.getStdName() + ", Admin No: " + student.getAdminNo() + ", Class: " + student.getClassCode());
         }
     }
 }

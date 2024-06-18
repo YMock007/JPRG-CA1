@@ -65,28 +65,32 @@ public class StudentManagementController {
     public static void showAdminSystem(ArrayList<Student> students) {
         boolean quit = false;
         final String system = "Student Admin System";// Setting the system name
-        int select;// Declaring variable to store user's selection
+        Integer select;// Declaring variable to store user's selection
         // Prompting user to select an option from the menu and storing the selection
         while(!quit){
             select = getSelect(system);
-        switch(select){
-            case 1 -> {
-                StudentManagement.createNewStudent(students, system);
-            }
-            
-            case 2->{
-                StudentManagement.getAdminNoForUpdateOrDeleteBothInOne(system, select, students);
-            }
-            
-            case 3->{
-                StudentManagement.getAdminNoForUpdateOrDeleteBothInOne(system, select, students);
-            }
-            
-            case 4->{
+            if(select != null) {
+                switch(select){
+                    case 1 -> {
+                        StudentManagement.createNewStudent(students, system);
+                    }
+
+                    case 2->{
+                        StudentManagement.getAdminNoForUpdateOrDeleteBothInOne(system, select, students);
+                    }
+
+                    case 3->{
+                        StudentManagement.getAdminNoForUpdateOrDeleteBothInOne(system, select, students);
+                    }
+
+                    case 4->{
+                        quit = true;
+                    }
+                } 
+            } else {
                 quit = true;
             }
-        }
-        }
+        } 
     }
     
         //--------------------------------------------------------------------------
@@ -95,34 +99,38 @@ public class StudentManagementController {
     public static void showUserSystem(ArrayList<Student> students) {
         boolean quit = false;
         final String system = "Student Enquiry System";// Setting the system name
-        int select;// Declaring variable to store user's selection
+        Integer select;// Declaring variable to store user's selection
         // Prompting user to select an option from the menu and storing the selection
         while(!quit){
             select = getSelect(system);
-        switch(select){
-            case 1 -> {
-                StudentManagementModel.displayAllStudent(students);
-            }
-            
-            case 2->{
-                searchStudentByClass(students);
-            }
-            
-            case 3->{
-                searchStudentByName(students);
-            }
-            
-            case 4->{
+            if(select != null) {
+                switch(select){
+                    case 1 -> {
+                        StudentManagementModel.displayAllStudent(students);
+                    }
+
+                    case 2->{
+                        searchStudentByClass(students);
+                    }
+
+                    case 3->{
+                        searchStudentByName(students);
+                    }
+
+                    case 4->{
+                        quit = true;
+                    }
+                }
+            } else {
                 quit = true;
             }
-        }
         }
     }
     
     //--------------------------------------------------------------------------
     //Getting user option select  
     //--------------------------------------------------------------------------
-    public static int getSelect(String system) {
+    public static Integer getSelect(String system) {
         // Initialize variables to store user input
         String userSelectStr;
         int userSelectInt;
@@ -146,8 +154,7 @@ public class StudentManagementController {
                 
                 // Check if the user clicked the cancel button or closed the dialog
                 if (userSelectStr == null) {
-                    StudentManagementView.displayFinishMessage("Program terminated. Thank you!", system);
-                    System.exit(0);
+                    return null;
                 }
                 
                 // Check if user input is empty
@@ -173,7 +180,7 @@ public class StudentManagementController {
     //--------------------------------------------------------------------------
     public static void searchStudentByClass(ArrayList<Student> students) {
         String classCode = StudentManagementModel.getClassCode();
-        if(classCode != null || classCode.isBlank() || classCode.isEmpty()){
+        if(classCode != null){
             int studentCount = 0;
             double totalGPA = 0.0;
             double avgGPA;

@@ -248,7 +248,7 @@ public class StudentManagementModel {
             userInput = userInput.trim().toUpperCase();
             
             // Check if the trimmed input is empty
-            if (userInput.isBlank()) {
+            if (isEmpty(userInput) || !containsOnlyLetters(userInput)) {
                 StudentManagementView.displayErrorMessage("Please enter a valid input. Input cannot be blank.", "Error");
                 continue;
             }
