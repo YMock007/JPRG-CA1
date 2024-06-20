@@ -5,11 +5,7 @@
  */
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
 
-import java.util.Random;
-import java.util.regex.Pattern;
 public class StudentManagement {
 //*****************************************************************************
     

@@ -10,11 +10,7 @@
 
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
 
-import java.util.Random;
-import java.util.regex.Pattern;
 
 public class StudentManagementController {
     //--------------------------------------------------------------------------
@@ -194,9 +190,13 @@ public class StudentManagementController {
                 }
             }
             
-            avgGPA = totalGPA / studentCount;
-            avgGPA = Double.parseDouble(String.format("%.2f", avgGPA));
-            StudentManagementView.displayClassSummary(classCode,studentCount,avgGPA);
+            if(studentCount == 0) {
+                StudentManagementView.displayErrorMessage("No student found from the class", "Class Summary");
+            } else {
+                avgGPA = totalGPA / studentCount;
+                avgGPA = Double.parseDouble(String.format("%.2f", avgGPA));
+                StudentManagementView.displayClassSummary(classCode,studentCount,avgGPA);    
+            }
         }
     }
     
@@ -205,8 +205,9 @@ public class StudentManagementController {
     //--------------------------------------------------------------------------
     public static void searchStudentByName(ArrayList<Student> students) {
         String stdName;
-        String stdInfo = null;
-
+        String stdInfo = "";
+        int count = 0;
+        
         while (true) {
             stdName = StudentManagementModel.getStdName();
             
@@ -218,16 +219,22 @@ public class StudentManagementController {
             System.out.println(stdName);
             
             for (Student student : students) {
-                if (student.getStdName().toUpperCase().equals(stdName)) {
-                    stdInfo = student.toString();
-                    StudentManagementView.displayFinishMessage(stdInfo, "Student Info");
-                    return;  // Exit the method once the student is found
+                if (student.getStdName().toUpperCase().equals(stdName.toUpperCase())) {
+                    count++;
+                    stdInfo += student.toString() + "\n";                  
                 }
             }
+            
 
-            if (stdInfo == null) {
+            if (stdInfo.isBlank()) {
                 String errorMessage = "Cannot find the student \"" + stdName + "\"!!";
                 StudentManagementView.displayErrorMessage(errorMessage, "Info");
+                break;
+            } else if (count > 2){
+                StudentManagementView.displayFinishMessage("The students with same name exceeds 2.", "Info");
+            } else {
+                StudentManagementView.displayFinishMessage(stdInfo, "Student Info");
+                break;
             }
         }
     }       

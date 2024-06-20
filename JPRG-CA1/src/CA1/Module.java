@@ -53,9 +53,23 @@ public class Module {
         this.studentMark = studentMark;
     }
     
-        @Override
+        public String calculateGrade() {
+        if(this.studentMark >= 80) {
+            return "A";
+        } else if(this.studentMark >= 70) {
+            return "B";
+        } else if(this.studentMark >=60) {
+            return "C";
+        } else if(this.studentMark >= 50) {
+            return "D";
+        } else {
+            return "F";
+        }
+    }
+        
+    @Override
     public String toString() {
-        return this.getModuleCode() + "/" + this.moduleName + "/" + this.creditUnit + ": " + this.studentMark;
+        return this.getModuleCode() + "/" + this.moduleName + "/" + this.creditUnit + ": " + this.calculateGrade();
     }
 }
 

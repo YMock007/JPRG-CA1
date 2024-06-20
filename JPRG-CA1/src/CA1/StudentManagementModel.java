@@ -152,24 +152,27 @@ public class StudentManagementModel {
         
         int studentIndex = 1;
         int moduleIndex;
-        String output = "";
-        for (Student student : students) {
-        moduleIndex = 1;
-        output += "Student " + studentIndex++ + ":\n" +
-                  "Name: " + student.getStdName() + "\n" + 
-                  "Admin: " + student.getAdminNo() + "\n" +
-                  "Class: " + student.getClassCode() + "\n";
         
-        for(Module module: student.getModules()) {
-            output += "Modules Taken\n" + 
-                      moduleIndex++ + "." + module.getModuleCode() + "/" +
-                      module.getModuleName() + "/" + + module.getCreditUnit() +
-                      ": " + module.getStudentMark() +
-                      "\n----------------------------\n";
-        }            
-    }
+        String output = "Display first three students from all students " + students.size() + "\n\n";
         
-        StudentManagementView.displayAllStudents(output);       
+        for (int i = 0; i < 3; i++) {
+            Student student = students.get(i);
+            moduleIndex = 1;
+            output += "Student " + studentIndex++ + ":\n" +
+                      "Name: " + student.getStdName() + "\n" + 
+                      "Admin: " + student.getAdminNo() + "\n" +
+                      "Class: " + student.getClassCode() + "\n" +
+                      "Modules Taken\n";
+
+            for(Module module: student.getModules()) {
+                output += moduleIndex++ + "." + module.getModuleCode() + "/" +
+                          module.getModuleName() + "/" + + module.getCreditUnit() +
+                          ": " + module.calculateGrade() + "\n";
+            }
+            output +=  "----------------------------\n";
+        }
+        
+        StudentManagementView.displayFinishMessage(output, "All Student Report");       
     }
 
     public static String getClassCode() {
@@ -245,7 +248,7 @@ public class StudentManagementModel {
             }
             
             // Trim leading and trailing whitespace and Uppercasing
-            userInput = userInput.trim().toUpperCase();
+            userInput = userInput.trim();
             
             // Check if the trimmed input is empty
             if (isEmpty(userInput) || !containsOnlyLetters(userInput)) {

@@ -73,7 +73,9 @@ public class Student {
         double gpa = numerator / denominator;
         return Double.parseDouble(String.format("%.2f", gpa));
     }
+    
 
+    
     @Override
     public String toString() {
         String string = "Name: " + this.stdName +

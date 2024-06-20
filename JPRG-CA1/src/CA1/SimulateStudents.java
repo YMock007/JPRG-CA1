@@ -58,8 +58,8 @@ public class SimulateStudents {
 
             // Randomly assign a class code
             String classCode = classCodes.get(rand.nextInt(totalClasses));
-            String name = generateRandomName(6);  // Generate a 6-letter random name
-            String id = "p23407" + String.format("%03d", i);
+            String name = StudentManagement.setName(generateRandomName(6));  // Generate a 6-letter random name
+            String id = "p2340" + String.format("%03d", i);
 
             students.add(new Student(name, id, classCode, moduleList));
         }

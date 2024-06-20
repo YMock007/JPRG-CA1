@@ -8,11 +8,7 @@
  * @author yeyin
  */
 
-import java.util.ArrayList;
 import javax.swing.JOptionPane;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
-
 
 
 public class StudentManagementView {
@@ -61,22 +57,5 @@ public class StudentManagementView {
                         JOptionPane.INFORMATION_MESSAGE);
     }
     
-    
-    //--------------------------------------------------------------------------
-    // Diplay All Students 
-    //--------------------------------------------------------------------------
-    public static void displayAllStudents(String output) {
-        JTextArea textArea = new JTextArea(30, 30); // Rows x Columns (increased columns for wider text)
-        textArea.setText(output);
-        textArea.setEditable(false);
-
-        JScrollPane scrollPane = new JScrollPane(textArea);
-        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-
-        JOptionPane.showMessageDialog(null,
-                scrollPane,
-                "All Student Report",
-                JOptionPane.INFORMATION_MESSAGE);
-    }
     
 }
