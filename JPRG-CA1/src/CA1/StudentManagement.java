@@ -19,7 +19,7 @@ public class StudentManagement {
                 
                 // Prompting user to input student name, admin number, class, and modules
                 stdName = getStdName(system);
-                adminNo = getAdminNo(system);
+                adminNo = getAdminNo(system, students);
                 classCode = getClassCode(system);
                 getModule(modules, system);
                 
@@ -33,15 +33,17 @@ public class StudentManagement {
     
 //Method to prompt student name
     
-    public static String getStdName(String system) {
-        // Loop until a valid name is entered
+    private static String getStdName(String system) {
         while (true) {
-            // Prompt user to enter name 
             String name = JOptionPane.showInputDialog(null, 
                     "Enter Name:", 
                     system, 
                     JOptionPane.QUESTION_MESSAGE);
 
+            // Check if user clicked Cancel or closed the dialog
+            if (name== null) {
+                System.exit(0);
+            }
             // Check if name is empty
             if (StudentManagementModel.isEmpty(name)) {
                 StudentManagementView.displayErrorMessage("Name cannot be empty. Please enter a valid name.", "Student Admin System");
@@ -84,7 +86,7 @@ public class StudentManagement {
    
 //Method to prompt student Admin Number
     
-    public static String getAdminNo(String system) {
+    public static String getAdminNo(String system,  ArrayList<Student> students) {
         while (true) {
             // Prompt user to enter admin number 
             String adminNo = JOptionPane.showInputDialog(null,
@@ -92,6 +94,10 @@ public class StudentManagement {
                     system, 
                     JOptionPane.QUESTION_MESSAGE).trim();
 
+            // Check if user clicked Cancel or closed the dialog
+            if (adminNo == null) {
+                System.exit(0);
+            }
             // Check if admin number is empty
             if (StudentManagementModel.isEmpty(adminNo)) {
                 StudentManagementView.displayErrorMessage("Admin Number cannot be empty. Please enter a valid Admin Number.", "Student Admin System");
@@ -111,8 +117,9 @@ public class StudentManagement {
             // Check if all characters after the first one are digits
             else if (!StudentManagementModel.containsOnlyDigits(adminNo.substring(1))) {
                 StudentManagementView.displayErrorMessage("All characters after the first one must be numbers. Please enter a valid Admin Number.", "Student Admin System");
-            } 
-            else {
+            } else if (!StudentManagementModel.checkDuplicateAdminNo(students, adminNo)) {
+                // No additional error message here since checkDuplicateAdminNo already handles it
+            } else {
                 return adminNo;
             }
         }
@@ -130,6 +137,11 @@ public class StudentManagement {
                     system, 
                     JOptionPane.QUESTION_MESSAGE).trim();
 
+            // Check if user clicked Cancel or closed the dialog
+            if (classCode == null) {
+                System.exit(0);
+            }
+
             // Check if class code is empty
             if (StudentManagementModel.isEmpty(classCode)) {
                 StudentManagementView.displayErrorMessage("Class cannot be empty. Please enter a valid Class.", "Student Admin System");
@@ -141,22 +153,13 @@ public class StudentManagement {
                 continue;
             } 
             // Check if class code length is either 12 or 13 characters
-            else if (classCode.length() == 12 || classCode.length() == 13) {
-                // Validate the format of class code based on its length
-                if (classCode.length() == 12) {
-                    if (!(classCode.charAt(3) == '/' && classCode.charAt(6) == '/' && classCode.charAt(9) == '/')) {
-                        StudentManagementView.displayErrorMessage("Please enter the class in valid format!", "Student Admin System");
-                        continue;
-                    }
-                } else if (classCode.length() == 13) {
-                    if (!(classCode.charAt(4) == '/' && classCode.charAt(7) == '/' && classCode.charAt(10) == '/')) {
-                        StudentManagementView.displayErrorMessage("Please enter the class in valid format!", "Student Admin System");
-                        continue;
-                    }
-                }
-            } 
-            else {
+            if (classCode.length() != 12 && classCode.length() != 13 && classCode.length() != 14) {
                 StudentManagementView.displayErrorMessage("Invalid class code length.", "Student Admin System");
+                continue;
+            }
+
+            if (!StudentManagementModel.isValidFormat(classCode)) {
+                StudentManagementView.displayErrorMessage("Please enter the class in valid format!", "Student Admin System");
                 continue;
             }
 
@@ -201,6 +204,11 @@ public class StudentManagement {
                         JOptionPane.QUESTION_MESSAGE);
                 int numberInt = Integer.parseInt(numberStr);
 
+                // Check if user clicked Cancel or closed the dialog
+                if (numberStr == null) {
+                    System.exit(0);
+                }
+
                 // Check if number of modules is at least 1
                 if (numberInt <= 0) {
                     StudentManagementView.displayErrorMessage("Student must take at least one module!", "Student Admin System");
@@ -227,24 +235,28 @@ public class StudentManagement {
     public static String getModuleCode(int i, String system, ArrayList<Module> modules) {
         while (true) {
             // Prompt user for module code for a specific module
-            String m = JOptionPane.showInputDialog(null,
+            String mc = JOptionPane.showInputDialog(null,
                     "Enter module code for module " + i + ":",
                     system,
                     JOptionPane.QUESTION_MESSAGE);
 
+            // Check if user clicked Cancel or closed the dialog
+            if (mc == null) {
+                System.exit(0);
+            }
+
             // Check if input is empty
-            if (StudentManagementModel.isEmpty(m)) {
+            if (StudentManagementModel.isEmpty(mc)) {
                 StudentManagementView.displayErrorMessage("Input cannot be empty!", "Student Admin System");
                 continue;
             }
-
             // Validate module code
-            if (StudentManagementModel.validateModuleCode(m)) {
+            if (!StudentManagementModel.validateModuleCode(mc)) {
                 continue;
-            }else if(!StudentManagementModel.checkDuplicateModuleCode(modules, m)){
+            }else if(!StudentManagementModel.checkDuplicateModuleCode(modules, mc)){
                 continue;
             }
-            return m; // Return valid module code
+            return mc; // Return valid module code
         }
     }
  
@@ -252,28 +264,32 @@ public class StudentManagement {
     public static String getModuleName(int i, String system,  ArrayList<Module> modules) {
         while (true) {
             // Prompt user for module name for a specific module
-            String m = JOptionPane.showInputDialog(null, 
+            String mn = JOptionPane.showInputDialog(null, 
                     "Enter module name for module " + i + ":",
                     system, 
                     JOptionPane.QUESTION_MESSAGE);
 
+            // Check if user clicked Cancel or closed the dialog
+            if (mn == null) {
+                System.exit(0);
+            }
             // Check if input is empty
-            if (StudentManagementModel.isEmpty(m)) {
+            if (StudentManagementModel.isEmpty(mn)) {
                 StudentManagementView.displayErrorMessage("Input cannot be empty!", "Student Admin System");
                 continue;
             }
 
             // Check if module name contains only letters
-            if (!StudentManagementModel.containsOnlyLetters(m)) {
+            if (!StudentManagementModel.containsOnlyLetters(mn)) {
                 StudentManagementView.displayErrorMessage("Module name can only contain letters.", "Student Admin System");
                 continue;
             }
             
-            if(!StudentManagementModel.checkDuplicateModuleName(modules, m)){
+            if(!StudentManagementModel.checkDuplicateModuleName(modules, mn)){
                 continue;
             }
 
-            return m; 
+            return mn; 
         }
     }
 
@@ -282,20 +298,26 @@ public class StudentManagement {
         while (true) {
             try {
                 // Prompt user for credit unit for a specific module
-                String m = JOptionPane.showInputDialog(null,
+                String cu = JOptionPane.showInputDialog(null,
                         "Enter credit unit for module " + i + ":",
                         system, 
                         JOptionPane.QUESTION_MESSAGE);
 
+                // Check if user clicked Cancel or closed the dialog
+                if (cu == null) {
+                    System.exit(0);
+                }
                 // Check if input is empty
-                if (StudentManagementModel.isEmpty(m)) {
+                if (StudentManagementModel.isEmpty(cu)) {
                     StudentManagementView.displayErrorMessage("Input cannot be empty!", "Student Admin System");
                     continue;
                 }
 
-                int creditUnit = Integer.parseInt(m); 
-
-                return creditUnit;
+                int creditUnit = Integer.parseInt(cu); 
+                if(!StudentManagementModel.isNumberInRange(creditUnit, 6)){
+                    continue;
+                }else return creditUnit;
+                
             } catch (NumberFormatException e) {
                 StudentManagementView.displayErrorMessage("Invalid input for credit unit.", "Student Admin System");
             }
@@ -311,7 +333,11 @@ public class StudentManagement {
                         "Enter module mark for module " + i + ":",
                         system, 
                         JOptionPane.QUESTION_MESSAGE);
-
+                        
+                // Check if user clicked Cancel or closed the dialog
+                if (m == null) {
+                    System.exit(0);
+                }
                 // Check if input is empty
                 if (StudentManagementModel.isEmpty(m)) {
                     StudentManagementView.displayErrorMessage("Input cannot be empty!", "Student Admin System");
@@ -319,8 +345,10 @@ public class StudentManagement {
                 }
 
                 int mark = Integer.parseInt(m); 
-
-                return mark; 
+                if(!StudentManagementModel.isNumberInRange(mark, 100)){
+                    continue;
+                }else return mark; 
+                
             } catch (NumberFormatException e) {
                 StudentManagementView.displayErrorMessage("Invalid input for module mark.", "Student Admin System");
             }
@@ -331,51 +359,58 @@ public class StudentManagement {
    
 //Method to delete or add new module
     
-    //Method to prpmpt user admin number for adding new modules or deleting student
+    // Method to prompt user admin number for adding new modules or deleting student
     public static void getAdminNoForUpdateOrDeleteBothInOne(String system, int select, ArrayList<Student> students) {
         while (true) {
-            // Prompt user to enter admin number 
+            // Prompt user for the Admin Number
             String adminNo = JOptionPane.showInputDialog(null,
                     "Enter Admin Number of student:", 
                     system, 
-                    JOptionPane.QUESTION_MESSAGE).trim();
+                    JOptionPane.QUESTION_MESSAGE);
 
-            // Check if admin number is empty
+            // Handle Cancel or X button click
+            if (adminNo == null) {
+                System.exit(0);
+            }
+
+            adminNo = adminNo.trim(); // Remove leading and trailing spaces
+
+            // Validate the Admin Number
             if (StudentManagementModel.isEmpty(adminNo)) {
                 StudentManagementView.displayErrorMessage("Admin Number cannot be empty. Please enter a valid Admin Number.", "Student Admin System");
-            } 
-            // Check if admin number contains spaces
-            else if (adminNo.contains(" ")) {
+            } else if (adminNo.contains(" ")) {
                 StudentManagementView.displayErrorMessage("Admin Number cannot contain spaces. Please enter a valid Admin Number.", "Student Admin System");
-            } 
-            // Check if admin number length is not equal to 8
-            else if (adminNo.length() != 8) {
-                StudentManagementView.displayErrorMessage("Invalid input. Please enter a valid Admin Number.", "Student Admin System");
-            } 
-            // Check if first character of admin number is not 'p' or a letter
-            else if (adminNo.charAt(0) != 'p' || !Character.isLetter(adminNo.charAt(0))) {
+            } else if (adminNo.length() != 8) {
+                StudentManagementView.displayErrorMessage("Admin Number must be exactly 8 characters long. Please enter a valid Admin Number.", "Student Admin System");
+            } else if (adminNo.charAt(0) != 'p' && !Character.isLetter(adminNo.charAt(0))) {
                 StudentManagementView.displayErrorMessage("Admin Number must start with a letter or 'p'. Please enter a valid Admin Number.", "Student Admin System");
-            } 
-            // Check if all characters after the first one are digits
-            else if (!StudentManagementModel.containsOnlyDigits(adminNo.substring(1))) {
+            } else if (!StudentManagementModel.containsOnlyDigits(adminNo.substring(1))) {
                 StudentManagementView.displayErrorMessage("All characters after the first one must be numbers. Please enter a valid Admin Number.", "Student Admin System");
-            }else if(StudentManagementModel.checkStudentExists(adminNo, students) != -1){
-                //Check students exitst or not if exitst it will return index of studetns
+            } else {
+                // Check if the student exists
                 int index = StudentManagementModel.checkStudentExists(adminNo, students);
-                switch(select){
-                    case 2 : 
-                        //Delete student
-                        deleteExistingStudent(index, students);
-                        break;
-                    case 3 :
-                        //Add new modules 
-                        updateStudentModule(index, students.get(index).getModules(), students, system);
-                        break;
+                if (index != -1) {
+                    // Perform the selected operation
+                    switch (select) {
+                        case 2 -> { // Delete student
+                            deleteExistingStudent(index, students);
+                            return; // Exit method after deletion
+                        }
+                        case 3 -> { // Add new modules
+                            updateStudentModule(index, students.get(index).getModules(), students, system);
+                            return; // Exit method after module update
+                        }
+                        default -> StudentManagementView.displayErrorMessage("Invalid operation selected.", "Student Admin System");
+                    }
+                } else {
+                    StudentManagementView.displayErrorMessage("Student with Admin Number " + adminNo + " does not exist. Please try again.", "Student Admin System");
+                    // Continue loop to prompt for admin number again
                 }
             }
-        break;
         }
     }
+
+
     
     //Method to delete existing student
     public static void deleteExistingStudent(int index, ArrayList<Student> students){

@@ -9,10 +9,6 @@
  */
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
-
-import java.util.Random;
 import java.util.regex.Pattern;
 
 public class StudentManagementModel {
@@ -48,10 +44,51 @@ public class StudentManagementModel {
         return str == null || str.isBlank();
     }
 
+     //Method to check not to add existing module code
+    public static boolean checkDuplicateAdminNo(ArrayList<Student> Students, String adminNo) {
+        for (Student student : Students) {
+            if (student.getAdminNo().equals(adminNo)) {
+                StudentManagementView.displayErrorMessage("Admission number " + adminNo + " already exists!", "Student Admin System");
+                return false;
+            }
+        }
+        return true;
+    }
+
+    //Method to check if number is within range or not
+    public static boolean isNumberInRange(int checkNumber, int rangeNumber) {
+        // Check if the checkNumber is positive
+        if (checkNumber <= 0) {
+            StudentManagementView.displayErrorMessage("Number must be positive.", "Number Validation");
+            return false;
+        }
+    
+        // Check if checkNumber is within the range (1, rangeNumber), inclusive
+        if (checkNumber > rangeNumber) {
+            StudentManagementView.displayErrorMessage("Number is out of range. It should be within 1 and " + rangeNumber + ".", "Number Validation");
+            return false;
+        }
+    
+        // If all checks pass, the number is within the range
+        return true;
+    }
+    
+
+    public static boolean isValidFormat(String classCode) {
+        if (classCode.length() == 12) {
+            return classCode.charAt(3) == '/' && classCode.charAt(6) == '/' && classCode.charAt(9) == '/';
+        } else if (classCode.length() == 13) {
+            return classCode.charAt(4) == '/' && classCode.charAt(7) == '/' && classCode.charAt(10) == '/';
+        } else if (classCode.length() == 14) {
+            return classCode.charAt(5) == '/' && classCode.charAt(8) == '/' && classCode.charAt(11) == '/';
+        }
+        return false;
+    }
+
     // Method to check the lengths of components of the class code
     public static boolean checkClassCodeLength(String[] classArray) {
         // Check the length of each component and show error messages if invalid
-        if (classArray[0].length() < 3 || classArray[0].length() > 4 || !checkUpperCase(classArray[0])) {
+        if (classArray[0].length() < 3 || classArray[0].length() > 5 ||  !checkUpperCase(classArray[0])) {
             StudentManagementView.displayErrorMessage("Invalid input in course of class.", "Student Admin System");
             return false;
         }
@@ -91,13 +128,13 @@ public class StudentManagementModel {
             StudentManagementView.displayErrorMessage("Module code must be 6 characters long.", "Student Admin System");
             return false;
         } 
-        // Check if first 2 characters are alphabets
+        // Check if the first 2 characters are alphabets
         else if (!Character.isLetter(mArray[0]) || !Character.isLetter(mArray[1])) {
             StudentManagementView.displayErrorMessage("First 2 characters must be alphabets in module code.", "Student Admin System");
             return false;
         }
 
-        // Check if last 4 characters are digits
+        // Check if the last 4 characters are digits
         for (int i = 2; i < mArray.length; i++) {
             if (!Character.isDigit(mArray[i])) {
                 StudentManagementView.displayErrorMessage("Last 4 characters must be digits in module code.", "Student Admin System");
@@ -105,8 +142,10 @@ public class StudentManagementModel {
             }
         }
 
+        // If all checks pass, the module code is valid
         return true;
     }
+
 
     //Method to check not to add existing module code
     public static boolean checkDuplicateModuleCode(ArrayList<Module> modules, String m){
@@ -130,7 +169,7 @@ public class StudentManagementModel {
         return true;
     }
     
-        //Method to check student studtent exists or not
+        //Method to check student student exists or not
     public static int checkStudentExists(String admNo, ArrayList<Student> students){
         //loop through the students arrayList
         for(int j = 0; j < students.size(); j++){
@@ -139,8 +178,6 @@ public class StudentManagementModel {
                     return j;
                 }
             }
-        //if not return not found message
-        StudentManagementView.displayErrorMessage("Student with " + admNo + "not found!", "Student Admin System");
         return -1;
     }
     
