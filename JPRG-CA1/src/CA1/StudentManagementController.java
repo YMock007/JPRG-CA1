@@ -31,16 +31,21 @@ public class StudentManagementController {
             system = StudentManagementController.getSystem();
             if(system != null) {
                 switch (system) {
-                    case 1 -> {
+                    case 1:
                         StudentManagementController.showAdminSystem(students);
-                    }
-                    case 2 -> {
+                        break;
+                    case 2:
                         StudentManagementController.showEnquirySystem(students);
-                    }
-                    case 3 -> {
+                        break;
+
+                    case 3:
                         StudentManagementView.displayTerminateMessage();
                         quit = true;                   
-                    }
+                        break;
+
+                    default:
+                        StudentManagementView.displayInvalidOperationErrorMessage("Selecting System");
+                        break;
                 }  
             } else {
                 quit = true;
@@ -57,7 +62,7 @@ public class StudentManagementController {
         // Loop until valid input is received
         while (true) {
             try {
-                system = StudentManagementView.getUserInput(options, system);
+                system = StudentManagementModel.getUserInput(options, system);
 
                 // Check if the user clicked the cancel button or closed the dialog
                 if (system == null) {
@@ -88,27 +93,31 @@ public class StudentManagementController {
     public static void showAdminSystem(ArrayList<Student> students) {
         boolean quit = false;
         String system = "Student Admin System";// Setting the system name
-        Integer select;// Declaring variable to store user's selection
+        String select;// Declaring variable to store user's selection
         // Prompting user to select an option from the menu and storing the selection
         while(!quit){
             select = getSelect(system);
             if(select != null) {
                 switch(select){
-                    case 1 -> {
-                        createNewStudent(students, system);
-                    }
+                    case "1":
+                        StudentManagementController.createNewStudent(students, system);
+                        break;
 
-                    case 2->{
-                        StudentManagementController.getAdminNoForUpdateOrDeleteBothInOne(system, select, students);
-                    }
+                    case "2":
+                        StudentManagementController.getAdminNoForUpdateOrDeleteBothInOne(system, Integer.parseInt(select), students);
+                        break;
 
-                    case 3->{
-                        StudentManagementController.getAdminNoForUpdateOrDeleteBothInOne(system, select, students);
-                    }
+                    case "3":
+                        StudentManagementController.getAdminNoForUpdateOrDeleteBothInOne(system, Integer.parseInt(select), students);
+                        break;
 
-                    case 4->{
+                    case "4":
                         quit = true;
-                    }
+                        break;
+
+                    default:
+                        StudentManagementView.displayInvalidOperationErrorMessage(system);
+                        break;   
                 } 
             } else {
                     quit = true;
@@ -122,30 +131,35 @@ public class StudentManagementController {
     public static void showEnquirySystem(ArrayList<Student> students) {
         boolean quit = false;
         String system = "Student Enquire System";// Setting the system name
-        Integer select;// Declaring variable to store user's selection
+        String select;// Declaring variable to store user's selection
         // Prompting user to select an option from the menu and storing the selection
         while(!quit){
             select = getSelect(system);
             if(select != null) {
                 switch(select){
-                    case 1 -> {
+                    case "1": 
                         StudentManagementModel.displayAllStudent(students);
-                    }
+                        break;
 
-                    case 2->{
+                    case "2":
                         searchStudentByClass(students);
-                    }
+                        break;
 
-                    case 3->{
+                    case "3":
                         searchStudentByName(students);
-                    }
+                        break;
 
-                    case 4 -> {
+                    case "4": 
                         viewGeneralStatistics(students);
-                    }
-                    case 5->{
+                        break;
+
+                    case "5":
                         quit = true;
-                    }
+                        break;
+
+                    default:
+                        StudentManagementView.displayInvalidOperationErrorMessage(system);
+                        break;
                 }
             } else {
                 quit = true;
@@ -156,93 +170,112 @@ public class StudentManagementController {
     //--------------------------------------------------------------------------
     //Getting user option select  
     //--------------------------------------------------------------------------
-    public static Integer getSelect(String system) {
+    public static String getSelect(String system) {
         // Initialize variables to store user input
         String userSelectStr;
-        int userSelectInt;
         String options;
                 
         options = StudentManagementModel.getOptionsForSystem(system);
 
         // Loop until valid input is received
         while (true) {
-            try {
-                userSelectStr = StudentManagementView.getUserInput(options, system);
+            userSelectStr = StudentManagementModel.getUserInput(options, system);
                 
-                // Check if the user clicked the cancel button or closed the dialog
-                if (userSelectStr == null) {
-                    return null;
-                }
-                
-                // Check if user input is empty
-                if (StudentManagementModel.isEmpty(userSelectStr)) {
-                    StudentManagementView.displayBothSystemErrorInput(system);
-                    continue;
-                }
-
-                // Parse user input to integer
-                userSelectInt = Integer.parseInt(userSelectStr);
-
-                return userSelectInt;
-            } catch (NumberFormatException e) {
-                // Catch exception if input cannot be parsed to integer
-                // Show error message and continue loop
-                StudentManagementView.displayBlankInputMessage(system);
+               // Check if the user clicked the cancel button or closed the dialog
+               if (userSelectStr == null) {
+                return null;
             }
-        }
+                
+            // Check if user input is empty
+            if (StudentManagementModel.isEmpty(userSelectStr)) {
+                   StudentManagementView.displayBothSystemErrorInput(system);
+                continue;
+            }
+
+        return userSelectStr;
+        } 
     }
     
     public static void viewGeneralStatistics(ArrayList<Student> students) {
         boolean quit = false;
         
         while (!quit) {
-            String[] options = {"1. Show Top Performing Students", "2. Show Students Needing Improvement", "3. Generate CSV Report", "4. Generate PDF Report", "5. Back"};
-            String selection = StudentManagementView.getUserInput(String.join("\n", options), "Generate Reports");
+            String[] options = {"1. Show Top Performing Students", "2. Show Students Needing Improvement", "3. Generate CSV Report", "4. Generate Text Report", "5. Back"};
+            String selection = StudentManagementModel.getUserInput(String.join("\n", options), "Generate Reports");
 
-            switch (selection) {
-                case "1":
-                    String topN;
-                    int topNInt;
-                    String s1 = "Enter number of top performing students to display:";
-                    String system1 = "Top Performing Students";
-                    topN = StudentManagementView.getUserInput(s1, system1);
-                    if(topN == null) {
-                        continue;
-                    } else {
-                        topNInt =Integer.parseInt(topN);
-                    }
-                    ArrayList<Student> topStudents = ViewGeneralStatistics.getTopPerformingStudents(students, topNInt);
-
-                    topStudents.forEach(student -> System.out.println(student.getPerformanceSummary()));
-                    
-                    break;
-                case "2":
-                    String threshold;
-                    double thresholdDouble;
-                    String s2 = "Enter GPA threshold for students needing improvement:";
-                    String system2 = "Students Needing Improvement";
-
-                    threshold = StudentManagementView.getUserInput(s2, system2);
-                    if(threshold == null) {
-                        continue;
-                    } else {
-                        thresholdDouble = Double.parseDouble(threshold);
-                    }
-                    ArrayList<Student> studentsNeedingImprovement = ViewGeneralStatistics.getStudentsNeedingImprovement(students, thresholdDouble);
-                    studentsNeedingImprovement.forEach(student -> System.out.println(student.getPerformanceSummary()));
-                    break;
-                case "3":
-                    // ViewGeneralStatistics.generateCSVReport(students, "students_report.csv");
-                    break;
-                case "4":
-                    // ViewGeneralStatistics.generatePDFReport(students, "students_report.pdf");              
-                    break;
-                case "5":
-                    quit = true;
-                    break;
-                default:
-                    quit = true;
-                    break;
+            if(selection != null) {
+                switch (selection) {
+                    case "1":
+                        String topN;
+                        int topNInt;
+                        String s1 = "Enter number of top performing students to display:";
+                        String system1 = "Top Performing Students";
+                        while (true) {
+                            topN = StudentManagementModel.getUserInput(s1, system1);
+                            if(topN == null) {
+                                return;
+                            }
+                            try {
+                                topNInt = Integer.parseInt(topN);
+                                if (StudentManagementModel.validateTopN(topNInt, students.size())) {
+                                    break; // Exit loop if input is valid
+                                } else {
+                                    StudentManagementView.displayOutOfRangeError(students.size());
+                                }
+                            } catch (NumberFormatException e) {
+                                StudentManagementView.displayNumberFormatExceptionErrorMessage("Number Validation");
+                            }
+                        }
+                        ArrayList<Student> topStudents = ViewGeneralStatistics.getTopPerformingStudents(students, topNInt);
+    
+                        StudentManagementModel.displayAllStudent(topStudents);
+                        
+                        break;
+                    case "2":
+                        String threshold;
+                        double thresholdDouble;
+                        double maxGPA = 4.0;
+                        String s2 = "Enter GPA threshold for students needing improvement:";
+                        String system2 = "Students Needing Improvement";
+    
+                        while (true) {
+                            threshold = StudentManagementModel.getUserInput(s2, system2);
+                            if(threshold == null) {
+                                return;
+                            }
+                            try {
+                                thresholdDouble = Double.parseDouble(threshold);
+                                if (StudentManagementModel.validateThreshold(thresholdDouble, maxGPA)) {
+                                    break; // Exit loop if input is valid
+                                } else {
+                                    StudentManagementView.displayOutOfRangeError((int) maxGPA);
+                                }
+                            } catch (NumberFormatException e) {
+                                StudentManagementView.displayNumberFormatExceptionErrorMessage("Number Validation");
+                            }
+                        }
+                        ArrayList<Student> studentsNeedingImprovement = ViewGeneralStatistics.getStudentsNeedingImprovement(students, thresholdDouble);
+                        if(studentsNeedingImprovement.size() == 0) {
+                            StudentManagementView.displayNoStudentCountNeedingImprovement(thresholdDouble);
+                        } else {
+                            StudentManagementModel.displayAllStudent(studentsNeedingImprovement);
+                        }
+                        break;
+                    case "3":
+                        ViewGeneralStatistics.generateCSVReport(students, "students_report.csv");
+                        break;
+                    case "4":
+                        ViewGeneralStatistics.generatePlainTextReport(students, "students_report.txt");              
+                        break;
+                    case "5":
+                        quit = true;
+                        break;
+                    default:
+                        StudentManagementView.displayInvalidOperationErrorMessage("General Statistics");
+                        break;
+                }
+            } else {
+                return; 
             }
         }
     }
@@ -308,7 +341,7 @@ public class StudentManagementController {
             } else if (count > 2){
                 StudentManagementView.displayStudentCountExceedMessage();
             } else {
-                StudentManagementView.displayAllStudent(stdInfo);
+                StudentManagementView.displayStudentsByName(stdInfo);
                 break;
             }
         }
@@ -520,7 +553,7 @@ public class StudentManagementController {
                     String moduleName = getModuleName(i, modules); // Get module name
                     Integer creditUnit = getCreditUnit(i); // Get credit unit
                     Integer studentMark = getMark(i); // Get student mark
-                    Module module = new Module(moduleCode.toUpperCase(null), moduleName.toUpperCase(), creditUnit, studentMark); // Create module object
+                    Module module = new Module(moduleCode, moduleName, creditUnit, studentMark); // Create module object
                     modules.add(module); // Add module to the list
                 }
                 break; // Exit loop if all modules are successfully added
@@ -552,7 +585,7 @@ public class StudentManagementController {
             }else if(!StudentManagementModel.checkDuplicateModuleCode(modules, mc)){
                 continue;
             }
-            return mc; // Return valid module code
+            return mc.toUpperCase(); // Return valid module code
         }
     }
 
@@ -582,7 +615,7 @@ public class StudentManagementController {
                 continue;
             }
 
-            return mn; 
+            return mn.toUpperCase(); 
         }
     }
 
@@ -724,7 +757,7 @@ public class StudentManagementController {
         if(studentMark == null) {
             return;
         }
-        Module module = new Module(moduleCode.toUpperCase(), moduleName.toUpperCase(), creditUnit, studentMark); // Create module object
+        Module module = new Module(moduleCode.toUpperCase().trim(), moduleName.toUpperCase().trim(), creditUnit, studentMark); // Create module object
         //Add new module to modules of specific student using index and addModule method declared in Student Class
         students.get(index).addModule(module);
         StudentManagementView.displayModulesAddedMessage();

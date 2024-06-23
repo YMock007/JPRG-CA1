@@ -8,61 +8,83 @@
  * @author yeyin
  */
 
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.ArrayList;
-// import com.itextpdf.text.Document;
-// import com.itextpdf.text.DocumentException;
-// import com.itextpdf.text.Paragraph;
-// import com.itextpdf.text.pdf.PdfWriter;
-import java.io.FileOutputStream;
+ import java.io.File;
+ import java.io.FileWriter;
+ import java.io.IOException;
+ import java.util.ArrayList;
+ 
+ public class ViewGeneralStatistics {
+ 
+     public static void generateCSVReport(ArrayList<Student> students, String filePath) {
+        File file = new File(filePath);
+        int counter = 1;
 
-public class ViewGeneralStatistics {
-
-    // public static void generateCSVReport(ArrayList<Student> students, String filePath) {
-    //     try (FileWriter writer = new FileWriter(filePath)) {
-    //         writer.append("Name,AdminNo,Class,GPA\n");
-    //         for (Student student : students) {
-    //             writer.append(student.getStdName()).append(",");
-    //             writer.append(student.getAdminNo()).append(",");
-    //             writer.append(student.getClassCode()).append(",");
-    //             writer.append(String.valueOf(student.calculateGPA())).append("\n");
-    //         }
-    //         System.out.println("CSV report generated successfully.");
-    //     } catch (IOException e) {
-    //         e.printStackTrace();
-    //     }
-    // }
-
-    // public static void generatePDFReport(ArrayList<Student> students, String filePath) {
-    //     Document document = new Document();
-    //     try {
-    //         PdfWriter.getInstance(document, new FileOutputStream(filePath));
-    //         document.open();
-    //         for (Student student : students) {
-    //             document.add(new Paragraph(student.getPerformanceSummary()));
-    //             document.add(new Paragraph("\n"));
-    //         }
-    //         System.out.println("PDF report generated successfully.");
-    //     } catch (DocumentException | IOException e) {
-    //         e.printStackTrace();
-    //     } finally {
-    //         document.close();
-    //     }
-    // }
-
-    public static void generatePerformanceSummary(ArrayList<Student> students) {
-        for (Student student : students) {
-            System.out.println(student.getPerformanceSummary());
+        // Check if the file already exists
+        while (file.exists()) {
+            // If it exists, generate a new file path
+            String newFilePath = generateNewFilePath(filePath, counter);
+            file = new File(newFilePath);
+            counter++;
         }
-    }
+         try (FileWriter writer = new FileWriter(file)) {
+             writer.append("Name,AdminNo,Class,GPA,ModuleCode,ModuleName,CreditUnit,StudentMark\n");
+             for (Student student : students) {
+                 writer.append(student.getStdName()).append(",");
+                 writer.append(student.getAdminNo()).append(",");
+                 writer.append(student.getClassCode()).append(",");
+                 writer.append(String.valueOf(student.calculateGPA())).append(",");
+                 for(Module module : student.getModules()) {
+                    writer.append(module.getModuleCode()).append(",");
+                    writer.append(module.getModuleName()).append(",");
+                    writer.append(String.valueOf(module.getCreditUnit())).append(",");
+                    writer.append(String.valueOf(module.getStudentMark())).append("\n,,,,");
+                 }
+                 writer.append("\n");
+            }
+            StudentManagementView.displaySuccessGenerateCSV();
+         } catch (IOException e) {
+            StudentManagementView.displayErrorGenerateCSV();
+         }
+     }
+ 
+     public static void generatePlainTextReport(ArrayList<Student> students, String filePath) {
+        File file = new File(filePath);
+        int counter = 1;
+
+        // Check if the file already exists
+        while (file.exists()) {
+            // If it exists, generate a new file path
+            String newFilePath = generateNewFilePath(filePath, counter);
+            file = new File(newFilePath);
+            counter++;
+        }
+
+        try (FileWriter writer = new FileWriter(file)) {
+            for (Student student : students) {
+                writer.append(student.toString()).append("\n");
+            }
+            StudentManagementView.displaySuccessGenerateTXT();
+        } catch (IOException e) {
+            StudentManagementView.displayErrorGenerateTXT();
+        }
+        
+        try (FileWriter writer = new FileWriter(filePath)) {
+             for (Student student : students) {
+                 writer.append(student.toString());
+             }
+             StudentManagementView.displaySuccessGenerateTXT();
+         } catch (IOException e) {
+            StudentManagementView.displayErrorGenerateTXT();
+         }
+     }
+ 
 
     public static ArrayList<Student> getTopPerformingStudents(ArrayList<Student> students, int topN) {
         students.sort((s1, s2) -> Double.compare(s2.calculateGPA(), s1.calculateGPA()));
         return new ArrayList<>(students.subList(0, Math.min(topN, students.size())));
     }
 
-    public static ArrayList<Student> getStudentsNeedingImprovement(ArrayList<Student> students, double threshold) {
+    public static ArrayList<Student>getStudentsNeedingImprovement(ArrayList<Student> students, double threshold) {
         ArrayList<Student> needingImprovement = new ArrayList<>();
         for (Student student : students) {
             if (student.calculateGPA() < threshold) {
@@ -71,4 +93,17 @@ public class ViewGeneralStatistics {
         }
         return needingImprovement;
     }
+
+    private static String generateNewFilePath(String originalFilePath, int counter) {
+        // Generate a new file path by appending a counter before the file extension
+        int lastIndex = originalFilePath.lastIndexOf('.');
+        String newFilePath;
+        if (lastIndex != -1) {
+            newFilePath = originalFilePath.substring(0, lastIndex) + "_" + counter + originalFilePath.substring(lastIndex);
+        } else {
+            newFilePath = originalFilePath + "_" + counter; // Fallback if no extension found
+        }
+        return newFilePath;
+    }
+
 }

@@ -203,13 +203,19 @@ public class StudentManagementModel {
     public static void displayAllStudent(ArrayList<Student> students) {
         StringBuilder report = new StringBuilder();
         report.append("<html>");
-        report.append("<table border='1' style='border-collapse:collapse;'>");
+        report.append("<style>");
+        report.append("table { width: 100%; border-collapse: collapse; }");
+        report.append("th, td { padding: 8px; text-align: left; border: 1px solid black; }");
+        report.append("th { background-color: #f2f2f2; }");
+        report.append("</style>");
+        report.append("<table>");
         report.append("<tr>");
-        report.append("<th>Student</th>");
-        report.append("<th>Name</th>");
-        report.append("<th>Admin Number</th>");
-        report.append("<th>Class</th>");
-        report.append("<th>Modules Taken</th>");
+        report.append("<th style='width: 5%;'>Student</th>");
+        report.append("<th style='width: 20%;'>Name</th>");
+        report.append("<th style='width: 15%;'>Admin Number</th>");
+        report.append("<th style='width: 10%;'>Class</th>");
+        report.append("<th style='width: 40%;'>Modules Taken</th>");
+        report.append("<th style='width: 10%;'>CGPA</th>");
         report.append("</tr>");
 
         for (int i = 0; i < students.size(); i++) {
@@ -220,22 +226,24 @@ public class StudentManagementModel {
             report.append("<td>").append(student.getAdminNo()).append("</td>");
             report.append("<td>").append(student.getClassCode()).append("</td>");
             report.append("<td>");
-
+            
             for (int j = 0; j < student.getModules().size(); j++) {
                 Module module = student.getModules().get(j);
                 report.append(module.getModuleCode()).append("/").append(module.getModuleName())
-                        .append("/").append(module.getCreditUnit()).append(":")
-                        .append(module.calculateGrade()).append("<br>");
+                .append("/").append(module.getCreditUnit()).append(":")
+                .append(module.calculateGrade()).append("<br>");
             }
-
-            report.append("</td>")
-                    .append("</tr>");
+            
+            report.append("</td>");
+                       
+            report.append("<td>").append(student.calculateGPA()).append("</td>")
+            .append("</tr>");
         }
 
         report.append("</table>");
-        report.append("</html>");    
-        
-        StudentManagementView.displayAllStudentinTabularFormat(report);
+        report.append("</html>");
+
+        StudentManagementView.displayAllStudentInTabularFormat(report);
     }
 
     public static boolean validatingClassCode(String userInput) {
@@ -302,4 +310,25 @@ public class StudentManagementModel {
         }
     }
      
+    public static String getUserInput(String options, String system) {
+        while (true) {
+            String s = JOptionPane.showInputDialog(null, options, system, JOptionPane.QUESTION_MESSAGE);
+            if(s == null) {
+                return null;
+            }
+            if(StudentManagementModel.isEmpty(s)) {
+                StudentManagementView.displayBothSystemErrorInput(system);
+                continue;
+            }
+            return s;
+        }
+    }
+
+    public static boolean validateTopN(int i, int size) {
+        return i > 0 && i <= size;
+    }
+
+    public static boolean validateThreshold(double d, double max) {
+        return d > 0.0 && d <= max;
+    }
 }

@@ -9,10 +9,13 @@
  * @author shinn
  */
 
+import java.awt.Dimension;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
+import javax.swing.JTextPane;
 
 
 public class StudentManagementView {
@@ -20,9 +23,26 @@ public class StudentManagementView {
     //--------------------------------------------------------------------------
     // Display error message
     //-------------------------------------------------------------------------- 
+    public static void displayErrorGenerateCSV() {
+        String message = "Generating CSV failed.";
+        String system = "View General Statistics";
+        JOptionPane.showMessageDialog(null, 
+                message, 
+                system,
+                JOptionPane.ERROR_MESSAGE);
+    }
+    
+    public static void displayErrorGenerateTXT() {
+        String message = "Generating TXT failed.";
+        String system = "View General Statistics";
+        JOptionPane.showMessageDialog(null, 
+                message, 
+                system,
+                JOptionPane.ERROR_MESSAGE);
+    }
 
     public static void displayInvalidName() {
-        String message = "Invalid Input! Input can not be empty and contain only aplhabets.";
+        String message = "Invalid Input! Input can not be empty and contain only alphabets.";
         String system = "Student Info";
         JOptionPane.showMessageDialog(null, 
                 message, 
@@ -154,6 +174,14 @@ public class StudentManagementView {
                 JOptionPane.ERROR_MESSAGE);
     }
 
+    public static void displayNumberFormatExceptionErrorMessage(String system) {
+        String message = "Invalid Input! Please enter a number!";
+        JOptionPane.showMessageDialog(null, 
+                message, 
+                system,
+                JOptionPane.ERROR_MESSAGE);
+    }
+
     public static void displayModuleNameErrorMessage() {
         String message = "Module name can only contain letters.";
         JOptionPane.showMessageDialog(null, 
@@ -168,6 +196,15 @@ public class StudentManagementView {
         JOptionPane.showMessageDialog(null, 
                 message, 
                 adminSystem,
+                JOptionPane.ERROR_MESSAGE);
+    }
+
+    public static void displayInvalidOperationErrorMessage(String system) {
+
+        String message = "Invalid operation selected.";
+        JOptionPane.showMessageDialog(null, 
+                message, 
+                system,
                 JOptionPane.ERROR_MESSAGE);
     }
 
@@ -266,7 +303,42 @@ public class StudentManagementView {
     //--------------------------------------------------------------------------
     // Display information message  
     //--------------------------------------------------------------------------
-    public static void displayAllStudent(String message) {
+    public static void displaySuccessGenerateCSV() {
+        String message = "Generating CSV Success and Place in JPRG-CA1 folder.";
+        String system = "View General Statistics";
+        JOptionPane.showMessageDialog(null, 
+                message, 
+                system,
+                JOptionPane.INFORMATION_MESSAGE);
+    }
+
+    public static void displaySuccessGenerateTXT() {
+        String message = "Generating TEXT Success and Place in JPRG-CA1 folder.";
+        String system = "View General Statistics";
+        JOptionPane.showMessageDialog(null, 
+                message, 
+                system,
+                JOptionPane.INFORMATION_MESSAGE);
+    }
+
+    public static void displayAllStudentInTabularFormat(StringBuilder report) {
+        String system = "All Student Report";
+
+        JTextPane textPane = new JTextPane();
+        textPane.setContentType("text/html");
+        textPane.setText(report.toString());
+        textPane.setEditable(false);
+
+        JScrollPane scrollPane = new JScrollPane(textPane);
+        scrollPane.setPreferredSize(new Dimension(800, 600)); // Set the preferred size
+
+        JOptionPane.showMessageDialog(null, 
+            scrollPane, 
+            system, 
+            JOptionPane.INFORMATION_MESSAGE);
+    }
+
+    public static void displayStudentsByName(String message) {
         String system = "All Student Report";
         JOptionPane.showMessageDialog(null, 
         message, 
@@ -282,6 +354,15 @@ public class StudentManagementView {
         JOptionPane.INFORMATION_MESSAGE);
     }
     
+    public static void displayNoStudentCountNeedingImprovement(double threshold) {
+        String message = "No student found less than " + (int) threshold + " GPA.";
+        String system = "All Student Report";
+        JOptionPane.showMessageDialog(null, 
+        message, 
+        system,
+        JOptionPane.INFORMATION_MESSAGE);
+    }
+
     public static void displayStudentCountExceedMessage() {
         String message = "The students with same name exceeds 2.";
         String system = "Info";
@@ -289,15 +370,7 @@ public class StudentManagementView {
         message, 
         system,
         JOptionPane.INFORMATION_MESSAGE);
-    }
-
-    public static void displayAllStudentinTabularFormat(StringBuilder report) {
-        String system = "Student Info";
-        JOptionPane.showMessageDialog(null, 
-        report, 
-        system,
-        JOptionPane.INFORMATION_MESSAGE);
-    }
+    }   
 
     public static void displayTerminateMessage() {
         String system = "Selecting System";
@@ -341,10 +414,6 @@ public class StudentManagementView {
     // Display question message  
     //--------------------------------------------------------------------------
     
-    public static String getUserInput(String options, String system) {
-        return JOptionPane.showInputDialog(null, options, system, JOptionPane.QUESTION_MESSAGE);
-    }
-
     public static String getStdName() {
         return JOptionPane.showInputDialog(null, "Enter Name:", adminSystem, JOptionPane.QUESTION_MESSAGE);
     }

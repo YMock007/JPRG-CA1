@@ -1,0 +1,2700 @@
+Name: Ezsptg
+Admin: p2340000
+Class: DIT/FT/1B/05
+Module taken:
+1. ST0525/DBS/4: A
+2. ST0506/SEP/6: C
+
+GPA: 2.8
+----------------------
+Name: Grzipu
+Admin: p2340001
+Class: DIT/FT/1B/11
+Module taken:
+1. ST0503/FOP/6: A
+2. ST0509/JPRG/4: C
+
+GPA: 3.2
+----------------------
+Name: Pvhmuq
+Admin: p2340002
+Class: DIT/FT/1B/12
+Module taken:
+1. ST0509/JPRG/4: C
+2. ST0506/SEP/4: C
+
+GPA: 2.0
+----------------------
+Name: Ygiyov
+Admin: p2340003
+Class: DIT/FT/1B/07
+Module taken:
+1. ST0525/DBS/6: C
+2. ST0509/JPRG/5: A
+
+GPA: 2.91
+----------------------
+Name: Zhpvil
+Admin: p2340004
+Class: DIT/FT/1B/05
+Module taken:
+1. ST0525/DBS/4: C
+2. ST0503/FOP/7: C
+
+GPA: 2.0
+----------------------
+Name: Ldfnzk
+Admin: p2340005
+Class: DIT/FT/1B/04
+Module taken:
+1. ST0509/JPRG/4: B
+2. ST0525/DBS/5: B
+
+GPA: 3.0
+----------------------
+Name: Flgemy
+Admin: p2340006
+Class: DIT/FT/1B/14
+Module taken:
+1. ST0525/DBS/4: C
+2. ST0509/JPRG/6: B
+
+GPA: 2.6
+----------------------
+Name: Wmijyj
+Admin: p2340007
+Class: DIT/FT/1B/06
+Module taken:
+1. ST0503/FOP/5: C
+2. ST0525/DBS/4: C
+
+GPA: 2.0
+----------------------
+Name: Dxnimj
+Admin: p2340008
+Class: DIT/FT/1B/01
+Module taken:
+1. ST0503/FOP/4: B
+2. ST0525/DBS/4: B
+
+GPA: 3.0
+----------------------
+Name: Nvjglm
+Admin: p2340009
+Class: DIT/FT/1B/14
+Module taken:
+1. ST0525/DBS/5: B
+2. ST0509/JPRG/7: B
+
+GPA: 3.0
+----------------------
+Name: Zgctkd
+Admin: p2340010
+Class: DIT/FT/1B/01
+Module taken:
+1. ST0506/SEP/6: A
+2. ST0506/SEP/6: C
+
+GPA: 3.0
+----------------------
+Name: Lztoly
+Admin: p2340011
+Class: DIT/FT/1B/10
+Module taken:
+1. ST0525/DBS/5: C
+2. ST0506/SEP/5: A
+
+GPA: 3.0
+----------------------
+Name: Dgsgsc
+Admin: p2340012
+Class: DIT/FT/1B/15
+Module taken:
+1. ST0506/SEP/7: A
+2. ST0506/SEP/4: B
+
+GPA: 3.64
+----------------------
+Name: Wdbzmg
+Admin: p2340013
+Class: DIT/FT/1B/02
+Module taken:
+1. ST0506/SEP/4: A
+2. ST0506/SEP/7: B
+
+GPA: 3.36
+----------------------
+Name: Oebpcj
+Admin: p2340014
+Class: DIT/FT/1B/02
+Module taken:
+1. ST0509/JPRG/5: B
+2. ST0503/FOP/6: A
+
+GPA: 3.55
+----------------------
+Name: Cdiuyl
+Admin: p2340015
+Class: DIT/FT/1B/08
+Module taken:
+1. ST0525/DBS/7: A
+2. ST0503/FOP/4: C
+
+GPA: 3.27
+----------------------
+Name: Cxivkq
+Admin: p2340016
+Class: DIT/FT/1B/02
+Module taken:
+1. ST0503/FOP/6: A
+2. ST0525/DBS/7: A
+
+GPA: 4.0
+----------------------
+Name: Plontb
+Admin: p2340017
+Class: DIT/FT/1B/11
+Module taken:
+1. ST0506/SEP/6: B
+2. ST0506/SEP/6: B
+
+GPA: 3.0
+----------------------
+Name: Ttskny
+Admin: p2340018
+Class: DIT/FT/1B/04
+Module taken:
+1. ST0506/SEP/4: C
+2. ST0509/JPRG/7: B
+
+GPA: 2.64
+----------------------
+Name: Tvzwfr
+Admin: p2340019
+Class: DIT/FT/1B/05
+Module taken:
+1. ST0525/DBS/5: A
+2. ST0506/SEP/7: B
+
+GPA: 3.42
+----------------------
+Name: Etzskq
+Admin: p2340020
+Class: DIT/FT/1B/13
+Module taken:
+1. ST0503/FOP/7: B
+2. ST0509/JPRG/5: B
+
+GPA: 3.0
+----------------------
+Name: Zfcbjh
+Admin: p2340021
+Class: DIT/FT/1B/02
+Module taken:
+1. ST0509/JPRG/6: B
+2. ST0503/FOP/4: B
+
+GPA: 3.0
+----------------------
+Name: Cxhzcl
+Admin: p2340022
+Class: DIT/FT/1B/13
+Module taken:
+1. ST0503/FOP/5: B
+2. ST0503/FOP/4: C
+
+GPA: 2.56
+----------------------
+Name: Hzador
+Admin: p2340023
+Class: DIT/FT/1B/12
+Module taken:
+1. ST0506/SEP/6: A
+2. ST0503/FOP/5: B
+
+GPA: 3.55
+----------------------
+Name: Irqmll
+Admin: p2340024
+Class: DIT/FT/1B/10
+Module taken:
+1. ST0506/SEP/5: C
+2. ST0506/SEP/7: A
+
+GPA: 3.17
+----------------------
+Name: Npwboq
+Admin: p2340025
+Class: DIT/FT/1B/13
+Module taken:
+1. ST0509/JPRG/6: B
+2. ST0509/JPRG/4: A
+
+GPA: 3.4
+----------------------
+Name: Mxhezq
+Admin: p2340026
+Class: DIT/FT/1B/03
+Module taken:
+1. ST0503/FOP/4: B
+2. ST0525/DBS/5: B
+
+GPA: 3.0
+----------------------
+Name: Aqyauv
+Admin: p2340027
+Class: DIT/FT/1B/05
+Module taken:
+1. ST0506/SEP/4: B
+2. ST0506/SEP/4: B
+
+GPA: 3.0
+----------------------
+Name: Fbadir
+Admin: p2340028
+Class: DIT/FT/1B/03
+Module taken:
+1. ST0503/FOP/4: B
+2. ST0506/SEP/4: C
+
+GPA: 2.5
+----------------------
+Name: Jjenwk
+Admin: p2340029
+Class: DIT/FT/1B/02
+Module taken:
+1. ST0506/SEP/7: A
+2. ST0503/FOP/6: A
+
+GPA: 4.0
+----------------------
+Name: Pqdzjt
+Admin: p2340030
+Class: DIT/FT/1B/11
+Module taken:
+1. ST0509/JPRG/6: A
+2. ST0509/JPRG/5: A
+
+GPA: 4.0
+----------------------
+Name: Ditxiz
+Admin: p2340031
+Class: DIT/FT/1B/08
+Module taken:
+1. ST0506/SEP/4: C
+2. ST0506/SEP/6: C
+
+GPA: 2.0
+----------------------
+Name: Xvbctu
+Admin: p2340032
+Class: DIT/FT/1B/15
+Module taken:
+1. ST0503/FOP/4: A
+2. ST0525/DBS/4: C
+
+GPA: 3.0
+----------------------
+Name: Fbwelf
+Admin: p2340033
+Class: DIT/FT/1B/06
+Module taken:
+1. ST0506/SEP/7: A
+2. ST0509/JPRG/7: A
+
+GPA: 4.0
+----------------------
+Name: Blxpty
+Admin: p2340034
+Class: DIT/FT/1B/13
+Module taken:
+1. ST0503/FOP/4: C
+2. ST0506/SEP/4: B
+
+GPA: 2.5
+----------------------
+Name: Kasygu
+Admin: p2340035
+Class: DIT/FT/1B/13
+Module taken:
+1. ST0509/JPRG/6: A
+2. ST0525/DBS/7: B
+
+GPA: 3.46
+----------------------
+Name: Akwnkh
+Admin: p2340036
+Class: DIT/FT/1B/09
+Module taken:
+1. ST0509/JPRG/7: A
+2. ST0509/JPRG/4: A
+
+GPA: 4.0
+----------------------
+Name: Vjzwco
+Admin: p2340037
+Class: DIT/FT/1B/05
+Module taken:
+1. ST0503/FOP/4: B
+2. ST0509/JPRG/6: C
+
+GPA: 2.4
+----------------------
+Name: Jhxoxa
+Admin: p2340038
+Class: DIT/FT/1B/11
+Module taken:
+1. ST0503/FOP/4: A
+2. ST0503/FOP/7: C
+
+GPA: 2.73
+----------------------
+Name: Rtcvwy
+Admin: p2340039
+Class: DIT/FT/1B/09
+Module taken:
+1. ST0503/FOP/4: A
+2. ST0509/JPRG/4: B
+
+GPA: 3.5
+----------------------
+Name: Tnsadi
+Admin: p2340040
+Class: DIT/FT/1B/02
+Module taken:
+1. ST0503/FOP/7: A
+2. ST0503/FOP/7: C
+
+GPA: 3.0
+----------------------
+Name: Xtzzmh
+Admin: p2340041
+Class: DIT/FT/1B/09
+Module taken:
+1. ST0509/JPRG/5: C
+2. ST0506/SEP/5: B
+
+GPA: 2.5
+----------------------
+Name: Vfwckp
+Admin: p2340042
+Class: DIT/FT/1B/02
+Module taken:
+1. ST0509/JPRG/5: C
+2. ST0503/FOP/6: B
+
+GPA: 2.55
+----------------------
+Name: Pdmnxn
+Admin: p2340043
+Class: DIT/FT/1B/10
+Module taken:
+1. ST0509/JPRG/7: A
+2. ST0509/JPRG/5: B
+
+GPA: 3.58
+----------------------
+Name: Oroftu
+Admin: p2340044
+Class: DIT/FT/1B/04
+Module taken:
+1. ST0509/JPRG/7: B
+2. ST0503/FOP/7: B
+
+GPA: 3.0
+----------------------
+Name: Wxxyga
+Admin: p2340045
+Class: DIT/FT/1B/09
+Module taken:
+1. ST0506/SEP/5: A
+2. ST0506/SEP/7: C
+
+GPA: 2.83
+----------------------
+Name: Dngboa
+Admin: p2340046
+Class: DIT/FT/1B/03
+Module taken:
+1. ST0525/DBS/5: C
+2. ST0503/FOP/4: B
+
+GPA: 2.44
+----------------------
+Name: Xgcirb
+Admin: p2340047
+Class: DIT/FT/1B/09
+Module taken:
+1. ST0506/SEP/4: A
+2. ST0503/FOP/7: C
+
+GPA: 2.73
+----------------------
+Name: Ssirna
+Admin: p2340048
+Class: DIT/FT/1B/14
+Module taken:
+1. ST0503/FOP/4: C
+2. ST0503/FOP/6: A
+
+GPA: 3.2
+----------------------
+Name: Tibxvd
+Admin: p2340049
+Class: DIT/FT/1B/02
+Module taken:
+1. ST0525/DBS/5: B
+2. ST0506/SEP/5: A
+
+GPA: 3.5
+----------------------
+Name: Ffkcsr
+Admin: p2340050
+Class: DIT/FT/1B/15
+Module taken:
+1. ST0525/DBS/5: A
+2. ST0503/FOP/7: C
+
+GPA: 2.83
+----------------------
+Name: Fozynu
+Admin: p2340051
+Class: DIT/FT/1B/06
+Module taken:
+1. ST0503/FOP/5: A
+2. ST0506/SEP/7: C
+
+GPA: 2.83
+----------------------
+Name: Qeorku
+Admin: p2340052
+Class: DIT/FT/1B/08
+Module taken:
+1. ST0503/FOP/7: A
+2. ST0525/DBS/5: B
+
+GPA: 3.58
+----------------------
+Name: Fungcv
+Admin: p2340053
+Class: DIT/FT/1B/05
+Module taken:
+1. ST0503/FOP/7: A
+2. ST0525/DBS/6: A
+
+GPA: 4.0
+----------------------
+Name: Vbdvzf
+Admin: p2340054
+Class: DIT/FT/1B/04
+Module taken:
+1. ST0525/DBS/4: A
+2. ST0503/FOP/6: B
+
+GPA: 3.4
+----------------------
+Name: Zadjwm
+Admin: p2340055
+Class: DIT/FT/1B/13
+Module taken:
+1. ST0506/SEP/4: B
+2. ST0506/SEP/7: B
+
+GPA: 3.0
+----------------------
+Name: Vbvfuf
+Admin: p2340056
+Class: DIT/FT/1B/14
+Module taken:
+1. ST0509/JPRG/4: C
+2. ST0525/DBS/7: A
+
+GPA: 3.27
+----------------------
+Name: Yzqmcz
+Admin: p2340057
+Class: DIT/FT/1B/08
+Module taken:
+1. ST0509/JPRG/5: A
+2. ST0506/SEP/4: A
+
+GPA: 4.0
+----------------------
+Name: Hjpagi
+Admin: p2340058
+Class: DIT/FT/1B/10
+Module taken:
+1. ST0503/FOP/6: C
+2. ST0525/DBS/6: C
+
+GPA: 2.0
+----------------------
+Name: Vlcydc
+Admin: p2340059
+Class: DIT/FT/1B/08
+Module taken:
+1. ST0506/SEP/5: B
+2. ST0509/JPRG/4: B
+
+GPA: 3.0
+----------------------
+Name: Mzypso
+Admin: p2340060
+Class: DIT/FT/1B/13
+Module taken:
+1. ST0506/SEP/5: C
+2. ST0506/SEP/7: C
+
+GPA: 2.0
+----------------------
+Name: Czxkux
+Admin: p2340061
+Class: DIT/FT/1B/10
+Module taken:
+1. ST0525/DBS/6: A
+2. ST0509/JPRG/4: C
+
+GPA: 3.2
+----------------------
+Name: Xegwho
+Admin: p2340062
+Class: DIT/FT/1B/02
+Module taken:
+1. ST0525/DBS/5: B
+2. ST0503/FOP/5: A
+
+GPA: 3.5
+----------------------
+Name: Crdbiu
+Admin: p2340063
+Class: DIT/FT/1B/05
+Module taken:
+1. ST0503/FOP/7: A
+2. ST0506/SEP/6: C
+
+GPA: 3.08
+----------------------
+Name: Ykkzes
+Admin: p2340064
+Class: DIT/FT/1B/14
+Module taken:
+1. ST0509/JPRG/7: A
+2. ST0509/JPRG/6: A
+
+GPA: 4.0
+----------------------
+Name: Wjrgfq
+Admin: p2340065
+Class: DIT/FT/1B/10
+Module taken:
+1. ST0506/SEP/4: A
+2. ST0509/JPRG/7: C
+
+GPA: 2.73
+----------------------
+Name: Pmqjxu
+Admin: p2340066
+Class: DIT/FT/1B/02
+Module taken:
+1. ST0525/DBS/5: B
+2. ST0506/SEP/7: A
+
+GPA: 3.58
+----------------------
+Name: Yhgrrj
+Admin: p2340067
+Class: DIT/FT/1B/13
+Module taken:
+1. ST0509/JPRG/5: B
+2. ST0503/FOP/5: B
+
+GPA: 3.0
+----------------------
+Name: Ksmxka
+Admin: p2340068
+Class: DIT/FT/1B/15
+Module taken:
+1. ST0506/SEP/7: A
+2. ST0509/JPRG/4: B
+
+GPA: 3.64
+----------------------
+Name: Xujedz
+Admin: p2340069
+Class: DIT/FT/1B/05
+Module taken:
+1. ST0506/SEP/5: B
+2. ST0503/FOP/6: B
+
+GPA: 3.0
+----------------------
+Name: Pucywz
+Admin: p2340070
+Class: DIT/FT/1B/04
+Module taken:
+1. ST0525/DBS/7: A
+2. ST0506/SEP/6: A
+
+GPA: 4.0
+----------------------
+Name: Ykefji
+Admin: p2340071
+Class: DIT/FT/1B/01
+Module taken:
+1. ST0525/DBS/4: A
+2. ST0525/DBS/7: C
+
+GPA: 2.73
+----------------------
+Name: Wqzvly
+Admin: p2340072
+Class: DIT/FT/1B/02
+Module taken:
+1. ST0503/FOP/7: A
+2. ST0503/FOP/4: A
+
+GPA: 4.0
+----------------------
+Name: Tovfri
+Admin: p2340073
+Class: DIT/FT/1B/08
+Module taken:
+1. ST0509/JPRG/5: B
+2. ST0525/DBS/5: C
+
+GPA: 2.5
+----------------------
+Name: Ystsgg
+Admin: p2340074
+Class: DIT/FT/1B/03
+Module taken:
+1. ST0503/FOP/7: C
+2. ST0525/DBS/7: A
+
+GPA: 3.0
+----------------------
+Name: Uwjvnl
+Admin: p2340075
+Class: DIT/FT/1B/06
+Module taken:
+1. ST0506/SEP/5: C
+2. ST0525/DBS/6: A
+
+GPA: 3.09
+----------------------
+Name: Gludzl
+Admin: p2340076
+Class: DIT/FT/1B/09
+Module taken:
+1. ST0509/JPRG/6: A
+2. ST0506/SEP/5: A
+
+GPA: 4.0
+----------------------
+Name: Cuyadr
+Admin: p2340077
+Class: DIT/FT/1B/08
+Module taken:
+1. ST0506/SEP/5: C
+2. ST0506/SEP/4: C
+
+GPA: 2.0
+----------------------
+Name: Yjyqvb
+Admin: p2340078
+Class: DIT/FT/1B/15
+Module taken:
+1. ST0506/SEP/6: C
+2. ST0525/DBS/6: C
+
+GPA: 2.0
+----------------------
+Name: Pdljzm
+Admin: p2340079
+Class: DIT/FT/1B/13
+Module taken:
+1. ST0503/FOP/6: B
+2. ST0525/DBS/7: C
+
+GPA: 2.46
+----------------------
+Name: Ovjbcr
+Admin: p2340080
+Class: DIT/FT/1B/13
+Module taken:
+1. ST0503/FOP/6: B
+2. ST0503/FOP/4: B
+
+GPA: 3.0
+----------------------
+Name: Ugtcgf
+Admin: p2340081
+Class: DIT/FT/1B/05
+Module taken:
+1. ST0525/DBS/6: B
+2. ST0525/DBS/5: C
+
+GPA: 2.55
+----------------------
+Name: Erqeqa
+Admin: p2340082
+Class: DIT/FT/1B/01
+Module taken:
+1. ST0503/FOP/6: A
+2. ST0506/SEP/4: A
+
+GPA: 4.0
+----------------------
+Name: Pfvtwd
+Admin: p2340083
+Class: DIT/FT/1B/15
+Module taken:
+1. ST0506/SEP/6: A
+2. ST0509/JPRG/4: C
+
+GPA: 3.2
+----------------------
+Name: Ysswhu
+Admin: p2340084
+Class: DIT/FT/1B/01
+Module taken:
+1. ST0503/FOP/7: C
+2. ST0506/SEP/5: A
+
+GPA: 2.83
+----------------------
+Name: Qkfsin
+Admin: p2340085
+Class: DIT/FT/1B/10
+Module taken:
+1. ST0506/SEP/5: A
+2. ST0503/FOP/7: C
+
+GPA: 2.83
+----------------------
+Name: Eymbzf
+Admin: p2340086
+Class: DIT/FT/1B/15
+Module taken:
+1. ST0503/FOP/5: B
+2. ST0503/FOP/6: C
+
+GPA: 2.45
+----------------------
+Name: Ryqtsn
+Admin: p2340087
+Class: DIT/FT/1B/05
+Module taken:
+1. ST0506/SEP/5: B
+2. ST0509/JPRG/6: A
+
+GPA: 3.55
+----------------------
+Name: Myzjwy
+Admin: p2340088
+Class: DIT/FT/1B/03
+Module taken:
+1. ST0503/FOP/6: A
+2. ST0509/JPRG/6: A
+
+GPA: 4.0
+----------------------
+Name: Davmba
+Admin: p2340089
+Class: DIT/FT/1B/14
+Module taken:
+1. ST0525/DBS/5: A
+2. ST0525/DBS/7: B
+
+GPA: 3.42
+----------------------
+Name: Tmontk
+Admin: p2340090
+Class: DIT/FT/1B/12
+Module taken:
+1. ST0509/JPRG/5: B
+2. ST0525/DBS/4: B
+
+GPA: 3.0
+----------------------
+Name: Tdwgca
+Admin: p2340091
+Class: DIT/FT/1B/15
+Module taken:
+1. ST0506/SEP/7: A
+2. ST0503/FOP/6: A
+
+GPA: 4.0
+----------------------
+Name: Vyrfss
+Admin: p2340092
+Class: DIT/FT/1B/12
+Module taken:
+1. ST0503/FOP/4: A
+2. ST0509/JPRG/7: A
+
+GPA: 4.0
+----------------------
+Name: Wifzvv
+Admin: p2340093
+Class: DIT/FT/1B/07
+Module taken:
+1. ST0525/DBS/4: A
+2. ST0503/FOP/5: B
+
+GPA: 3.44
+----------------------
+Name: Ewqmhh
+Admin: p2340094
+Class: DIT/FT/1B/11
+Module taken:
+1. ST0506/SEP/7: A
+2. ST0525/DBS/4: C
+
+GPA: 3.27
+----------------------
+Name: Fdsgze
+Admin: p2340095
+Class: DIT/FT/1B/09
+Module taken:
+1. ST0525/DBS/5: C
+2. ST0509/JPRG/7: A
+
+GPA: 3.17
+----------------------
+Name: Dobvbc
+Admin: p2340096
+Class: DIT/FT/1B/07
+Module taken:
+1. ST0525/DBS/5: C
+2. ST0509/JPRG/4: A
+
+GPA: 2.89
+----------------------
+Name: Tgnkpw
+Admin: p2340097
+Class: DIT/FT/1B/01
+Module taken:
+1. ST0509/JPRG/7: A
+2. ST0506/SEP/4: B
+
+GPA: 3.64
+----------------------
+Name: Szosue
+Admin: p2340098
+Class: DIT/FT/1B/01
+Module taken:
+1. ST0509/JPRG/5: B
+2. ST0509/JPRG/5: B
+
+GPA: 3.0
+----------------------
+Name: Bonqvk
+Admin: p2340099
+Class: DIT/FT/1B/05
+Module taken:
+1. ST0506/SEP/5: C
+2. ST0525/DBS/6: C
+
+GPA: 2.0
+----------------------
+Name: Qxszyx
+Admin: p2340100
+Class: DIT/FT/1B/10
+Module taken:
+1. ST0509/JPRG/4: A
+2. ST0506/SEP/7: B
+
+GPA: 3.36
+----------------------
+Name: Ahdnwp
+Admin: p2340101
+Class: DIT/FT/1B/04
+Module taken:
+1. ST0509/JPRG/4: C
+2. ST0503/FOP/5: A
+
+GPA: 3.11
+----------------------
+Name: Dycxff
+Admin: p2340102
+Class: DIT/FT/1B/07
+Module taken:
+1. ST0525/DBS/4: B
+2. ST0509/JPRG/5: A
+
+GPA: 3.56
+----------------------
+Name: Lokomr
+Admin: p2340103
+Class: DIT/FT/1B/11
+Module taken:
+1. ST0509/JPRG/5: A
+2. ST0506/SEP/4: A
+
+GPA: 4.0
+----------------------
+Name: Eatmvz
+Admin: p2340104
+Class: DIT/FT/1B/09
+Module taken:
+1. ST0525/DBS/7: A
+2. ST0506/SEP/4: C
+
+GPA: 3.27
+----------------------
+Name: Zgtfzl
+Admin: p2340105
+Class: DIT/FT/1B/09
+Module taken:
+1. ST0503/FOP/7: A
+2. ST0509/JPRG/6: C
+
+GPA: 3.08
+----------------------
+Name: Zwnshj
+Admin: p2340106
+Class: DIT/FT/1B/07
+Module taken:
+1. ST0503/FOP/5: B
+2. ST0503/FOP/5: A
+
+GPA: 3.5
+----------------------
+Name: Odtoci
+Admin: p2340107
+Class: DIT/FT/1B/08
+Module taken:
+1. ST0503/FOP/7: A
+2. ST0525/DBS/4: C
+
+GPA: 3.27
+----------------------
+Name: Kxvqfl
+Admin: p2340108
+Class: DIT/FT/1B/10
+Module taken:
+1. ST0509/JPRG/4: C
+2. ST0503/FOP/6: C
+
+GPA: 2.0
+----------------------
+Name: Twsack
+Admin: p2340109
+Class: DIT/FT/1B/01
+Module taken:
+1. ST0506/SEP/5: A
+2. ST0503/FOP/5: C
+
+GPA: 3.0
+----------------------
+Name: Tcmlow
+Admin: p2340110
+Class: DIT/FT/1B/07
+Module taken:
+1. ST0525/DBS/6: B
+2. ST0525/DBS/6: C
+
+GPA: 2.5
+----------------------
+Name: Umjjrt
+Admin: p2340111
+Class: DIT/FT/1B/05
+Module taken:
+1. ST0503/FOP/5: B
+2. ST0525/DBS/7: A
+
+GPA: 3.58
+----------------------
+Name: Erysyl
+Admin: p2340112
+Class: DIT/FT/1B/10
+Module taken:
+1. ST0503/FOP/6: C
+2. ST0509/JPRG/4: A
+
+GPA: 2.8
+----------------------
+Name: Kujijy
+Admin: p2340113
+Class: DIT/FT/1B/03
+Module taken:
+1. ST0506/SEP/5: A
+2. ST0525/DBS/6: C
+
+GPA: 2.91
+----------------------
+Name: Jhkifj
+Admin: p2340114
+Class: DIT/FT/1B/08
+Module taken:
+1. ST0525/DBS/4: B
+2. ST0503/FOP/4: B
+
+GPA: 3.0
+----------------------
+Name: Azezue
+Admin: p2340115
+Class: DIT/FT/1B/01
+Module taken:
+1. ST0509/JPRG/6: C
+2. ST0525/DBS/5: A
+
+GPA: 2.91
+----------------------
+Name: Bqvvzy
+Admin: p2340116
+Class: DIT/FT/1B/01
+Module taken:
+1. ST0509/JPRG/6: C
+2. ST0525/DBS/6: B
+
+GPA: 2.5
+----------------------
+Name: Gqwwqr
+Admin: p2340117
+Class: DIT/FT/1B/07
+Module taken:
+1. ST0525/DBS/7: B
+2. ST0506/SEP/6: A
+
+GPA: 3.46
+----------------------
+Name: Etlxhp
+Admin: p2340118
+Class: DIT/FT/1B/03
+Module taken:
+1. ST0509/JPRG/5: A
+2. ST0509/JPRG/7: B
+
+GPA: 3.42
+----------------------
+Name: Ylrikj
+Admin: p2340119
+Class: DIT/FT/1B/11
+Module taken:
+1. ST0509/JPRG/7: A
+2. ST0506/SEP/5: A
+
+GPA: 4.0
+----------------------
+Name: Gicdul
+Admin: p2340120
+Class: DIT/FT/1B/11
+Module taken:
+1. ST0503/FOP/7: C
+2. ST0503/FOP/5: B
+
+GPA: 2.42
+----------------------
+Name: Kdfytw
+Admin: p2340121
+Class: DIT/FT/1B/11
+Module taken:
+1. ST0503/FOP/6: B
+2. ST0509/JPRG/5: C
+
+GPA: 2.55
+----------------------
+Name: Uimney
+Admin: p2340122
+Class: DIT/FT/1B/02
+Module taken:
+1. ST0509/JPRG/5: B
+2. ST0503/FOP/7: A
+
+GPA: 3.58
+----------------------
+Name: Nucmel
+Admin: p2340123
+Class: DIT/FT/1B/10
+Module taken:
+1. ST0509/JPRG/4: A
+2. ST0525/DBS/4: C
+
+GPA: 3.0
+----------------------
+Name: Qqdlrd
+Admin: p2340124
+Class: DIT/FT/1B/14
+Module taken:
+1. ST0509/JPRG/4: B
+2. ST0506/SEP/4: B
+
+GPA: 3.0
+----------------------
+Name: Rfkdsz
+Admin: p2340125
+Class: DIT/FT/1B/05
+Module taken:
+1. ST0525/DBS/5: A
+2. ST0503/FOP/5: C
+
+GPA: 3.0
+----------------------
+Name: Oejvad
+Admin: p2340126
+Class: DIT/FT/1B/11
+Module taken:
+1. ST0503/FOP/5: A
+2. ST0503/FOP/4: A
+
+GPA: 4.0
+----------------------
+Name: Smxtcp
+Admin: p2340127
+Class: DIT/FT/1B/02
+Module taken:
+1. ST0509/JPRG/6: C
+2. ST0525/DBS/7: B
+
+GPA: 2.54
+----------------------
+Name: Ccbvnh
+Admin: p2340128
+Class: DIT/FT/1B/10
+Module taken:
+1. ST0503/FOP/4: A
+2. ST0509/JPRG/5: C
+
+GPA: 2.89
+----------------------
+Name: Jjsjbb
+Admin: p2340129
+Class: DIT/FT/1B/15
+Module taken:
+1. ST0509/JPRG/7: C
+2. ST0506/SEP/4: C
+
+GPA: 2.0
+----------------------
+Name: Ljanvo
+Admin: p2340130
+Class: DIT/FT/1B/07
+Module taken:
+1. ST0509/JPRG/5: A
+2. ST0503/FOP/7: A
+
+GPA: 4.0
+----------------------
+Name: Jeedwi
+Admin: p2340131
+Class: DIT/FT/1B/05
+Module taken:
+1. ST0509/JPRG/6: C
+2. ST0525/DBS/5: A
+
+GPA: 2.91
+----------------------
+Name: Sagzcb
+Admin: p2340132
+Class: DIT/FT/1B/04
+Module taken:
+1. ST0506/SEP/4: A
+2. ST0506/SEP/4: B
+
+GPA: 3.5
+----------------------
+Name: Yeskxr
+Admin: p2340133
+Class: DIT/FT/1B/03
+Module taken:
+1. ST0503/FOP/7: A
+2. ST0506/SEP/4: C
+
+GPA: 3.27
+----------------------
+Name: Lmfkyk
+Admin: p2340134
+Class: DIT/FT/1B/02
+Module taken:
+1. ST0509/JPRG/4: B
+2. ST0525/DBS/7: C
+
+GPA: 2.36
+----------------------
+Name: Lwtqch
+Admin: p2340135
+Class: DIT/FT/1B/05
+Module taken:
+1. ST0509/JPRG/7: A
+2. ST0525/DBS/5: B
+
+GPA: 3.58
+----------------------
+Name: Tuwpjy
+Admin: p2340136
+Class: DIT/FT/1B/08
+Module taken:
+1. ST0503/FOP/5: A
+2. ST0506/SEP/5: B
+
+GPA: 3.5
+----------------------
+Name: Yjqonx
+Admin: p2340137
+Class: DIT/FT/1B/14
+Module taken:
+1. ST0503/FOP/7: C
+2. ST0509/JPRG/5: A
+
+GPA: 2.83
+----------------------
+Name: Ycecha
+Admin: p2340138
+Class: DIT/FT/1B/06
+Module taken:
+1. ST0506/SEP/7: A
+2. ST0503/FOP/4: A
+
+GPA: 4.0
+----------------------
+Name: Gbxjeq
+Admin: p2340139
+Class: DIT/FT/1B/12
+Module taken:
+1. ST0506/SEP/7: A
+2. ST0503/FOP/7: C
+
+GPA: 3.0
+----------------------
+Name: Maosdw
+Admin: p2340140
+Class: DIT/FT/1B/07
+Module taken:
+1. ST0503/FOP/5: C
+2. ST0503/FOP/7: C
+
+GPA: 2.0
+----------------------
+Name: Onlskc
+Admin: p2340141
+Class: DIT/FT/1B/03
+Module taken:
+1. ST0503/FOP/6: A
+2. ST0506/SEP/4: B
+
+GPA: 3.6
+----------------------
+Name: Cngfzp
+Admin: p2340142
+Class: DIT/FT/1B/15
+Module taken:
+1. ST0509/JPRG/4: A
+2. ST0509/JPRG/5: A
+
+GPA: 4.0
+----------------------
+Name: Tgupth
+Admin: p2340143
+Class: DIT/FT/1B/09
+Module taken:
+1. ST0509/JPRG/4: A
+2. ST0525/DBS/6: C
+
+GPA: 2.8
+----------------------
+Name: Pgsrmh
+Admin: p2340144
+Class: DIT/FT/1B/07
+Module taken:
+1. ST0503/FOP/5: B
+2. ST0509/JPRG/7: C
+
+GPA: 2.42
+----------------------
+Name: Wtkpll
+Admin: p2340145
+Class: DIT/FT/1B/08
+Module taken:
+1. ST0509/JPRG/6: C
+2. ST0503/FOP/4: B
+
+GPA: 2.4
+----------------------
+Name: Phncuy
+Admin: p2340146
+Class: DIT/FT/1B/06
+Module taken:
+1. ST0503/FOP/4: C
+2. ST0506/SEP/6: B
+
+GPA: 2.6
+----------------------
+Name: Swhdta
+Admin: p2340147
+Class: DIT/FT/1B/05
+Module taken:
+1. ST0503/FOP/4: B
+2. ST0525/DBS/4: A
+
+GPA: 3.5
+----------------------
+Name: Vedhxi
+Admin: p2340148
+Class: DIT/FT/1B/13
+Module taken:
+1. ST0509/JPRG/7: C
+2. ST0506/SEP/5: A
+
+GPA: 2.83
+----------------------
+Name: Beybru
+Admin: p2340149
+Class: DIT/FT/1B/03
+Module taken:
+1. ST0525/DBS/5: B
+2. ST0503/FOP/5: C
+
+GPA: 2.5
+----------------------
+Name: Rutwaf
+Admin: p2340150
+Class: DIT/FT/1B/04
+Module taken:
+1. ST0506/SEP/4: B
+2. ST0506/SEP/6: A
+
+GPA: 3.6
+----------------------
+Name: Fxrsvg
+Admin: p2340151
+Class: DIT/FT/1B/07
+Module taken:
+1. ST0509/JPRG/4: B
+2. ST0509/JPRG/7: B
+
+GPA: 3.0
+----------------------
+Name: Wbicol
+Admin: p2340152
+Class: DIT/FT/1B/13
+Module taken:
+1. ST0506/SEP/4: A
+2. ST0509/JPRG/6: A
+
+GPA: 4.0
+----------------------
+Name: Jrqans
+Admin: p2340153
+Class: DIT/FT/1B/15
+Module taken:
+1. ST0503/FOP/5: B
+2. ST0503/FOP/5: C
+
+GPA: 2.5
+----------------------
+Name: Pztqrs
+Admin: p2340154
+Class: DIT/FT/1B/03
+Module taken:
+1. ST0506/SEP/5: C
+2. ST0503/FOP/7: A
+
+GPA: 3.17
+----------------------
+Name: Phfwrt
+Admin: p2340155
+Class: DIT/FT/1B/08
+Module taken:
+1. ST0509/JPRG/7: C
+2. ST0506/SEP/4: C
+
+GPA: 2.0
+----------------------
+Name: Mymqjc
+Admin: p2340156
+Class: DIT/FT/1B/14
+Module taken:
+1. ST0503/FOP/4: A
+2. ST0509/JPRG/4: A
+
+GPA: 4.0
+----------------------
+Name: Cgmrpb
+Admin: p2340157
+Class: DIT/FT/1B/07
+Module taken:
+1. ST0509/JPRG/4: C
+2. ST0503/FOP/7: A
+
+GPA: 3.27
+----------------------
+Name: Fhazjl
+Admin: p2340158
+Class: DIT/FT/1B/12
+Module taken:
+1. ST0503/FOP/7: B
+2. ST0503/FOP/7: B
+
+GPA: 3.0
+----------------------
+Name: Drwcki
+Admin: p2340159
+Class: DIT/FT/1B/01
+Module taken:
+1. ST0506/SEP/5: A
+2. ST0503/FOP/4: B
+
+GPA: 3.56
+----------------------
+Name: Inhyew
+Admin: p2340160
+Class: DIT/FT/1B/03
+Module taken:
+1. ST0506/SEP/5: B
+2. ST0509/JPRG/4: C
+
+GPA: 2.56
+----------------------
+Name: Yoyjyy
+Admin: p2340161
+Class: DIT/FT/1B/12
+Module taken:
+1. ST0525/DBS/5: C
+2. ST0525/DBS/5: A
+
+GPA: 3.0
+----------------------
+Name: Inwccj
+Admin: p2340162
+Class: DIT/FT/1B/02
+Module taken:
+1. ST0525/DBS/6: C
+2. ST0506/SEP/4: C
+
+GPA: 2.0
+----------------------
+Name: Nnhsee
+Admin: p2340163
+Class: DIT/FT/1B/04
+Module taken:
+1. ST0509/JPRG/7: C
+2. ST0509/JPRG/6: A
+
+GPA: 2.92
+----------------------
+Name: Xtepop
+Admin: p2340164
+Class: DIT/FT/1B/09
+Module taken:
+1. ST0506/SEP/5: B
+2. ST0503/FOP/4: C
+
+GPA: 2.56
+----------------------
+Name: Lmuoii
+Admin: p2340165
+Class: DIT/FT/1B/13
+Module taken:
+1. ST0509/JPRG/4: A
+2. ST0525/DBS/7: C
+
+GPA: 2.73
+----------------------
+Name: Wtibxj
+Admin: p2340166
+Class: DIT/FT/1B/08
+Module taken:
+1. ST0509/JPRG/5: C
+2. ST0525/DBS/7: C
+
+GPA: 2.0
+----------------------
+Name: Egcikl
+Admin: p2340167
+Class: DIT/FT/1B/15
+Module taken:
+1. ST0506/SEP/4: C
+2. ST0525/DBS/6: B
+
+GPA: 2.6
+----------------------
+Name: Xwdpra
+Admin: p2340168
+Class: DIT/FT/1B/04
+Module taken:
+1. ST0509/JPRG/7: B
+2. ST0503/FOP/4: B
+
+GPA: 3.0
+----------------------
+Name: Mvavll
+Admin: p2340169
+Class: DIT/FT/1B/10
+Module taken:
+1. ST0509/JPRG/6: A
+2. ST0503/FOP/6: A
+
+GPA: 4.0
+----------------------
+Name: Bcrpgu
+Admin: p2340170
+Class: DIT/FT/1B/09
+Module taken:
+1. ST0525/DBS/4: A
+2. ST0503/FOP/7: A
+
+GPA: 4.0
+----------------------
+Name: Aqssua
+Admin: p2340171
+Class: DIT/FT/1B/07
+Module taken:
+1. ST0503/FOP/7: C
+2. ST0509/JPRG/6: A
+
+GPA: 2.92
+----------------------
+Name: Enqmww
+Admin: p2340172
+Class: DIT/FT/1B/05
+Module taken:
+1. ST0509/JPRG/4: B
+2. ST0509/JPRG/5: B
+
+GPA: 3.0
+----------------------
+Name: Uznpkn
+Admin: p2340173
+Class: DIT/FT/1B/01
+Module taken:
+1. ST0525/DBS/5: B
+2. ST0503/FOP/4: B
+
+GPA: 3.0
+----------------------
+Name: Hwhixp
+Admin: p2340174
+Class: DIT/FT/1B/13
+Module taken:
+1. ST0503/FOP/4: A
+2. ST0525/DBS/7: C
+
+GPA: 2.73
+----------------------
+Name: Zxkqyy
+Admin: p2340175
+Class: DIT/FT/1B/01
+Module taken:
+1. ST0509/JPRG/7: C
+2. ST0506/SEP/5: A
+
+GPA: 2.83
+----------------------
+Name: Ysgtem
+Admin: p2340176
+Class: DIT/FT/1B/06
+Module taken:
+1. ST0503/FOP/4: B
+2. ST0525/DBS/6: C
+
+GPA: 2.4
+----------------------
+Name: Grbfur
+Admin: p2340177
+Class: DIT/FT/1B/05
+Module taken:
+1. ST0509/JPRG/5: B
+2. ST0503/FOP/4: A
+
+GPA: 3.44
+----------------------
+Name: Nntybv
+Admin: p2340178
+Class: DIT/FT/1B/07
+Module taken:
+1. ST0509/JPRG/5: B
+2. ST0506/SEP/5: A
+
+GPA: 3.5
+----------------------
+Name: Skzrca
+Admin: p2340179
+Class: DIT/FT/1B/10
+Module taken:
+1. ST0503/FOP/5: A
+2. ST0525/DBS/5: A
+
+GPA: 4.0
+----------------------
+Name: Obcext
+Admin: p2340180
+Class: DIT/FT/1B/14
+Module taken:
+1. ST0506/SEP/7: B
+2. ST0503/FOP/7: A
+
+GPA: 3.5
+----------------------
+Name: Dmnlbq
+Admin: p2340181
+Class: DIT/FT/1B/12
+Module taken:
+1. ST0506/SEP/7: C
+2. ST0509/JPRG/5: B
+
+GPA: 2.42
+----------------------
+Name: Uqaryt
+Admin: p2340182
+Class: DIT/FT/1B/10
+Module taken:
+1. ST0509/JPRG/7: B
+2. ST0509/JPRG/4: C
+
+GPA: 2.64
+----------------------
+Name: Ozqeup
+Admin: p2340183
+Class: DIT/FT/1B/11
+Module taken:
+1. ST0509/JPRG/5: B
+2. ST0509/JPRG/4: C
+
+GPA: 2.56
+----------------------
+Name: Bdjvgu
+Admin: p2340184
+Class: DIT/FT/1B/06
+Module taken:
+1. ST0509/JPRG/7: B
+2. ST0503/FOP/5: A
+
+GPA: 3.42
+----------------------
+Name: Xekdkf
+Admin: p2340185
+Class: DIT/FT/1B/05
+Module taken:
+1. ST0509/JPRG/6: C
+2. ST0506/SEP/5: B
+
+GPA: 2.45
+----------------------
+Name: Mfewsp
+Admin: p2340186
+Class: DIT/FT/1B/15
+Module taken:
+1. ST0506/SEP/6: A
+2. ST0509/JPRG/4: A
+
+GPA: 4.0
+----------------------
+Name: Letuqr
+Admin: p2340187
+Class: DIT/FT/1B/07
+Module taken:
+1. ST0503/FOP/6: C
+2. ST0506/SEP/5: A
+
+GPA: 2.91
+----------------------
+Name: Raorpg
+Admin: p2340188
+Class: DIT/FT/1B/01
+Module taken:
+1. ST0525/DBS/7: B
+2. ST0509/JPRG/5: A
+
+GPA: 3.42
+----------------------
+Name: Hgjjhy
+Admin: p2340189
+Class: DIT/FT/1B/04
+Module taken:
+1. ST0506/SEP/4: C
+2. ST0509/JPRG/6: A
+
+GPA: 3.2
+----------------------
+Name: Syvhua
+Admin: p2340190
+Class: DIT/FT/1B/11
+Module taken:
+1. ST0506/SEP/6: C
+2. ST0503/FOP/4: B
+
+GPA: 2.4
+----------------------
+Name: Pasfai
+Admin: p2340191
+Class: DIT/FT/1B/06
+Module taken:
+1. ST0506/SEP/4: B
+2. ST0525/DBS/5: A
+
+GPA: 3.56
+----------------------
+Name: Ruslat
+Admin: p2340192
+Class: DIT/FT/1B/09
+Module taken:
+1. ST0525/DBS/4: C
+2. ST0525/DBS/4: B
+
+GPA: 2.5
+----------------------
+Name: Ndsfyh
+Admin: p2340193
+Class: DIT/FT/1B/09
+Module taken:
+1. ST0506/SEP/6: C
+2. ST0525/DBS/5: C
+
+GPA: 2.0
+----------------------
+Name: Ewilci
+Admin: p2340194
+Class: DIT/FT/1B/11
+Module taken:
+1. ST0525/DBS/6: C
+2. ST0506/SEP/4: B
+
+GPA: 2.4
+----------------------
+Name: Shjhin
+Admin: p2340195
+Class: DIT/FT/1B/06
+Module taken:
+1. ST0503/FOP/5: B
+2. ST0525/DBS/4: B
+
+GPA: 3.0
+----------------------
+Name: Lyyemz
+Admin: p2340196
+Class: DIT/FT/1B/14
+Module taken:
+1. ST0525/DBS/7: A
+2. ST0525/DBS/4: A
+
+GPA: 4.0
+----------------------
+Name: Kwjfus
+Admin: p2340197
+Class: DIT/FT/1B/07
+Module taken:
+1. ST0509/JPRG/4: C
+2. ST0503/FOP/5: B
+
+GPA: 2.56
+----------------------
+Name: Rjbtel
+Admin: p2340198
+Class: DIT/FT/1B/13
+Module taken:
+1. ST0503/FOP/6: A
+2. ST0503/FOP/7: C
+
+GPA: 2.92
+----------------------
+Name: Lcbued
+Admin: p2340199
+Class: DIT/FT/1B/14
+Module taken:
+1. ST0506/SEP/7: B
+2. ST0525/DBS/4: C
+
+GPA: 2.64
+----------------------
+Name: Tmmrkb
+Admin: p2340200
+Class: DIT/FT/1B/02
+Module taken:
+1. ST0503/FOP/6: A
+2. ST0506/SEP/6: B
+
+GPA: 3.5
+----------------------
+Name: Pbmuwt
+Admin: p2340201
+Class: DIT/FT/1B/13
+Module taken:
+1. ST0509/JPRG/6: A
+2. ST0503/FOP/5: C
+
+GPA: 3.09
+----------------------
+Name: Dngnop
+Admin: p2340202
+Class: DIT/FT/1B/02
+Module taken:
+1. ST0506/SEP/4: B
+2. ST0509/JPRG/5: A
+
+GPA: 3.56
+----------------------
+Name: Qxfdos
+Admin: p2340203
+Class: DIT/FT/1B/15
+Module taken:
+1. ST0506/SEP/5: B
+2. ST0506/SEP/5: B
+
+GPA: 3.0
+----------------------
+Name: Brnlpt
+Admin: p2340204
+Class: DIT/FT/1B/07
+Module taken:
+1. ST0509/JPRG/4: B
+2. ST0503/FOP/7: C
+
+GPA: 2.36
+----------------------
+Name: Rnxjbg
+Admin: p2340205
+Class: DIT/FT/1B/06
+Module taken:
+1. ST0509/JPRG/7: A
+2. ST0509/JPRG/6: A
+
+GPA: 4.0
+----------------------
+Name: Pocgcc
+Admin: p2340206
+Class: DIT/FT/1B/11
+Module taken:
+1. ST0525/DBS/5: C
+2. ST0503/FOP/7: C
+
+GPA: 2.0
+----------------------
+Name: Kmosnu
+Admin: p2340207
+Class: DIT/FT/1B/15
+Module taken:
+1. ST0506/SEP/7: C
+2. ST0525/DBS/7: C
+
+GPA: 2.0
+----------------------
+Name: Hnkpaj
+Admin: p2340208
+Class: DIT/FT/1B/01
+Module taken:
+1. ST0509/JPRG/6: A
+2. ST0503/FOP/6: B
+
+GPA: 3.5
+----------------------
+Name: Tlyevk
+Admin: p2340209
+Class: DIT/FT/1B/09
+Module taken:
+1. ST0509/JPRG/4: C
+2. ST0509/JPRG/4: C
+
+GPA: 2.0
+----------------------
+Name: Eawgvb
+Admin: p2340210
+Class: DIT/FT/1B/09
+Module taken:
+1. ST0503/FOP/6: C
+2. ST0525/DBS/6: A
+
+GPA: 3.0
+----------------------
+Name: Tgcqiy
+Admin: p2340211
+Class: DIT/FT/1B/01
+Module taken:
+1. ST0525/DBS/6: A
+2. ST0509/JPRG/7: C
+
+GPA: 2.92
+----------------------
+Name: Ozznes
+Admin: p2340212
+Class: DIT/FT/1B/09
+Module taken:
+1. ST0503/FOP/6: A
+2. ST0503/FOP/7: A
+
+GPA: 4.0
+----------------------
+Name: Akxznm
+Admin: p2340213
+Class: DIT/FT/1B/15
+Module taken:
+1. ST0525/DBS/7: C
+2. ST0509/JPRG/7: C
+
+GPA: 2.0
+----------------------
+Name: Lygftc
+Admin: p2340214
+Class: DIT/FT/1B/11
+Module taken:
+1. ST0506/SEP/6: C
+2. ST0506/SEP/4: A
+
+GPA: 2.8
+----------------------
+Name: Xeuakx
+Admin: p2340215
+Class: DIT/FT/1B/10
+Module taken:
+1. ST0506/SEP/7: C
+2. ST0503/FOP/5: B
+
+GPA: 2.42
+----------------------
+Name: Vzlxug
+Admin: p2340216
+Class: DIT/FT/1B/04
+Module taken:
+1. ST0525/DBS/4: C
+2. ST0525/DBS/7: C
+
+GPA: 2.0
+----------------------
+Name: Udqxes
+Admin: p2340217
+Class: DIT/FT/1B/13
+Module taken:
+1. ST0503/FOP/5: A
+2. ST0509/JPRG/7: B
+
+GPA: 3.42
+----------------------
+Name: Xeijrf
+Admin: p2340218
+Class: DIT/FT/1B/02
+Module taken:
+1. ST0525/DBS/6: B
+2. ST0506/SEP/7: A
+
+GPA: 3.54
+----------------------
+Name: Edfsgr
+Admin: p2340219
+Class: DIT/FT/1B/03
+Module taken:
+1. ST0509/JPRG/5: C
+2. ST0525/DBS/4: B
+
+GPA: 2.44
+----------------------
+Name: Aoplvv
+Admin: p2340220
+Class: DIT/FT/1B/14
+Module taken:
+1. ST0506/SEP/7: A
+2. ST0506/SEP/4: C
+
+GPA: 3.27
+----------------------
+Name: Tjquje
+Admin: p2340221
+Class: DIT/FT/1B/05
+Module taken:
+1. ST0525/DBS/7: B
+2. ST0503/FOP/5: C
+
+GPA: 2.58
+----------------------
+Name: Xtvbyf
+Admin: p2340222
+Class: DIT/FT/1B/03
+Module taken:
+1. ST0525/DBS/6: A
+2. ST0509/JPRG/6: A
+
+GPA: 4.0
+----------------------
+Name: Blrdyh
+Admin: p2340223
+Class: DIT/FT/1B/02
+Module taken:
+1. ST0525/DBS/7: B
+2. ST0503/FOP/4: C
+
+GPA: 2.64
+----------------------
+Name: Mzqsbp
+Admin: p2340224
+Class: DIT/FT/1B/13
+Module taken:
+1. ST0525/DBS/5: C
+2. ST0525/DBS/4: A
+
+GPA: 2.89
+----------------------
+Name: Rdkttz
+Admin: p2340225
+Class: DIT/FT/1B/11
+Module taken:
+1. ST0503/FOP/7: B
+2. ST0506/SEP/6: A
+
+GPA: 3.46
+----------------------
+Name: Nekdjf
+Admin: p2340226
+Class: DIT/FT/1B/12
+Module taken:
+1. ST0506/SEP/5: B
+2. ST0503/FOP/5: C
+
+GPA: 2.5
+----------------------
+Name: Otepte
+Admin: p2340227
+Class: DIT/FT/1B/02
+Module taken:
+1. ST0509/JPRG/7: C
+2. ST0509/JPRG/5: A
+
+GPA: 2.83
+----------------------
+Name: Kyziot
+Admin: p2340228
+Class: DIT/FT/1B/08
+Module taken:
+1. ST0503/FOP/7: C
+2. ST0503/FOP/5: B
+
+GPA: 2.42
+----------------------
+Name: Icrcte
+Admin: p2340229
+Class: DIT/FT/1B/09
+Module taken:
+1. ST0503/FOP/6: A
+2. ST0509/JPRG/7: A
+
+GPA: 4.0
+----------------------
+Name: Odohbo
+Admin: p2340230
+Class: DIT/FT/1B/07
+Module taken:
+1. ST0525/DBS/6: C
+2. ST0506/SEP/4: C
+
+GPA: 2.0
+----------------------
+Name: Ulvkwi
+Admin: p2340231
+Class: DIT/FT/1B/13
+Module taken:
+1. ST0503/FOP/6: C
+2. ST0503/FOP/6: A
+
+GPA: 3.0
+----------------------
+Name: Iwydju
+Admin: p2340232
+Class: DIT/FT/1B/10
+Module taken:
+1. ST0509/JPRG/5: C
+2. ST0506/SEP/5: C
+
+GPA: 2.0
+----------------------
+Name: Oznope
+Admin: p2340233
+Class: DIT/FT/1B/12
+Module taken:
+1. ST0509/JPRG/7: C
+2. ST0506/SEP/5: C
+
+GPA: 2.0
+----------------------
+Name: Qjnqoz
+Admin: p2340234
+Class: DIT/FT/1B/07
+Module taken:
+1. ST0506/SEP/5: A
+2. ST0509/JPRG/4: C
+
+GPA: 3.11
+----------------------
+Name: Flrdhl
+Admin: p2340235
+Class: DIT/FT/1B/08
+Module taken:
+1. ST0506/SEP/4: A
+2. ST0506/SEP/6: A
+
+GPA: 4.0
+----------------------
+Name: Fqahgn
+Admin: p2340236
+Class: DIT/FT/1B/14
+Module taken:
+1. ST0503/FOP/4: C
+2. ST0503/FOP/6: B
+
+GPA: 2.6
+----------------------
+Name: Kfddkv
+Admin: p2340237
+Class: DIT/FT/1B/08
+Module taken:
+1. ST0525/DBS/5: A
+2. ST0503/FOP/5: C
+
+GPA: 3.0
+----------------------
+Name: Gazlkl
+Admin: p2340238
+Class: DIT/FT/1B/03
+Module taken:
+1. ST0509/JPRG/6: C
+2. ST0525/DBS/4: C
+
+GPA: 2.0
+----------------------
+Name: Fcommg
+Admin: p2340239
+Class: DIT/FT/1B/07
+Module taken:
+1. ST0509/JPRG/7: B
+2. ST0506/SEP/4: A
+
+GPA: 3.36
+----------------------
+Name: Xtvler
+Admin: p2340240
+Class: DIT/FT/1B/03
+Module taken:
+1. ST0503/FOP/5: B
+2. ST0503/FOP/5: A
+
+GPA: 3.5
+----------------------
+Name: Azfsmh
+Admin: p2340241
+Class: DIT/FT/1B/14
+Module taken:
+1. ST0525/DBS/6: A
+2. ST0525/DBS/5: A
+
+GPA: 4.0
+----------------------
+Name: Krlzzy
+Admin: p2340242
+Class: DIT/FT/1B/08
+Module taken:
+1. ST0525/DBS/6: C
+2. ST0525/DBS/4: A
+
+GPA: 2.8
+----------------------
+Name: Gxkzdf
+Admin: p2340243
+Class: DIT/FT/1B/13
+Module taken:
+1. ST0525/DBS/5: A
+2. ST0503/FOP/5: C
+
+GPA: 3.0
+----------------------
+Name: Rbegdr
+Admin: p2340244
+Class: DIT/FT/1B/15
+Module taken:
+1. ST0506/SEP/6: A
+2. ST0503/FOP/5: B
+
+GPA: 3.55
+----------------------
+Name: Laivsx
+Admin: p2340245
+Class: DIT/FT/1B/06
+Module taken:
+1. ST0506/SEP/5: B
+2. ST0509/JPRG/5: A
+
+GPA: 3.5
+----------------------
+Name: Mcighb
+Admin: p2340246
+Class: DIT/FT/1B/01
+Module taken:
+1. ST0503/FOP/5: A
+2. ST0525/DBS/4: B
+
+GPA: 3.56
+----------------------
+Name: Mtyvan
+Admin: p2340247
+Class: DIT/FT/1B/03
+Module taken:
+1. ST0503/FOP/6: A
+2. ST0503/FOP/6: B
+
+GPA: 3.5
+----------------------
+Name: Gkgvfj
+Admin: p2340248
+Class: DIT/FT/1B/06
+Module taken:
+1. ST0503/FOP/5: B
+2. ST0506/SEP/7: C
+
+GPA: 2.42
+----------------------
+Name: Ipunuo
+Admin: p2340249
+Class: DIT/FT/1B/10
+Module taken:
+1. ST0525/DBS/5: B
+2. ST0509/JPRG/5: B
+
+GPA: 3.0
+----------------------
+Name: Evlckh
+Admin: p2340250
+Class: DIT/FT/1B/15
+Module taken:
+1. ST0509/JPRG/5: A
+2. ST0509/JPRG/5: C
+
+GPA: 3.0
+----------------------
+Name: Bzrwlp
+Admin: p2340251
+Class: DIT/FT/1B/15
+Module taken:
+1. ST0525/DBS/6: A
+2. ST0509/JPRG/6: B
+
+GPA: 3.5
+----------------------
+Name: Sftcax
+Admin: p2340252
+Class: DIT/FT/1B/12
+Module taken:
+1. ST0525/DBS/7: A
+2. ST0503/FOP/4: A
+
+GPA: 4.0
+----------------------
+Name: Gryeuq
+Admin: p2340253
+Class: DIT/FT/1B/09
+Module taken:
+1. ST0525/DBS/5: B
+2. ST0506/SEP/7: B
+
+GPA: 3.0
+----------------------
+Name: Voubai
+Admin: p2340254
+Class: DIT/FT/1B/06
+Module taken:
+1. ST0503/FOP/7: A
+2. ST0525/DBS/5: B
+
+GPA: 3.58
+----------------------
+Name: Hhpbcx
+Admin: p2340255
+Class: DIT/FT/1B/14
+Module taken:
+1. ST0509/JPRG/7: C
+2. ST0525/DBS/4: C
+
+GPA: 2.0
+----------------------
+Name: Mmjziu
+Admin: p2340256
+Class: DIT/FT/1B/02
+Module taken:
+1. ST0509/JPRG/5: C
+2. ST0503/FOP/7: C
+
+GPA: 2.0
+----------------------
+Name: Vnjgnt
+Admin: p2340257
+Class: DIT/FT/1B/02
+Module taken:
+1. ST0509/JPRG/5: C
+2. ST0509/JPRG/6: C
+
+GPA: 2.0
+----------------------
+Name: Icwyqp
+Admin: p2340258
+Class: DIT/FT/1B/12
+Module taken:
+1. ST0509/JPRG/4: B
+2. ST0503/FOP/4: A
+
+GPA: 3.5
+----------------------
+Name: Dhydgi
+Admin: p2340259
+Class: DIT/FT/1B/04
+Module taken:
+1. ST0525/DBS/4: B
+2. ST0509/JPRG/5: C
+
+GPA: 2.44
+----------------------
+Name: Melbwp
+Admin: p2340260
+Class: DIT/FT/1B/04
+Module taken:
+1. ST0506/SEP/7: A
+2. ST0506/SEP/4: A
+
+GPA: 4.0
+----------------------
+Name: Gvdrjc
+Admin: p2340261
+Class: DIT/FT/1B/01
+Module taken:
+1. ST0509/JPRG/5: B
+2. ST0509/JPRG/5: C
+
+GPA: 2.5
+----------------------
+Name: Uqtjnq
+Admin: p2340262
+Class: DIT/FT/1B/05
+Module taken:
+1. ST0509/JPRG/5: B
+2. ST0506/SEP/4: A
+
+GPA: 3.44
+----------------------
+Name: Nqmszx
+Admin: p2340263
+Class: DIT/FT/1B/08
+Module taken:
+1. ST0509/JPRG/6: B
+2. ST0525/DBS/6: C
+
+GPA: 2.5
+----------------------
+Name: Dqsgah
+Admin: p2340264
+Class: DIT/FT/1B/10
+Module taken:
+1. ST0509/JPRG/4: C
+2. ST0503/FOP/4: A
+
+GPA: 3.0
+----------------------
+Name: Xvvopi
+Admin: p2340265
+Class: DIT/FT/1B/04
+Module taken:
+1. ST0525/DBS/4: B
+2. ST0503/FOP/7: A
+
+GPA: 3.64
+----------------------
+Name: Vgbeqk
+Admin: p2340266
+Class: DIT/FT/1B/01
+Module taken:
+1. ST0503/FOP/7: B
+2. ST0525/DBS/4: A
+
+GPA: 3.36
+----------------------
+Name: Onjdjd
+Admin: p2340267
+Class: DIT/FT/1B/05
+Module taken:
+1. ST0503/FOP/7: A
+2. ST0509/JPRG/6: A
+
+GPA: 4.0
+----------------------
+Name: Laghwv
+Admin: p2340268
+Class: DIT/FT/1B/14
+Module taken:
+1. ST0509/JPRG/4: A
+2. ST0506/SEP/6: C
+
+GPA: 2.8
+----------------------
+Name: Rhxora
+Admin: p2340269
+Class: DIT/FT/1B/01
+Module taken:
+1. ST0509/JPRG/5: A
+2. ST0503/FOP/4: C
+
+GPA: 3.11
+----------------------
+Name: Hojrtb
+Admin: p2340270
+Class: DIT/FT/1B/08
+Module taken:
+1. ST0509/JPRG/6: C
+2. ST0509/JPRG/4: B
+
+GPA: 2.4
+----------------------
+Name: Jkduuw
+Admin: p2340271
+Class: DIT/FT/1B/14
+Module taken:
+1. ST0506/SEP/5: C
+2. ST0525/DBS/6: A
+
+GPA: 3.09
+----------------------
+Name: Ttahrf
+Admin: p2340272
+Class: DIT/FT/1B/07
+Module taken:
+1. ST0503/FOP/4: B
+2. ST0503/FOP/4: C
+
+GPA: 2.5
+----------------------
+Name: Ewybdg
+Admin: p2340273
+Class: DIT/FT/1B/09
+Module taken:
+1. ST0503/FOP/4: A
+2. ST0509/JPRG/7: B
+
+GPA: 3.36
+----------------------
+Name: Gbhhha
+Admin: p2340274
+Class: DIT/FT/1B/03
+Module taken:
+1. ST0506/SEP/6: C
+2. ST0525/DBS/6: C
+
+GPA: 2.0
+----------------------
+Name: Jacgsf
+Admin: p2340275
+Class: DIT/FT/1B/12
+Module taken:
+1. ST0525/DBS/5: C
+2. ST0506/SEP/6: A
+
+GPA: 3.09
+----------------------
+Name: Gsjwzn
+Admin: p2340276
+Class: DIT/FT/1B/09
+Module taken:
+1. ST0503/FOP/7: C
+2. ST0525/DBS/4: B
+
+GPA: 2.36
+----------------------
+Name: Cioplz
+Admin: p2340277
+Class: DIT/FT/1B/01
+Module taken:
+1. ST0509/JPRG/5: C
+2. ST0503/FOP/4: A
+
+GPA: 2.89
+----------------------
+Name: Grtndl
+Admin: p2340278
+Class: DIT/FT/1B/01
+Module taken:
+1. ST0525/DBS/4: C
+2. ST0509/JPRG/5: A
+
+GPA: 3.11
+----------------------
+Name: Obequb
+Admin: p2340279
+Class: DIT/FT/1B/12
+Module taken:
+1. ST0509/JPRG/6: C
+2. ST0503/FOP/6: C
+
+GPA: 2.0
+----------------------
+Name: Ejkplg
+Admin: p2340280
+Class: DIT/FT/1B/01
+Module taken:
+1. ST0506/SEP/5: B
+2. ST0506/SEP/6: C
+
+GPA: 2.45
+----------------------
+Name: Ejlird
+Admin: p2340281
+Class: DIT/FT/1B/05
+Module taken:
+1. ST0503/FOP/5: A
+2. ST0525/DBS/7: B
+
+GPA: 3.42
+----------------------
+Name: Kuuuee
+Admin: p2340282
+Class: DIT/FT/1B/14
+Module taken:
+1. ST0525/DBS/5: A
+2. ST0525/DBS/7: C
+
+GPA: 2.83
+----------------------
+Name: Vpyimb
+Admin: p2340283
+Class: DIT/FT/1B/06
+Module taken:
+1. ST0503/FOP/5: B
+2. ST0506/SEP/4: B
+
+GPA: 3.0
+----------------------
+Name: Xnxsiw
+Admin: p2340284
+Class: DIT/FT/1B/03
+Module taken:
+1. ST0525/DBS/7: A
+2. ST0509/JPRG/6: B
+
+GPA: 3.54
+----------------------
+Name: Nizwcy
+Admin: p2340285
+Class: DIT/FT/1B/03
+Module taken:
+1. ST0509/JPRG/7: B
+2. ST0509/JPRG/4: B
+
+GPA: 3.0
+----------------------
+Name: Qdzeqs
+Admin: p2340286
+Class: DIT/FT/1B/04
+Module taken:
+1. ST0503/FOP/5: C
+2. ST0509/JPRG/4: A
+
+GPA: 2.89
+----------------------
+Name: Dosrtt
+Admin: p2340287
+Class: DIT/FT/1B/09
+Module taken:
+1. ST0525/DBS/5: B
+2. ST0503/FOP/5: B
+
+GPA: 3.0
+----------------------
+Name: Klersd
+Admin: p2340288
+Class: DIT/FT/1B/05
+Module taken:
+1. ST0525/DBS/4: A
+2. ST0525/DBS/6: A
+
+GPA: 4.0
+----------------------
+Name: Xncxgp
+Admin: p2340289
+Class: DIT/FT/1B/14
+Module taken:
+1. ST0506/SEP/4: B
+2. ST0509/JPRG/6: C
+
+GPA: 2.4
+----------------------
+Name: Dyvrmf
+Admin: p2340290
+Class: DIT/FT/1B/02
+Module taken:
+1. ST0503/FOP/4: B
+2. ST0506/SEP/6: A
+
+GPA: 3.6
+----------------------
+Name: Ymqmki
+Admin: p2340291
+Class: DIT/FT/1B/14
+Module taken:
+1. ST0506/SEP/7: C
+2. ST0525/DBS/5: C
+
+GPA: 2.0
+----------------------
+Name: Aluerf
+Admin: p2340292
+Class: DIT/FT/1B/09
+Module taken:
+1. ST0506/SEP/4: B
+2. ST0509/JPRG/4: C
+
+GPA: 2.5
+----------------------
+Name: Ewjohs
+Admin: p2340293
+Class: DIT/FT/1B/03
+Module taken:
+1. ST0503/FOP/6: C
+2. ST0503/FOP/6: A
+
+GPA: 3.0
+----------------------
+Name: Wltoih
+Admin: p2340294
+Class: DIT/FT/1B/03
+Module taken:
+1. ST0509/JPRG/5: C
+2. ST0509/JPRG/6: C
+
+GPA: 2.0
+----------------------
+Name: Qzfljh
+Admin: p2340295
+Class: DIT/FT/1B/12
+Module taken:
+1. ST0509/JPRG/7: B
+2. ST0506/SEP/7: B
+
+GPA: 3.0
+----------------------
+Name: Fnhkat
+Admin: p2340296
+Class: DIT/FT/1B/14
+Module taken:
+1. ST0525/DBS/4: B
+2. ST0506/SEP/6: C
+
+GPA: 2.4
+----------------------
+Name: Hsirnj
+Admin: p2340297
+Class: DIT/FT/1B/11
+Module taken:
+1. ST0503/FOP/5: C
+2. ST0525/DBS/5: C
+
+GPA: 2.0
+----------------------
+Name: Axsbml
+Admin: p2340298
+Class: DIT/FT/1B/01
+Module taken:
+1. ST0525/DBS/7: C
+2. ST0503/FOP/4: B
+
+GPA: 2.36
+----------------------
+Name: Mbmyoi
+Admin: p2340299
+Class: DIT/FT/1B/10
+Module taken:
+1. ST0509/JPRG/6: C
+2. ST0509/JPRG/6: B
+
+GPA: 2.5
+----------------------
