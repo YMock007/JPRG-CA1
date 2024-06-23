@@ -9,40 +9,11 @@ import java.util.ArrayList;
 /**
  *
  * @author yeyin
+ * @author shinn
  */
 public class StudentUser {
     
     public static void main(String[] args) {
-        // ------------------------------------------------------
-        // Configs / Booting Up
-        // ------------------------------------------------------
-        int system;
-        boolean quit = false;
-        ArrayList<Student> students = new ArrayList<>(); // Creating a list to store students
-        
-        // ------------------------------------------------------
-        //Creating some students in database
-        // ------------------------------------------------------
-        
-        SimulateStudents.addStudents(students);
-        for(Student student : students){
-                System.out.println(student.toString());
-            }
-        
-        while(!quit) {
-            system = StudentManagementController.getSystem();
-            switch (system) {
-                case 1 -> {
-                    StudentManagementController.showAdminSystem(students);
-                }
-                case 2 -> {
-                    StudentManagementController.showUserSystem(students);
-                }
-                case 3 -> {
-                    StudentManagementView.displayTerminateMessage();
-                    quit = true;                   
-                }
-            }   
-        }
+        StudentManagementController.run();
     }
 }

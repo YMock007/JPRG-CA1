@@ -75,6 +75,10 @@ public class Student {
     }
     
 
+    // New method for report generation
+    public String getPerformanceSummary() {
+        return String.format("Name: %s, AdminNo: %s, Class: %s, GPA: %.2f", stdName, adminNo, classCode, calculateGPA());
+    }
     
     @Override
     public String toString() {

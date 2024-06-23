@@ -64,14 +64,4 @@ public class SimulateStudents {
             students.add(new Student(name, id, classCode, moduleList));
         }
     }
-
-    public static void main(String[] args) {
-        ArrayList<Student> students = new ArrayList<>();
-        addStudents(students);
-
-        // Display the added students
-        for (Student student : students) {
-            System.out.println("Name: " + student.getStdName() + ", Admin No: " + student.getAdminNo() + ", Class: " + student.getClassCode());
-        }
-    }
 }

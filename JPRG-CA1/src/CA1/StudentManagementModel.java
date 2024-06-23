@@ -6,12 +6,23 @@
 /**
  *
  * @author yeyin
+ * @author shinn
  */
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import java.util.regex.Pattern;
 
 public class StudentManagementModel {
+
+    public static String getOptionsForSystem(String system) {
+        if(system.equals("Student Admin System")) {
+            // Define admin options menu
+            return "1. Add new student \n2. Delete student \n3. Add new module for student \n4. Previous";
+        } else {
+            system = "Student Enquire System";
+            return "1. Display all students \n2. Search students by class \n3. Search student by name \n4. View General Statistics \n5. Previous";
+        }
+    }
     //Validating methods
     
     // Check if a string contains only digits
@@ -38,6 +49,11 @@ public class StudentManagementModel {
     public static boolean containsOnlyAlphanumeric(String s) {
         return !(!Character.isDigit(s.charAt(0)) || !Character.isLetter(s.charAt(1)));
     }
+    
+    // Check if second character is PT or FT.
+    public static boolean containsOnlyPTorFT(String s) {
+        return s.equals("FT")|| s.equals("PT");
+    }
 
     // Check if a string is empty or contains only whitespace characters
     public static boolean isEmpty(String str) {
@@ -48,7 +64,7 @@ public class StudentManagementModel {
     public static boolean checkDuplicateAdminNo(ArrayList<Student> Students, String adminNo) {
         for (Student student : Students) {
             if (student.getAdminNo().equals(adminNo)) {
-                StudentManagementView.displayErrorMessage("Admission number " + adminNo + " already exists!", "Student Admin System");
+                StudentManagementView.displayAdminNumExistError(adminNo);
                 return false;
             }
         }
@@ -58,14 +74,14 @@ public class StudentManagementModel {
     //Method to check if number is within range or not
     public static boolean isNumberInRange(int checkNumber, int rangeNumber) {
         // Check if the checkNumber is positive
-        if (checkNumber <= 0) {
-            StudentManagementView.displayErrorMessage("Number must be positive.", "Number Validation");
+        if (checkNumber <= 0 || checkNumber % 1 != 00) {
+            StudentManagementView.displayNotPositiveError();
             return false;
         }
     
         // Check if checkNumber is within the range (1, rangeNumber), inclusive
         if (checkNumber > rangeNumber) {
-            StudentManagementView.displayErrorMessage("Number is out of range. It should be within 1 and " + rangeNumber + ".", "Number Validation");
+            StudentManagementView.displayOutOfRangeError(rangeNumber);
             return false;
         }
     
@@ -83,28 +99,6 @@ public class StudentManagementModel {
             return classCode.charAt(5) == '/' && classCode.charAt(8) == '/' && classCode.charAt(11) == '/';
         }
         return false;
-    }
-
-    // Method to check the lengths of components of the class code
-    public static boolean checkClassCodeLength(String[] classArray) {
-        // Check the length of each component and show error messages if invalid
-        if (classArray[0].length() < 3 || classArray[0].length() > 5 ||  !checkUpperCase(classArray[0])) {
-            StudentManagementView.displayErrorMessage("Invalid input in course of class.", "Student Admin System");
-            return false;
-        }
-        if (classArray[1].length() != 2 || !checkUpperCase(classArray[1])) {
-            StudentManagementView.displayErrorMessage("Invalid input in type of class.", "Student Admin System");
-            return false;
-        }
-        if (classArray[2].length() != 2 || !Character.isUpperCase(classArray[2].charAt(1))) {
-            StudentManagementView.displayErrorMessage("Invalid input in stage/path of class.", "Student Admin System");
-            return false;
-        }
-        if (classArray[3].length() != 2) {
-            StudentManagementView.displayErrorMessage("Invalid input in class number.", "Student Admin System");
-            return false;
-        }
-        return true;
     }
     
     //Method to check user's input is Uppercase or not
@@ -125,19 +119,19 @@ public class StudentManagementModel {
 
         // Check if module code is 6 characters long
         if (mArray.length != 6) {
-            StudentManagementView.displayErrorMessage("Module code must be 6 characters long.", "Student Admin System");
+            StudentManagementView.displayModuleCodeError();
             return false;
         } 
         // Check if the first 2 characters are alphabets
         else if (!Character.isLetter(mArray[0]) || !Character.isLetter(mArray[1])) {
-            StudentManagementView.displayErrorMessage("First 2 characters must be alphabets in module code.", "Student Admin System");
+            StudentManagementView.displayFirst2CharacterModuleCodeError();
             return false;
         }
 
         // Check if the last 4 characters are digits
         for (int i = 2; i < mArray.length; i++) {
             if (!Character.isDigit(mArray[i])) {
-                StudentManagementView.displayErrorMessage("Last 4 characters must be digits in module code.", "Student Admin System");
+                StudentManagementView.displayLast4CharacterModuleCodeError();
                 return false;
             }
         }
@@ -151,7 +145,7 @@ public class StudentManagementModel {
     public static boolean checkDuplicateModuleCode(ArrayList<Module> modules, String m){
         for(int j = 0; j < modules.size(); j++){
                 if(modules.get(j).getModuleCode().equals(m)){
-                    StudentManagementView.displayErrorMessage("The module code " + m + " is already added!", "Student Admin System");
+                    StudentManagementView.displayDuplicateModuleCodeError(m);
                     return false;
                 }
             }
@@ -162,7 +156,7 @@ public class StudentManagementModel {
     public static boolean checkDuplicateModuleName(ArrayList<Module> modules, String m){
         for(int j = 0; j < modules.size(); j++){
                 if(modules.get(j).getModuleName().equals(m)){
-                    StudentManagementView.displayErrorMessage("The module name " + m + " is already added!", "Student Admin System");
+                    StudentManagementView.displayDuplicateModuleNameError(m);
                     return false;
                 }
             }
@@ -181,59 +175,67 @@ public class StudentManagementModel {
         return -1;
     }
     
+    public static void getErrorClassCode(String [] classArray) {
+        String output = "";
+        if(!containsOnlyLetters(classArray[0])) {
+            output += "The course code must contain only letters and be between 3 and 5 characters long.\n";
+        } 
+
+        if(!containsOnlyPTorFT(classArray[1])) {
+            output += "The student type can only be FT or PT\n";
+        }
+
+        if(!containsOnlyAlphanumeric(classArray[2])) {
+            output += "The year code must be a number follow by an alphabet.\n";
+        }
+
+        if(!containsOnlyDigits(classArray[3])) {
+            output += "The class number must be positive integer";
+        }
+
+        StudentManagementView.displayClassCodeError(output, "Student Admin System");
+    }
     
     //--------------------------------------------------------------------------
     // Displaying All Student report 
     //--------------------------------------------------------------------------
+ 
     public static void displayAllStudent(ArrayList<Student> students) {
-        
-        int studentIndex = 1;
-        int moduleIndex;
-        
-        String output = "Display first three students from all students " + students.size() + "\n\n";
-        
-        for (int i = 0; i < 3; i++) {
+        StringBuilder report = new StringBuilder();
+        report.append("<html>");
+        report.append("<table border='1' style='border-collapse:collapse;'>");
+        report.append("<tr>");
+        report.append("<th>Student</th>");
+        report.append("<th>Name</th>");
+        report.append("<th>Admin Number</th>");
+        report.append("<th>Class</th>");
+        report.append("<th>Modules Taken</th>");
+        report.append("</tr>");
+
+        for (int i = 0; i < students.size(); i++) {
             Student student = students.get(i);
-            moduleIndex = 1;
-            output += "Student " + studentIndex++ + ":\n" +
-                      "Name: " + student.getStdName() + "\n" + 
-                      "Admin: " + student.getAdminNo() + "\n" +
-                      "Class: " + student.getClassCode() + "\n" +
-                      "Modules Taken\n";
+            report.append("<tr>");
+            report.append("<td>").append(i + 1).append("</td>");
+            report.append("<td>").append(student.getStdName()).append("</td>");
+            report.append("<td>").append(student.getAdminNo()).append("</td>");
+            report.append("<td>").append(student.getClassCode()).append("</td>");
+            report.append("<td>");
 
-            for(Module module: student.getModules()) {
-                output += moduleIndex++ + "." + module.getModuleCode() + "/" +
-                          module.getModuleName() + "/" + + module.getCreditUnit() +
-                          ": " + module.calculateGrade() + "\n";
+            for (int j = 0; j < student.getModules().size(); j++) {
+                Module module = student.getModules().get(j);
+                report.append(module.getModuleCode()).append("/").append(module.getModuleName())
+                        .append("/").append(module.getCreditUnit()).append(":")
+                        .append(module.calculateGrade()).append("<br>");
             }
-            output +=  "----------------------------\n";
+
+            report.append("</td>")
+                    .append("</tr>");
         }
+
+        report.append("</table>");
+        report.append("</html>");    
         
-        StudentManagementView.displayFinishMessage(output, "All Student Report");       
-    }
-
-    public static String getClassCode() {
-        String userInput;
-        String question = "Enter the class name to search";
-
-        while (true) {
-            userInput = JOptionPane.showInputDialog(null,
-                    question,
-                    "Search",
-                    JOptionPane.QUESTION_MESSAGE);
-
-            if (userInput == null) {  // User clicked cancel or closed the dialog
-                return null;
-            }
-
-            userInput = userInput.trim().toUpperCase();  // Trim leading and trailing whitespace and Uppercasing
-
-            if (validatingClassCode(userInput)) {
-                return userInput;
-            } else {
-                StudentManagementView.displayErrorMessage("Please enter a valid class code in the format Course/FTorPT/Year/ClassNumber (e.g., DIT/FT/2B/22)", "Error");
-            }
-        }
+        StudentManagementView.displayAllStudentinTabularFormat(report);
     }
 
     public static boolean validatingClassCode(String userInput) {
@@ -269,6 +271,9 @@ public class StudentManagementModel {
         }
     }
     
+    public static double calculateAvgGPA(double totalGPA, double studentCount) {
+        return totalGPA / studentCount;
+    }
     
      public static String getStdName() {
         String userInput;
@@ -289,7 +294,7 @@ public class StudentManagementModel {
             
             // Check if the trimmed input is empty
             if (isEmpty(userInput) || !containsOnlyLetters(userInput)) {
-                StudentManagementView.displayErrorMessage("Please enter a valid input. Input cannot be blank.", "Error");
+                StudentManagementView.displayInvalidName();;
                 continue;
             }
 

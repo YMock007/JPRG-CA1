@@ -6,6 +6,7 @@
 /**
  *
  * @author yeyin
+ * @author shinn
  */
 
 import java.util.ArrayList;
@@ -16,30 +17,56 @@ public class StudentManagementController {
     //--------------------------------------------------------------------------
     // Selecting System
     //--------------------------------------------------------------------------
-    public static int getSystem() {
-        String system;
+    public static void run () {
+        Integer system;
+        boolean quit = false;
+        ArrayList<Student> students = new ArrayList<>(); // Creating a list to store students
+        
+        SimulateStudents.addStudents(students);
+        for(Student student : students){
+                System.out.println(student.toString());
+            }
+        
+        while(!quit) {
+            system = StudentManagementController.getSystem();
+            if(system != null) {
+                switch (system) {
+                    case 1 -> {
+                        StudentManagementController.showAdminSystem(students);
+                    }
+                    case 2 -> {
+                        StudentManagementController.showEnquirySystem(students);
+                    }
+                    case 3 -> {
+                        StudentManagementView.displayTerminateMessage();
+                        quit = true;                   
+                    }
+                }  
+            } else {
+                quit = true;
+                StudentManagementView.displayTerminateMessage();
+            }
+        }
+    }
+    public static Integer getSystem() {
         int systemInt;
         // Define system options menu
-        String systemOptions = "1. Admin System \n2. User system \n3. Quit";
+        String system = "Selecting System";
+        String options = "1. Admin System \n2. Enquiry system \n3. Quit";
         
         // Loop until valid input is received
         while (true) {
             try {
-                system = JOptionPane.showInputDialog(null,
-                        systemOptions,
-                        "Selecting System",
-                        JOptionPane.QUESTION_MESSAGE
-                );
+                system = StudentManagementView.getUserInput(options, system);
 
                 // Check if the user clicked the cancel button or closed the dialog
                 if (system == null) {
-                    StudentManagementView.displayFinishMessage("Program terminated. Thank you!", "Selecting System");
-                    System.exit(0);
+                    return null;
                 }
                 
                 // Check if user input is empty
                 if (StudentManagementModel.isEmpty(system)) {
-                    StudentManagementView.displayErrorMessage("Input cannot be empty!", "System Selection");
+                    StudentManagementView.displaySystemSelectingErrorMessage();
                     continue;
                 }
 
@@ -50,7 +77,7 @@ public class StudentManagementController {
             } catch (NumberFormatException e) {
                 // Catch exception if input cannot be parsed to integer
                 // Show error message and continue loop
-                StudentManagementView.displayErrorMessage("Please enter a valid input!", "System Selection");
+                StudentManagementView.displaySystemSelectingErrorInvalidInput();
             }
         }       
     }
@@ -60,7 +87,7 @@ public class StudentManagementController {
     //--------------------------------------------------------------------------
     public static void showAdminSystem(ArrayList<Student> students) {
         boolean quit = false;
-        final String system = "Student Admin System";// Setting the system name
+        String system = "Student Admin System";// Setting the system name
         Integer select;// Declaring variable to store user's selection
         // Prompting user to select an option from the menu and storing the selection
         while(!quit){
@@ -84,7 +111,7 @@ public class StudentManagementController {
                     }
                 } 
             } else {
-                quit = true;
+                    quit = true;
             }
         } 
     }
@@ -92,9 +119,9 @@ public class StudentManagementController {
         //--------------------------------------------------------------------------
     // User system option
     //--------------------------------------------------------------------------
-    public static void showUserSystem(ArrayList<Student> students) {
+    public static void showEnquirySystem(ArrayList<Student> students) {
         boolean quit = false;
-        final String system = "Student Enquiry System";// Setting the system name
+        String system = "Student Enquire System";// Setting the system name
         Integer select;// Declaring variable to store user's selection
         // Prompting user to select an option from the menu and storing the selection
         while(!quit){
@@ -113,7 +140,10 @@ public class StudentManagementController {
                         searchStudentByName(students);
                     }
 
-                    case 4->{
+                    case 4 -> {
+                        viewGeneralStatistics(students);
+                    }
+                    case 5->{
                         quit = true;
                     }
                 }
@@ -132,21 +162,12 @@ public class StudentManagementController {
         int userSelectInt;
         String options;
                 
-        if(system.equals("Student Admin System")) {
-            // Define admin options menu
-            options = "1. Add new student \n2. Delete student \n3. Add new module for student \n4. Previous";
-        } else {
-            options = "1. Display all students \n2. Search students by class \n3. Search student by name \n4. Previous";
-        }
+        options = StudentManagementModel.getOptionsForSystem(system);
 
         // Loop until valid input is received
         while (true) {
             try {
-                userSelectStr = JOptionPane.showInputDialog(null,
-                        options,
-                        system,
-                        JOptionPane.QUESTION_MESSAGE
-                );
+                userSelectStr = StudentManagementView.getUserInput(options, system);
                 
                 // Check if the user clicked the cancel button or closed the dialog
                 if (userSelectStr == null) {
@@ -155,7 +176,7 @@ public class StudentManagementController {
                 
                 // Check if user input is empty
                 if (StudentManagementModel.isEmpty(userSelectStr)) {
-                    StudentManagementView.displayErrorMessage("Input cannot be empty!", system);
+                    StudentManagementView.displayBothSystemErrorInput(system);
                     continue;
                 }
 
@@ -166,16 +187,71 @@ public class StudentManagementController {
             } catch (NumberFormatException e) {
                 // Catch exception if input cannot be parsed to integer
                 // Show error message and continue loop
-                StudentManagementView.displayErrorMessage("Please enter a valid input!", system);
+                StudentManagementView.displayBlankInputMessage(system);
             }
         }
     }
     
+    public static void viewGeneralStatistics(ArrayList<Student> students) {
+        boolean quit = false;
+        
+        while (!quit) {
+            String[] options = {"1. Show Top Performing Students", "2. Show Students Needing Improvement", "3. Generate CSV Report", "4. Generate PDF Report", "5. Back"};
+            String selection = StudentManagementView.getUserInput(String.join("\n", options), "Generate Reports");
+
+            switch (selection) {
+                case "1":
+                    String topN;
+                    int topNInt;
+                    String s1 = "Enter number of top performing students to display:";
+                    String system1 = "Top Performing Students";
+                    topN = StudentManagementView.getUserInput(s1, system1);
+                    if(topN == null) {
+                        continue;
+                    } else {
+                        topNInt =Integer.parseInt(topN);
+                    }
+                    ArrayList<Student> topStudents = ViewGeneralStatistics.getTopPerformingStudents(students, topNInt);
+
+                    topStudents.forEach(student -> System.out.println(student.getPerformanceSummary()));
+                    
+                    break;
+                case "2":
+                    String threshold;
+                    double thresholdDouble;
+                    String s2 = "Enter GPA threshold for students needing improvement:";
+                    String system2 = "Students Needing Improvement";
+
+                    threshold = StudentManagementView.getUserInput(s2, system2);
+                    if(threshold == null) {
+                        continue;
+                    } else {
+                        thresholdDouble = Double.parseDouble(threshold);
+                    }
+                    ArrayList<Student> studentsNeedingImprovement = ViewGeneralStatistics.getStudentsNeedingImprovement(students, thresholdDouble);
+                    studentsNeedingImprovement.forEach(student -> System.out.println(student.getPerformanceSummary()));
+                    break;
+                case "3":
+                    // ViewGeneralStatistics.generateCSVReport(students, "students_report.csv");
+                    break;
+                case "4":
+                    // ViewGeneralStatistics.generatePDFReport(students, "students_report.pdf");              
+                    break;
+                case "5":
+                    quit = true;
+                    break;
+                default:
+                    quit = true;
+                    break;
+            }
+        }
+    }
+
     //--------------------------------------------------------------------------
     // Search student by Class 
     //--------------------------------------------------------------------------
     public static void searchStudentByClass(ArrayList<Student> students) {
-        String classCode = StudentManagementModel.getClassCode();
+        String classCode = getClassCode();
         if(classCode != null){
             int studentCount = 0;
             double totalGPA = 0.0;
@@ -191,9 +267,9 @@ public class StudentManagementController {
             }
             
             if(studentCount == 0) {
-                StudentManagementView.displayErrorMessage("No student found from the class", "Class Summary");
+                StudentManagementView.displayNoStudentCountMessage();
             } else {
-                avgGPA = totalGPA / studentCount;
+                avgGPA = StudentManagementModel.calculateAvgGPA(totalGPA, studentCount);
                 avgGPA = Double.parseDouble(String.format("%.2f", avgGPA));
                 StudentManagementView.displayClassSummary(classCode,studentCount,avgGPA);    
             }
@@ -226,14 +302,13 @@ public class StudentManagementController {
             }
             
 
-            if (stdInfo.isBlank()) {
-                String errorMessage = "Cannot find the student \"" + stdName + "\"!!";
-                StudentManagementView.displayErrorMessage(errorMessage, "Info");
+            if (stdInfo.isBlank()) {               
+                StudentManagementView.displayNoStudentFoundError(stdName);
                 break;
             } else if (count > 2){
-                StudentManagementView.displayFinishMessage("The students with same name exceeds 2.", "Info");
+                StudentManagementView.displayStudentCountExceedMessage();
             } else {
-                StudentManagementView.displayFinishMessage(stdInfo, "Student Info");
+                StudentManagementView.displayAllStudent(stdInfo);
                 break;
             }
         }
@@ -241,38 +316,47 @@ public class StudentManagementController {
 //--------------------------------------------------------------------------
 // Create New Student
 //--------------------------------------------------------------------------
-    public static void createNewStudent(ArrayList<Student> students, String system){
+    public static void createNewStudent(ArrayList<Student> students, String system) {
         String stdName;
-                String adminNo;
-                String classCode; //naming variable as "class" will lead to error, it is reserved keyword
-                ArrayList<Module> modules = new ArrayList<>();// Creating a list to store modules
-                
-                // Prompting user to input student name, admin number, class, and modules
-                stdName = getStdName(system);
-                adminNo = getAdminNo(system, students);
-                classCode = getClassCode(system);
-                getModule(modules, system);
-                
-                // Creating a student object with the input data
-                Student student = new Student(stdName, adminNo, classCode, modules);
-                students.add(student);// Adding the student to the list of students
-                StudentManagementView.displayCreateNewStudentMessage();
+        String adminNo;
+        String classCode;
+        ArrayList<Module> modules = new ArrayList<>(); // Creating a list to store modules
+        
+        // Prompting user to input student name, admin number, class, and modules
+        stdName = getStdName();
+        if (stdName == null) {
+            return;
+        }
+        
+        adminNo = getAdminNo(students);
+        if (adminNo == null) {
+            return;
+        }
+        
+        classCode = getClassCode();
+        if (classCode == null) {
+            return;
+        }
+        
+        getModule(modules);
+        
+        // Creating a student object with the input data
+        Student student = new Student(stdName, adminNo, classCode, modules);
+        students.add(student); // Adding the student to the list of students
+        StudentManagementView.displayCreateNewStudentMessage();
     }
 
 //*****************************************************************************
     
     //Method to prompt student name
         
-    private static String getStdName(String system) {
+    private static String getStdName() {
         while (true) {
-            String name = JOptionPane.showInputDialog(null, 
-                    "Enter Name:", 
-                    system, 
-                    JOptionPane.QUESTION_MESSAGE);
+            String name = StudentManagementView.getStdName();
 
             // Check if user clicked Cancel or closed the dialog
             if (name== null) {
-                System.exit(0);
+                return null;
             }
             // Check if name is empty
             if (StudentManagementModel.isEmpty(name)) {
@@ -316,17 +400,14 @@ public class StudentManagementController {
 
     //Method to prompt student Admin Number
 
-    public static String getAdminNo(String system,  ArrayList<Student> students) {
+    public static String getAdminNo(ArrayList<Student> students) {
         while (true) {
             // Prompt user to enter admin number 
-            String adminNo = JOptionPane.showInputDialog(null,
-                    "Enter Admin Number:", 
-                    system, 
-                    JOptionPane.QUESTION_MESSAGE).trim();
+            String adminNo = StudentManagementView.getAdmNo();
 
             // Check if user clicked Cancel or closed the dialog
             if (adminNo == null) {
-                System.exit(0);
+                return null;
             }
             // Check if admin number is empty
             if (StudentManagementModel.isEmpty(adminNo)) {
@@ -360,17 +441,20 @@ public class StudentManagementController {
     //Method to prompt student's Class
 
     // Method to prompt the user to enter a class code and validate the input
-    public static String getClassCode(String system) {
+    public static String getClassCode() {
+        String classCode;
+        String[] classArray;
         while (true) {
-            String classCode = JOptionPane.showInputDialog(null,
-                    "Enter Class:", 
-                    system, 
-                    JOptionPane.QUESTION_MESSAGE).trim();
+            classCode = StudentManagementView.getClassCode();
 
             // Check if user clicked Cancel or closed the dialog
             if (classCode == null) {
-                System.exit(0);
+                return null;
             }
+
+            // Split class code into an array based on '/'
+            classCode = classCode.toUpperCase();
+            classArray = classCode.split("/");
 
             // Check if class code is empty
             if (StudentManagementModel.isEmpty(classCode)) {
@@ -389,30 +473,19 @@ public class StudentManagementController {
             }
 
             if (!StudentManagementModel.isValidFormat(classCode)) {
-                StudentManagementView.displayClassValidFormatErrorMessage();
+                StudentManagementModel.getErrorClassCode(classArray);
                 continue;
             }
 
-            // Split class code into an array based on '/'
-            String[] classArray = classCode.split("/");
+
 
             // Check if all components of the class code are present and have valid lengths
             if (classArray.length != 4) {
                 StudentManagementView.displayMissingClassInformationErrorMessage();
-            } else {
-                // Check individual components for validity
-                if (!StudentManagementModel.checkClassCodeLength(classArray)) {
-                    continue;
-                }
-                // Validate the format of each component
-                if (!StudentManagementModel.containsOnlyLetters(classArray[0]) || !StudentManagementModel.containsOnlyLetters(classArray[1]) || !StudentManagementModel.containsOnlyAlphanumeric(classArray[2]) || !StudentManagementModel.containsOnlyDigits(classArray[3])) {
-                    StudentManagementView.displayClassValidFormatErrorMessage();
-                }
-                // Check if the type of class is either "FT" or "PT"
-                if (!(classArray[1].equals("FT") || classArray[1].equals("PT"))) {
-                    StudentManagementView.displayFTOrPTErrorMessage();
-                    continue;
-                }
+                continue;
+            } else if (!StudentManagementModel.validatingClassCode(classCode)) {
+                StudentManagementModel.getErrorClassCode(classArray);
+                continue;
             }
             return classCode;
         }
@@ -423,20 +496,17 @@ public class StudentManagementController {
     //Method to get student's modules
 
     // Method to prompt the user to input module information and validate it
-    public static void getModule(ArrayList<Module> modules, String system) {
+    public static void getModule(ArrayList<Module> modules) {
         while (true) {
             try {
                 // Prompt user to input number of modules taken
-                String numberStr = JOptionPane.showInputDialog(null,
-                        "Enter number of modules taken:", 
-                        system, 
-                        JOptionPane.QUESTION_MESSAGE);
-                int numberInt = Integer.parseInt(numberStr);
-
+                String numberStr = StudentManagementView.getModuleCount();
+                
                 // Check if user clicked Cancel or closed the dialog
                 if (numberStr == null) {
-                    System.exit(0);
+                    return;
                 }
+                int numberInt = Integer.parseInt(numberStr);
 
                 // Check if number of modules is at least 1
                 if (numberInt <= 0) {
@@ -446,11 +516,11 @@ public class StudentManagementController {
 
                 // Loop to prompt user for module information for each module
                 for (int i = 1; i <= numberInt; i++) {
-                    String moduleCode = getModuleCode(i, system, modules); // Get module code
-                    String moduleName = getModuleName(i, system, modules); // Get module name
-                    int creditUnit = getCreditUnit(i, system); // Get credit unit
-                    int studentMark = getMark(i, system); // Get student mark
-                    Module module = new Module(moduleCode, moduleName, creditUnit, studentMark); // Create module object
+                    String moduleCode = getModuleCode(i, modules); // Get module code
+                    String moduleName = getModuleName(i, modules); // Get module name
+                    Integer creditUnit = getCreditUnit(i); // Get credit unit
+                    Integer studentMark = getMark(i); // Get student mark
+                    Module module = new Module(moduleCode.toUpperCase(null), moduleName.toUpperCase(), creditUnit, studentMark); // Create module object
                     modules.add(module); // Add module to the list
                 }
                 break; // Exit loop if all modules are successfully added
@@ -461,17 +531,14 @@ public class StudentManagementController {
     }
 
     // Method to prompt user for module code input and validate it
-    public static String getModuleCode(int i, String system, ArrayList<Module> modules) {
+    public static String getModuleCode(int i, ArrayList<Module> modules) {
         while (true) {
             // Prompt user for module code for a specific module
-            String mc = JOptionPane.showInputDialog(null,
-                    "Enter module code for module " + i + ":",
-                    system,
-                    JOptionPane.QUESTION_MESSAGE);
+            String mc = StudentManagementView.getModuleCode(i);
 
             // Check if user clicked Cancel or closed the dialog
             if (mc == null) {
-                System.exit(0);
+                return null;
             }
 
             // Check if input is empty
@@ -490,17 +557,14 @@ public class StudentManagementController {
     }
 
     // Method to prompt user for module name input and validate it
-    public static String getModuleName(int i, String system,  ArrayList<Module> modules) {
+    public static String getModuleName(int i, ArrayList<Module> modules) {
         while (true) {
             // Prompt user for module name for a specific module
-            String mn = JOptionPane.showInputDialog(null, 
-                    "Enter module name for module " + i + ":",
-                    system, 
-                    JOptionPane.QUESTION_MESSAGE);
+            String mn = StudentManagementView.getModuleName(i);
 
             // Check if user clicked Cancel or closed the dialog
             if (mn == null) {
-                System.exit(0);
+                return null;
             }
             // Check if input is empty
             if (StudentManagementModel.isEmpty(mn)) {
@@ -523,18 +587,15 @@ public class StudentManagementController {
     }
 
     // Method to prompt user for credit unit input and validate it
-    public static int getCreditUnit(int i, String system) {
+    public static Integer getCreditUnit(int i) {
         while (true) {
             try {
                 // Prompt user for credit unit for a specific module
-                String cu = JOptionPane.showInputDialog(null,
-                        "Enter credit unit for module " + i + ":",
-                        system, 
-                        JOptionPane.QUESTION_MESSAGE);
+                String cu = StudentManagementView.getModuleCredit(i);
 
                 // Check if user clicked Cancel or closed the dialog
                 if (cu == null) {
-                    System.exit(0);
+                    return null;
                 }
                 // Check if input is empty
                 if (StudentManagementModel.isEmpty(cu)) {
@@ -554,18 +615,15 @@ public class StudentManagementController {
     }
 
     // Method to prompt user for module mark input and validate it
-    public static int getMark(int i, String system) {
+    public static Integer getMark(int i) {
         while (true) {
             try {
                 // Prompt user for module mark for a specific module
-                String m = JOptionPane.showInputDialog(null, 
-                        "Enter module mark for module " + i + ":",
-                        system, 
-                        JOptionPane.QUESTION_MESSAGE);
+                String m = StudentManagementView.getModuleMark(i);
                         
                 // Check if user clicked Cancel or closed the dialog
                 if (m == null) {
-                    System.exit(0);
+                    return null;
                 }
                 // Check if input is empty
                 if (StudentManagementModel.isEmpty(m)) {
@@ -592,14 +650,11 @@ public class StudentManagementController {
     public static void getAdminNoForUpdateOrDeleteBothInOne(String system, int select, ArrayList<Student> students) {
         while (true) {
             // Prompt user for the Admin Number
-            String adminNo = JOptionPane.showInputDialog(null,
-                    "Enter Admin Number of student:", 
-                    system, 
-                    JOptionPane.QUESTION_MESSAGE);
+            String adminNo = StudentManagementView.getAdmNoOfStudent();
 
             // Handle Cancel or X button click
             if (adminNo == null) {
-                System.exit(0);
+                return;
             }
 
             adminNo = adminNo.trim(); // Remove leading and trailing spaces
@@ -650,11 +705,26 @@ public class StudentManagementController {
     public static void updateStudentModule(int index, ArrayList<Module> modules, ArrayList<Student> students, String system) {
         //Get number of modules of specific student
         int i = students.get(index).getModules().size() + 1;
-        String moduleCode = getModuleCode(i, system, modules); // Get module code
-        String moduleName = getModuleName(i, system, modules); // Get module name
-        int creditUnit = getCreditUnit(i, system); // Get credit unit
-        int studentMark = getMark(i, system); // Get student mark
-        Module module = new Module(moduleCode, moduleName, creditUnit, studentMark); // Create module object
+        String moduleCode = getModuleCode(i, modules); // Get module code
+        if(moduleCode == null) {
+            return;
+        }
+
+        String moduleName = getModuleName(i, modules); // Get module name
+        if(moduleName == null) {
+            return;
+        }
+
+        Integer creditUnit = getCreditUnit(i); // Get credit unit
+        if(creditUnit == null) {
+            return;
+        }
+
+        Integer studentMark = getMark(i); // Get student mark
+        if(studentMark == null) {
+            return;
+        }
+        Module module = new Module(moduleCode.toUpperCase(), moduleName.toUpperCase(), creditUnit, studentMark); // Create module object
         //Add new module to modules of specific student using index and addModule method declared in Student Class
         students.get(index).addModule(module);
         StudentManagementView.displayModulesAddedMessage();
