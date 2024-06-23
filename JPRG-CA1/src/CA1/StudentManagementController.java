@@ -404,37 +404,59 @@ public class StudentManagementController {
         while (true) {
             // Prompt user to enter admin number 
             String adminNo = StudentManagementView.getAdmNo();
-
+    
             // Check if user clicked Cancel or closed the dialog
             if (adminNo == null) {
                 return null;
             }
+    
             // Check if admin number is empty
             if (StudentManagementModel.isEmpty(adminNo)) {
                 StudentManagementView.displayBlankInputMessage();
+                continue;
             } 
+    
             // Check if admin number contains spaces
-            else if (adminNo.contains(" ")) {
+            if (adminNo.contains(" ")) {
                 StudentManagementView.displaySpaceContainMessage();
+                continue;
             } 
+    
             // Check if admin number length is not equal to 8
-            else if (adminNo.length() != 8) {
+            if (adminNo.length() != 8) {
                 StudentManagementView.displayAdmNoLengthErrorMessage();
+                continue;
             } 
+    
             // Check if first character of admin number is not 'p' or a letter
-            else if (adminNo.charAt(0) != 'p') {
+            if (adminNo.charAt(0) != 'p') {
                 StudentManagementView.displayFirstOneIsNotpErrorMessage();
+                continue;
             } 
+    
             // Check if all characters after the first one are digits
-            else if (!StudentManagementModel.containsOnlyDigits(adminNo.substring(1))) {
+            if (!StudentManagementModel.containsOnlyDigits(adminNo.substring(1))) {
                 StudentManagementView.displayExceptFirstOneIsNumberErrorMessage();
-            } else if (!StudentManagementModel.checkDuplicateAdminNo(students, adminNo)) {
-                // No additional error message here since checkDuplicateAdminNo already handles it
-            } else {
-                return adminNo;
+                continue;
+            } 
+    
+            // Check if the admin number is a duplicate
+            if (!StudentManagementModel.checkDuplicateAdminNo(students, adminNo)) {
+                continue;
             }
+    
+            // Check if the admin number is invalid
+            if (StudentManagementModel.cannotAdminNumber(adminNo)) {
+                StudentManagementView.displayCannotAdminNumberMessage(adminNo);
+                continue;
+            }
+    
+            // If all checks pass, return the valid admin number
+            return adminNo;
         }
     }
+    
+    
 
     //*****************************************************************************
 
@@ -552,6 +574,8 @@ public class StudentManagementController {
             }else if(!StudentManagementModel.checkDuplicateModuleCode(modules, mc)){
                 continue;
             }
+
+
             return mc; // Return valid module code
         }
     }
@@ -573,7 +597,7 @@ public class StudentManagementController {
             }
 
             // Check if module name contains only letters
-            if (!StudentManagementModel.containsOnlyLetters(mn)) {
+            if (!StudentManagementModel.containsOnlyLettersAndDigits(mn)) {
                 StudentManagementView.displayModuleNameErrorMessage();
                 continue;
             }

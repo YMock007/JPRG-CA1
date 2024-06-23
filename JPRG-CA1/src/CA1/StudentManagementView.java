@@ -52,7 +52,15 @@ public class StudentManagementView {
         JOptionPane.showMessageDialog(null, 
                 message, 
                 adminSystem,
-                JOptionPane.ERROR_MESSAGE);
+                JOptionPane.INFORMATION_MESSAGE);
+    }
+
+    public static void displayCannotAdminNumberMessage(String adminNo) {
+        String message ="Admission number with " + adminNo + " cannot be added!";
+        JOptionPane.showMessageDialog(null, 
+                message, 
+                adminSystem,
+                JOptionPane.INFORMATION_MESSAGE);
     }
     
     public static void displayBlankInputMessage() {
@@ -155,7 +163,7 @@ public class StudentManagementView {
     }
 
     public static void displayModuleNameErrorMessage() {
-        String message = "Module name can only contain letters.";
+        String message = "Module name cannot contain special characters.";
         JOptionPane.showMessageDialog(null, 
                 message, 
                 adminSystem,
@@ -249,6 +257,14 @@ public class StudentManagementView {
     
     public static void displayDuplicateModuleCodeError(String m) {
         String message = "The module code " + m + " is already added!";
+        JOptionPane.showMessageDialog(null, 
+                message, 
+                adminSystem,
+                JOptionPane.ERROR_MESSAGE);
+    }
+
+    public static void displayCannotModuleCodeError(String m) {
+        String message = "The module code " + m + " cannot be added!";
         JOptionPane.showMessageDialog(null, 
                 message, 
                 adminSystem,
