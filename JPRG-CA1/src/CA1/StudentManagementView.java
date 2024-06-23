@@ -4,11 +4,18 @@
  */
 
 /**
- *
- * @author yeyin
- * @author shinn
+ * 
+ * @author Naing Shin Thant Zaw 
+ * @class DIT/FT/2B/23
+ * @admission_number p2340797
+ * @system Admin System
+ * 
+ * @author Ye Yint Aung
+ * @class DIT/FT/2B/23
+ * @admission_number p2340656
+ * @system Enquiry System
+ * 
  */
-
 import java.awt.Dimension;
 
 import javax.swing.JOptionPane;
