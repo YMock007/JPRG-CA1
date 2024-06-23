@@ -22,7 +22,7 @@ public class StudentManagementModel {
     public static String getOptionsForSystem(String system) {
         if(system.equals("Student Admin System")) {
             // Define admin options menu
-            return "1. Add new student \n2. Delete student \n3. Add new module for student \n4.Add students with csv file \n5. Previous \n6. Quit";
+            return "1. Add new student \n2. Delete student \n3. Add new module for student \n4. Add students with csv file \n5. Previous \n6. Quit";
         } else {
             system = "Student Enquire System";
             return "1. Display all students \n2. Search students by class \n3. Search student by name \n4. View General Statistics \n5. Previous \n6. Quit";
