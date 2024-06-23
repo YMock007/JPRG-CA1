@@ -60,17 +60,22 @@ public class StudentManagementModel {
     
 
     public static boolean checkClassNumber(String str) {
-        // Check if the string is empty
+        // Check if the string is null or empty
         if (str == null || str.isEmpty()) {
             return false;
         }
-        
+    
+        // Check if the string is "00"
+        if (str.equals("00")) {
+            return false;
+        }
+    
         // Check the length of the string
         int len = str.length();
         if (len < 1 || len > 2) {
             return false; // Only allow strings of length 1 or 2
         }
-        
+    
         // Check each character in the string
         for (char c : str.toCharArray()) {
             // Check if the character is not a digit
@@ -78,15 +83,14 @@ public class StudentManagementModel {
                 return false;
             }
         }
-        
+    
         // Convert the string to an integer
         int number = Integer.parseInt(str);
-        
-        // Check the range and disallow "00"
+    
+        // Check the range
         return number >= 1 && number <= 99;
     }
-    
-    
+      
 
     // Check if a string contains only letters and whitespace characters
     public static boolean containsOnlyLetters(String s) {
@@ -300,7 +304,7 @@ public class StudentManagementModel {
         String coursePattern = "[A-Z]+"; // One or more uppercase letters
         String ftPtPattern = "(FT|PT)";
         String yearPattern = "[123][A-B]"; // One digit (1 or 2) followed by one uppercase letter
-        String classPattern = "\\d{2}"; // Two digits
+        String classPattern = "(0[1-9]|[1-9][0-9])"; // Two digits
 
         // Combined regular expression for the whole class code
         String classCodePattern = coursePattern + "/" + ftPtPattern + "/" + yearPattern + "/" + classPattern;

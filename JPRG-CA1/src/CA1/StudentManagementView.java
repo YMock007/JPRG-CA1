@@ -58,7 +58,7 @@ public class StudentManagementView {
     
     public static void displayNoStudentFoundError(String stdName) {
         String message = "Cannot find the student \"" + stdName + "\"!!";
-        String system = "Class Summary";
+        String system = "Info";
         JOptionPane.showMessageDialog(null, 
                 message, 
                 system,
@@ -356,21 +356,13 @@ public class StudentManagementView {
     }
 
     public static void displayStudentsByName(String message) {
-        String system = "All Student Report";
+        String system = "Student Info";
         JOptionPane.showMessageDialog(null, 
         message, 
         system,
         JOptionPane.INFORMATION_MESSAGE);
     }
-    public static void displayNoStudentCountMessage() {
-        String message = "No student found from the class!";
-        String system = "Class Summary";
-        JOptionPane.showMessageDialog(null, 
-        message, 
-        system,
-        JOptionPane.ERROR_MESSAGE);
-    }
-    
+
     public static void displayNoStudentCountNeedingImprovement(double threshold) {
         String message = "No student found less than " + (int) threshold + " GPA.";
         String system = "All Student Report";
@@ -422,7 +414,15 @@ public class StudentManagementView {
                 JOptionPane.INFORMATION_MESSAGE);
     }
 
-
+    public static void displayNoStudentCountMessage() {
+        String message = "No student found from the class!";
+        String system = "Class Summary";
+        JOptionPane.showMessageDialog(null, 
+        message, 
+        system,
+        JOptionPane.INFORMATION_MESSAGE);
+    }
+    
 
     //--------------------------------------------------------------------------
     // Display Class Summary 
@@ -432,7 +432,7 @@ public class StudentManagementView {
                         + "\nAverage GPA: " + avgGPA;
         JOptionPane.showMessageDialog(null,
                         output,
-                        "Class Summary to Info",
+                        "Class Summary",
                         JOptionPane.INFORMATION_MESSAGE);
     }
     
@@ -448,8 +448,12 @@ public class StudentManagementView {
         return JOptionPane.showInputDialog(null, "Enter Admin:", adminSystem, JOptionPane.QUESTION_MESSAGE);
     }
 
-    public static String getClassCode() {
-        return JOptionPane.showInputDialog(null, "Enter Class:", adminSystem, JOptionPane.QUESTION_MESSAGE);
+    public static String getClassCode(String system) {
+        String message = "Enter Class:";
+        if(system == "Search") {
+            message = "Enter the class name to search";
+        }
+        return JOptionPane.showInputDialog(null, message, system, JOptionPane.QUESTION_MESSAGE);
     }
 
     public static String getModuleCount() {

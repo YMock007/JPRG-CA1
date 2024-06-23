@@ -304,7 +304,7 @@ public class StudentManagementController {
     // Search student by Class 
     //--------------------------------------------------------------------------
     public static void searchStudentByClass(ArrayList<Student> students) {
-        String classCode = getClassCode();
+        String classCode = getClassCode("Search");
         if(classCode != null){
             int studentCount = 0;
             double totalGPA = 0.0;
@@ -389,7 +389,7 @@ public class StudentManagementController {
             return;
         }
         
-        classCode = getClassCode();
+        classCode = getClassCode(system);
         if (classCode == null) {
             return;
         }
@@ -517,11 +517,11 @@ public class StudentManagementController {
     //Method to prompt student's Class
 
     // Method to prompt the user to enter a class code and validate the input
-    public static String getClassCode() {
+    public static String getClassCode(String system) {
         String classCode;
         String[] classArray;
         while (true) {
-            classCode = StudentManagementView.getClassCode();
+            classCode = StudentManagementView.getClassCode(system);
 
             // Check if user clicked Cancel or closed the dialog
             if (classCode == null) {
@@ -591,15 +591,31 @@ public class StudentManagementController {
                 // Loop to prompt user for module information for each module
                 for (int i = 1; i <= numberInt; i++) {
                     String moduleCode = getModuleCode(i, modules); // Get module code
+                    if(moduleCode == null){
+                        return false;
+                    }
                     String moduleName = getModuleName(i, modules); // Get module name
+                    if(moduleName == null){
+                        return false;
+                    }
                     Integer creditUnit = getCreditUnit(i); // Get credit unit
+                    if(creditUnit == null){
+                        return false;
+                    }
                     Integer studentMark = getMark(i); // Get student mark
-                    Module module = new Module(moduleCode, moduleName, creditUnit, studentMark); // Create module object
-                    modules.add(module); // Add module to the list
-                    return true;
+                    if(studentMark == null){
+                        return false;
+                    }
+                    // Create a new module object
+                    Module module = new Module(moduleCode, moduleName, creditUnit, studentMark);
+                    
+                    // Add module to the list
+                    modules.add(module);
                 }
-                return false;
+                
+                return true; // Successfully added modules
             } catch (NumberFormatException e) {
+                // Handle if user enters a non-integer for number of modules
                 StudentManagementView.displayNumberFormatExceptionErrorMessage();
             }
         }
