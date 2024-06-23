@@ -16,7 +16,6 @@ public class StudentDataHandler {
 
                 if (values.length < 7) {
                     // Handle incomplete line gracefully
-                    System.err.println("Skipping invalid CSV line: " + line);
                     continue;
                 }
 
@@ -61,19 +60,15 @@ public class StudentDataHandler {
                     ArrayList<Module> modules = new ArrayList<>();
                     modules.add(module);
                     Student student = new Student(stdName, adminNo, classCode, modules);
-                    students.add(student);
-                    System.out.println("Hi");
+                    students.add(student);;
                 }
-
-                // Print details (optional, for debugging)
-                System.out.println("Name: " + stdName + ", Admin No: " + adminNo + ", Class Code: " + classCode + ", Module: " + module);
             }
+            StudentManagementView.displayStudentsAddedCSVMessage();
         } catch (IOException e) {
             e.printStackTrace();
             // Display error message to user or handle it appropriately
             StudentManagementView.displayErrorGenerateCSV();
         } catch (NumberFormatException e) {
-            System.err.println("Error parsing numeric values from CSV.");
             e.printStackTrace();
         }
     }

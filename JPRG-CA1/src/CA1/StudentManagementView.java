@@ -199,7 +199,7 @@ public class StudentManagementView {
                 JOptionPane.ERROR_MESSAGE);
     }
 
-    public static void displayStudentNotExistErrorMessage(int adminNo) {
+    public static void displayStudentNotExistErrorMessage(String adminNo) {
         String message = "Student with Admin Number " + adminNo + " does not exist. Please try again.";
         JOptionPane.showMessageDialog(null, 
                 message, 

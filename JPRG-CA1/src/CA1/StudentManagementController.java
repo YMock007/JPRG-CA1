@@ -778,7 +778,7 @@ public class StudentManagementController {
                         default -> StudentManagementView.displayInvalidOperationErrorMessage();
                     }
                 } else {
-                    StudentManagementView.displayStudentNotExistErrorMessage(index);
+                    StudentManagementView.displayStudentNotExistErrorMessage(adminNo);
                     // Continue loop to prompt for admin number again
                 }
             }
