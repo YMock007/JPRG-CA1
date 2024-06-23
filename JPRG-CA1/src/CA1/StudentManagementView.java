@@ -65,13 +65,7 @@ public class StudentManagementView {
                 JOptionPane.ERROR_MESSAGE);
     }
 
-    public static void displayCreateNewStudentMessage() {
-        String message = "New student added successfully!";
-        JOptionPane.showMessageDialog(null, 
-                message, 
-                adminSystem,
-                JOptionPane.INFORMATION_MESSAGE);
-    }
+
 
     public static void displayCannotAdminNumberMessage(String adminNo) {
         String message ="Admission number with " + adminNo + " cannot be added!";
@@ -88,18 +82,9 @@ public class StudentManagementView {
                 adminSystem,
                 JOptionPane.ERROR_MESSAGE);
     }
-
-    public static void displayBlankInputMessage(String system) {
-        String message = "Input cannot be empty. Please enter a valid input.";
-        JOptionPane.showMessageDialog(null, 
-                message, 
-                system,
-                JOptionPane.ERROR_MESSAGE);
-    }
-
     
     public static void displayInvalidStudentNameMessage() {
-        String message = "Name cannot contain numbers. Please enter a valid name.";
+        String message = "Name cannot contain number(s) or special character(s). Please enter a valid name.";
         JOptionPane.showMessageDialog(null, 
                 message, 
                 adminSystem,
@@ -107,7 +92,7 @@ public class StudentManagementView {
     }
 
     public static void displaySpaceContainMessage() {
-        String message = "Input cannot contain spaces. Please enter a valid Input.";
+        String message = "Input cannot contain space(s). Please enter a valid Input.";
         JOptionPane.showMessageDialog(null, 
                 message, 
                 adminSystem,
@@ -326,6 +311,15 @@ public class StudentManagementView {
     //--------------------------------------------------------------------------
     // Display information message  
     //--------------------------------------------------------------------------
+
+    public static void displayCreateNewStudentMessage() {
+        String message = "New student added successfully!";
+        JOptionPane.showMessageDialog(null, 
+                message, 
+                adminSystem,
+                JOptionPane.INFORMATION_MESSAGE);
+    }
+
     public static void displaySuccessGenerateCSV() {
         String message = "Generating CSV Success and Place in JPRG-CA1 folder.";
         String system = "View General Statistics";

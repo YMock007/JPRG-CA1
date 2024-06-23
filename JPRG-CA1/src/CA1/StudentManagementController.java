@@ -394,11 +394,12 @@ public class StudentManagementController {
             return;
         }
         
-        getModule(modules);
-        // Creating a student object with the input data
-        Student student = new Student(stdName, adminNo, classCode, modules);
-        students.add(student); // Adding the student to the list of students
-        StudentManagementView.displayCreateNewStudentMessage();
+        if(getModule(modules)){
+            // Creating a student object with the input data
+            Student student = new Student(stdName, adminNo, classCode, modules);
+            students.add(student); // Adding the student to the list of students
+            StudentManagementView.displayCreateNewStudentMessage();
+        }; 
     }
 
 //*****************************************************************************
@@ -569,7 +570,7 @@ public class StudentManagementController {
     //Method to get student's modules
 
     // Method to prompt the user to input module information and validate it
-    public static void getModule(ArrayList<Module> modules) {
+    public static boolean getModule(ArrayList<Module> modules) {
         while (true) {
             try {
                 // Prompt user to input number of modules taken
@@ -577,7 +578,7 @@ public class StudentManagementController {
                 
                 // Check if user clicked Cancel or closed the dialog
                 if (numberStr == null) {
-                    return;
+                    return false;
                 }
                 int numberInt = Integer.parseInt(numberStr);
 
@@ -595,8 +596,9 @@ public class StudentManagementController {
                     Integer studentMark = getMark(i); // Get student mark
                     Module module = new Module(moduleCode, moduleName, creditUnit, studentMark); // Create module object
                     modules.add(module); // Add module to the list
+                    return true;
                 }
-                break; // Exit loop if all modules are successfully added
+                return false;
             } catch (NumberFormatException e) {
                 StudentManagementView.displayNumberFormatExceptionErrorMessage();
             }

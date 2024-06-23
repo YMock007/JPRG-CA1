@@ -40,6 +40,54 @@ public class StudentManagementModel {
         return true;
     }
 
+    public static boolean checkYearPattern(String s) {
+        // Check if the length of the string is exactly 2 characters
+        if (s.length() != 2) {
+            return false; // If not, return false
+        }
+        
+        // Extract the characters from the string
+        char firstChar = s.charAt(0);
+        char secondChar = s.charAt(1);
+        
+        // Define valid characters for the first and second positions
+        boolean validFirstChar = firstChar == '1' || firstChar == '2' || firstChar == '3';
+        boolean validSecondChar = secondChar == 'A' || secondChar == 'B';
+        
+        // Return true only if both characters match the valid criteria
+        return validFirstChar && validSecondChar;
+    }
+    
+
+    public static boolean checkClassNumber(String str) {
+        // Check if the string is empty
+        if (str == null || str.isEmpty()) {
+            return false;
+        }
+        
+        // Check the length of the string
+        int len = str.length();
+        if (len < 1 || len > 2) {
+            return false; // Only allow strings of length 1 or 2
+        }
+        
+        // Check each character in the string
+        for (char c : str.toCharArray()) {
+            // Check if the character is not a digit
+            if (!Character.isDigit(c)) {
+                return false;
+            }
+        }
+        
+        // Convert the string to an integer
+        int number = Integer.parseInt(str);
+        
+        // Check the range and disallow "00"
+        return number >= 1 && number <= 99;
+    }
+    
+    
+
     // Check if a string contains only letters and whitespace characters
     public static boolean containsOnlyLetters(String s) {
         for (char c : s.toCharArray()) {
@@ -210,12 +258,12 @@ public class StudentManagementModel {
             output += "The student type can only be FT or PT\n";
         }
 
-        if(!containsOnlyAlphanumeric(classArray[2])) {
-            output += "The year code must be a number follow by an alphabet.\n";
-        }
+        if(!checkYearPattern(classArray[2])) {
+            output += "The year code must be 1,2 or 3 follow by A or B.\n";
+        }
 
-        if(!containsOnlyDigits(classArray[3])) {
-            output += "The class number must be positive integer";
+        if(!checkClassNumber(classArray[3])) {
+            output += "Class number must consist only of digits and be within the range 01 to 99 inclusive.";
         }
 
         StudentManagementView.displayClassCodeError(output, "Student Admin System");
@@ -251,7 +299,7 @@ public class StudentManagementModel {
         // Regular expression patterns for each part of the class code
         String coursePattern = "[A-Z]+"; // One or more uppercase letters
         String ftPtPattern = "(FT|PT)";
-        String yearPattern = "[12][A-Z]"; // One digit (1 or 2) followed by one uppercase letter
+        String yearPattern = "[123][A-B]"; // One digit (1 or 2) followed by one uppercase letter
         String classPattern = "\\d{2}"; // Two digits
 
         // Combined regular expression for the whole class code
