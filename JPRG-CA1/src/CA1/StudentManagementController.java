@@ -95,7 +95,7 @@ public class StudentManagementController {
             if(select != null) {
                 switch(select){
                     case 1 -> {
-                        createNewStudent(students, system);
+                        StudentManagementController.createNewStudent(students, system);
                     }
 
                     case 2->{
@@ -339,7 +339,6 @@ public class StudentManagementController {
         }
         
         getModule(modules);
-        
         // Creating a student object with the input data
         Student student = new Student(stdName, adminNo, classCode, modules);
         students.add(student); // Adding the student to the list of students
@@ -542,7 +541,8 @@ public class StudentManagementController {
                     String moduleName = getModuleName(i, modules); // Get module name
                     Integer creditUnit = getCreditUnit(i); // Get credit unit
                     Integer studentMark = getMark(i); // Get student mark
-                    Module module = new Module(moduleCode.toUpperCase(null), moduleName.toUpperCase(), creditUnit, studentMark); // Create module object
+                    System.out.println("hi");
+                    Module module = new Module(moduleCode, moduleName, creditUnit, studentMark); // Create module object
                     modules.add(module); // Add module to the list
                 }
                 break; // Exit loop if all modules are successfully added
@@ -576,7 +576,7 @@ public class StudentManagementController {
             }
 
 
-            return mc; // Return valid module code
+            return mc.toUpperCase(); // Return valid module code
         }
     }
 
@@ -606,7 +606,7 @@ public class StudentManagementController {
                 continue;
             }
 
-            return mn; 
+            return mn.toUpperCase(); 
         }
     }
 
