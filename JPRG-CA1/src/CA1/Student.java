@@ -11,11 +11,11 @@ public class Student {
     private String classCode;
     private ArrayList<Module> modules;
 
-    public Student(String stdName, String adminNo, String classCode, ArrayList<Module> modules) {
+    public Student(String stdName, String adminNo, String classCode, ArrayList<Module> modules2) {
         this.stdName = stdName;
         this.adminNo = adminNo;
         this.classCode = classCode;
-        this.modules = modules;
+        this.modules = modules2;
     }
 
     public String getStdName() {

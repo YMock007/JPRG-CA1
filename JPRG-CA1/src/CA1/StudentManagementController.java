@@ -9,7 +9,12 @@
  * @author shinn
  */
 
+import java.io.File;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import javax.swing.JOptionPane;
 
 
@@ -112,6 +117,10 @@ public class StudentManagementController {
                         break;
 
                     case "4":
+                        StudentManagementController.getFilePath(students);
+                        break;
+
+                    case "5":
                         quit = true;
                         break;
 
@@ -195,6 +204,7 @@ public class StudentManagementController {
         return userSelectStr;
         } 
     }
+
     
     public static void viewGeneralStatistics(ArrayList<Student> students) {
         boolean quit = false;
@@ -784,6 +794,33 @@ public class StudentManagementController {
         StudentManagementView.displayModulesAddedMessage();
     }
 
+    public static void getFilePath(ArrayList<Student> students) {
+        String filePath;
+
+        while (true) {
+            filePath = StudentManagementView.getFilePath();
+
+            if (filePath == null) {
+                return; // Exit if cancel or close button is clicked
+            }
+
+            filePath = filePath.trim();
+
+            if (filePath.isEmpty()) {
+                StudentManagementView.displayBlankInputMessage();
+                continue; // Ask for input again if the file path is empty
+            }
+
+            if (!StudentManagementModel.validateFilePath(filePath)) {
+                continue; // Ask for input again if the file path is invalid
+            }
+
+            break; // Valid file path found, exit the loop
+        }
+
+        // Now filePath contains a valid file path
+        StudentDataHandler.createStudentsFromCSV(students, filePath);
+    }
 //*****************************************************************************
 
 }

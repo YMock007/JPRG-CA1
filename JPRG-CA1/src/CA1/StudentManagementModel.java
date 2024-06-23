@@ -8,6 +8,11 @@
  * @author yeyin
  * @author shinn
  */
+import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.InvalidPathException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import java.util.regex.Pattern;
@@ -17,7 +22,7 @@ public class StudentManagementModel {
     public static String getOptionsForSystem(String system) {
         if(system.equals("Student Admin System")) {
             // Define admin options menu
-            return "1. Add new student \n2. Delete student \n3. Add new module for student \n4. Previous";
+            return "1. Add new student \n2. Delete student \n3. Add new module for student \n4.Add students with csv file \n5. Previous";
         } else {
             system = "Student Enquire System";
             return "1. Display all students \n2. Search students by class \n3. Search student by name \n4. View General Statistics \n5. Previous";
@@ -350,5 +355,28 @@ public class StudentManagementModel {
 
     public static boolean validateThreshold(double d, double max) {
         return d > 0.0 && d <= max;
+    }
+
+    public static boolean validateFilePath(String filePath) {
+        try {
+            // Normalize the path to handle different path separators and relative paths
+            Path path = Paths.get(filePath).normalize();
+
+            // Check if path exists and is a regular file
+            if (Files.exists(path) && Files.isRegularFile(path)) {
+                return true;
+            } else if (!Files.exists(path)) {
+                // Display file not found message
+                StudentManagementView.displayFileNotFoundMessage();
+                return false;
+            } else {
+                StudentManagementView.displayInvalidFilePathMessage();
+                return false;
+            }
+
+        } catch (InvalidPathException e) {
+            // Handle invalid file path format
+            return false;
+        }
     }
 }
