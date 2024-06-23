@@ -258,10 +258,10 @@ public class StudentManagementModel {
             output += "The student type can only be FT or PT\n";
         }
 
-        if(!checkYearPattern(classArray[2])) {
-            output += "The year code must be 1,2 or 3 follow by A or B.\n";
-        }
-
+        if (!checkYearPattern(classArray[2])) {
+            output += "The year code must be 1, 2, or 3 followed by A or B.\n";
+        }
+        
         if(!checkClassNumber(classArray[3])) {
             output += "Class number must consist only of digits and be within the range 01 to 99 inclusive.";
         }
