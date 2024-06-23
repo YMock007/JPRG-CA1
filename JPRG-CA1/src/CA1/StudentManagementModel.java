@@ -8,11 +8,11 @@
  * @author yeyin
  * @author shinn
  */
-import java.io.File;
+
+ import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.nio.file.Files;
 import java.nio.file.InvalidPathException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import java.util.regex.Pattern;
@@ -370,12 +370,14 @@ public class StudentManagementModel {
                 StudentManagementView.displayFileNotFoundMessage();
                 return false;
             } else {
+                // Display invalid file path message (not a regular file)
                 StudentManagementView.displayInvalidFilePathMessage();
                 return false;
             }
 
         } catch (InvalidPathException e) {
             // Handle invalid file path format
+            StudentManagementView.displayInvalidFilePathMessage();
             return false;
         }
     }
