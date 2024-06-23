@@ -62,11 +62,9 @@ public class StudentDataHandler {
                     modules.add(module);
                     Student student = new Student(stdName, adminNo, classCode, modules);
                     students.add(student);
-                    System.out.println("Hi");
+                    StudentManagementView.displayStudentsAddedCSVMessage();
+                    break;
                 }
-
-                // Print details (optional, for debugging)
-                System.out.println("Name: " + stdName + ", Admin No: " + adminNo + ", Class Code: " + classCode + ", Module: " + module);
             }
         } catch (IOException e) {
             e.printStackTrace();

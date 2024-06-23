@@ -9,89 +9,91 @@
  * @author shinn
  */
 
-import java.io.File;
 import java.util.ArrayList;
-import javax.swing.JOptionPane;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import javax.swing.JOptionPane;
 
 
 public class StudentManagementController {
     //--------------------------------------------------------------------------
     // Selecting System
     //--------------------------------------------------------------------------
-    public static void run () {
-        Integer system;
+    public static void run() {
+        Integer system; // Variable to hold user input for system operation
         boolean quit = false;
         ArrayList<Student> students = new ArrayList<>(); // Creating a list to store students
         
+        // Simulate adding students to the ArrayList
         SimulateStudents.addStudents(students);
-        for(Student student : students){
-                System.out.println(student.toString());
-            }
-        
-        while(!quit) {
-            system = StudentManagementController.getSystem();
-            if(system != null) {
+    
+        // Main loop to handle user interaction
+        while (!quit) {
+            system = StudentManagementController.getSystem(); // Get user input for system operation
+    
+            if (system != null) {
+                // Handle different system operations based on user input
                 switch (system) {
                     case 1:
+                        // Show administrative system
                         StudentManagementController.showAdminSystem(students);
                         break;
                     case 2:
+                        // Show enquiry system
                         StudentManagementController.showEnquirySystem(students);
                         break;
-
                     case 3:
+                        // Terminate the program
                         StudentManagementView.displayTerminateMessage();
-                        quit = true;                   
-                        break;
-
+                        System.exit(0); 
                     default:
+                        // Display error message for invalid operation
                         StudentManagementView.displayInvalidOperationErrorMessage("Selecting System");
                         break;
-                }  
+                }
             } else {
+                // If system input is null, terminate the program
                 quit = true;
                 StudentManagementView.displayTerminateMessage();
             }
         }
     }
+    
     public static Integer getSystem() {
         int systemInt;
-        // Define system options menu
-        String system = "Selecting System";
-        String options = "1. Admin System \n2. Enquiry system \n3. Quit";
-        
-        // Loop until valid input is received
+        String options = "1. Admin System \n2. Enquiry System \n3. Quit"; // Define system options menu
+    
         while (true) {
             try {
-                system = StudentManagementModel.getUserInput(options, system);
-
+                // Display options and get user input
+                String userInput = StudentManagementModel.getUserInput(options, "Selecting System");
+    
                 // Check if the user clicked the cancel button or closed the dialog
-                if (system == null) {
-                    return null;
+                if (userInput == null) {
+                    return null; 
                 }
-                
+    
+                // Trim the input to remove any leading or trailing whitespace
+                userInput = userInput.trim();
+    
                 // Check if user input is empty
-                if (StudentManagementModel.isEmpty(system)) {
+                if (StudentManagementModel.isEmpty(userInput)) {
                     StudentManagementView.displaySystemSelectingErrorMessage();
-                    continue;
+                    continue; 
                 }
 
-                // Parse user input to integer
-                systemInt = Integer.parseInt(system);
-
-                return systemInt;
+                systemInt = Integer.parseInt(userInput);
+    
+                // Validate the range of input
+                if (systemInt < 1 || systemInt > 3) {
+                    StudentManagementView.displaySystemSelectingErrorMessage();
+                    continue; // Ask for input again if it's out of range
+                }
+    
+                return systemInt; // Return valid input
             } catch (NumberFormatException e) {
-                // Catch exception if input cannot be parsed to integer
-                // Show error message and continue loop
                 StudentManagementView.displaySystemSelectingErrorInvalidInput();
             }
-        }       
+        }
     }
-    
+
     //--------------------------------------------------------------------------
     // Show the admin system options
     //--------------------------------------------------------------------------
@@ -123,6 +125,10 @@ public class StudentManagementController {
                     case "5":
                         quit = true;
                         break;
+
+                    case "6":
+                        StudentManagementView.displayTerminateMessage();
+                        System.exit(0);              
 
                     default:
                         StudentManagementView.displayInvalidOperationErrorMessage(system);
@@ -165,6 +171,10 @@ public class StudentManagementController {
                     case "5":
                         quit = true;
                         break;
+
+                    case "6":
+                        StudentManagementView.displayTerminateMessage();
+                        System.exit(0);                  
 
                     default:
                         StudentManagementView.displayInvalidOperationErrorMessage(system);
@@ -334,8 +344,6 @@ public class StudentManagementController {
                 // User clicked cancel or closed the dialog
                 return;
             }
-
-            System.out.println(stdName);
             
             for (Student student : students) {
                 if (student.getStdName().toUpperCase().equals(stdName.toUpperCase())) {
@@ -355,7 +363,12 @@ public class StudentManagementController {
                 break;
             }
         }
-    }       
+    }     
+    
+//--------------------------------------------------------------------------
+// Admin 
+//-------------------------------------------------------------------------
+
 //--------------------------------------------------------------------------
 // Create New Student
 //--------------------------------------------------------------------------
@@ -391,7 +404,6 @@ public class StudentManagementController {
 //*****************************************************************************
     
     //Method to prompt student name
-        
     private static String getStdName() {
         while (true) {
             String name = StudentManagementView.getStdName();
@@ -415,6 +427,7 @@ public class StudentManagementController {
         }
     }
 
+    //Method to format the student name to store
     public static String setName(String name) {
         // Trim leading and trailing spaces, and replace multiple spaces with a single space
         String modifiedName = name.trim().replaceAll("\\s+", " ");
@@ -487,7 +500,7 @@ public class StudentManagementController {
                 continue;
             }
     
-            // Check if the admin number is invalid
+            // Check if the admin number is invalid that system will not accept p0000000
             if (StudentManagementModel.cannotAdminNumber(adminNo)) {
                 StudentManagementView.displayCannotAdminNumberMessage(adminNo);
                 continue;
@@ -498,8 +511,6 @@ public class StudentManagementController {
         }
     }
     
-    
-
     //*****************************************************************************
 
     //Method to prompt student's Class
@@ -530,7 +541,7 @@ public class StudentManagementController {
                 StudentManagementView.displaySpaceContainMessage();
                 continue;
             } 
-            // Check if class code length is either 12 or 13 characters
+            // Check if class code length is either 12 or 13 or 15 characters
             if (classCode.length() != 12 && classCode.length() != 13 && classCode.length() != 14) {
                 StudentManagementView.displayClassLengthErrorMessage();
                 continue;
@@ -540,8 +551,6 @@ public class StudentManagementController {
                 StudentManagementModel.getErrorClassCode(classArray);
                 continue;
             }
-
-
 
             // Check if all components of the class code are present and have valid lengths
             if (classArray.length != 4) {
@@ -794,6 +803,10 @@ public class StudentManagementController {
         StudentManagementView.displayModulesAddedMessage();
     }
 
+//--------------------------------------------------------------------------
+// Add new students or add more modules to existing students using CSV file
+//--------------------------------------------------------------------------
+    
     public static void getFilePath(ArrayList<Student> students) {
         String filePath;
 

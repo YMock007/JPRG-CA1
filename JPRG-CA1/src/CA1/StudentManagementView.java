@@ -10,8 +10,6 @@
  */
 
 import java.awt.Dimension;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
@@ -316,6 +314,14 @@ public class StudentManagementView {
                 "File Not Found",
                 JOptionPane.ERROR_MESSAGE);
     }
+
+    public static void displayInvalidFilePathMessage() {
+        String message = "Invalid file path. Please enter a valid path.";
+        JOptionPane.showMessageDialog(null, 
+                message, 
+                adminSystem, 
+                JOptionPane.ERROR_MESSAGE);
+    }
     
     //--------------------------------------------------------------------------
     // Display information message  
@@ -368,7 +374,7 @@ public class StudentManagementView {
         JOptionPane.showMessageDialog(null, 
         message, 
         system,
-        JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.ERROR_MESSAGE);
     }
     
     public static void displayNoStudentCountNeedingImprovement(double threshold) {
@@ -407,20 +413,22 @@ public class StudentManagementView {
     }
 
     public static void displayModulesAddedMessage() {
-        String message = "Module added successfully";
+        String message = "Module added successfully!s";
         JOptionPane.showMessageDialog(null, 
                 message, 
                 adminSystem, 
                 JOptionPane.INFORMATION_MESSAGE);
     }
 
-    public static void displayInvalidFilePathMessage() {
-        String message = "Invalid file path. Please enter a valid path.";
+    public static void displayStudentsAddedCSVMessage() {
+        String message = "Students from CSV added successfully!";
         JOptionPane.showMessageDialog(null, 
                 message, 
                 adminSystem, 
                 JOptionPane.INFORMATION_MESSAGE);
     }
+
+
 
     //--------------------------------------------------------------------------
     // Display Class Summary 
@@ -476,9 +484,5 @@ public class StudentManagementView {
 
     public static String getFilePath() {
         return JOptionPane.showInputDialog(null, "Enter the CSV file path:", adminSystem, JOptionPane.QUESTION_MESSAGE);
-    }
-
-
-
-    
+    } 
 }

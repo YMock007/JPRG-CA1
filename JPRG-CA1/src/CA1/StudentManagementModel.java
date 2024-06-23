@@ -22,10 +22,10 @@ public class StudentManagementModel {
     public static String getOptionsForSystem(String system) {
         if(system.equals("Student Admin System")) {
             // Define admin options menu
-            return "1. Add new student \n2. Delete student \n3. Add new module for student \n4.Add students with csv file \n5. Previous";
+            return "1. Add new student \n2. Delete student \n3. Add new module for student \n4.Add students with csv file \n5. Previous \n6. Quit";
         } else {
             system = "Student Enquire System";
-            return "1. Display all students \n2. Search students by class \n3. Search student by name \n4. View General Statistics \n5. Previous";
+            return "1. Display all students \n2. Search students by class \n3. Search student by name \n4. View General Statistics \n5. Previous \n6. Quit";
         }
     }
     //Validating methods
@@ -161,7 +161,6 @@ public class StudentManagementModel {
         return true;
     }
 
-
     //Method to check not to add existing module code
     public static boolean checkDuplicateModuleCode(ArrayList<Module> modules, String m){
         for(int j = 0; j < modules.size(); j++){
@@ -192,7 +191,7 @@ public class StudentManagementModel {
     public static int checkStudentExists(String admNo, ArrayList<Student> students){
         //loop through the students arrayList
         for(int j = 0; j < students.size(); j++){
-            //Check exitsing admin numbers and input admin number equal or not
+            //Check existing admin numbers and input admin number equal or not
                 if(students.get(j).getAdminNo().equals(admNo)){
                     return j;
                 }
@@ -200,6 +199,7 @@ public class StudentManagementModel {
         return -1;
     }
     
+    //method to check class
     public static void getErrorClassCode(String [] classArray) {
         String output = "";
         if(!containsOnlyLetters(classArray[0])) {
@@ -220,7 +220,49 @@ public class StudentManagementModel {
 
         StudentManagementView.displayClassCodeError(output, "Student Admin System");
     }
-    
+
+    //Validating file path
+    public static boolean validateFilePath(String filePath) {
+        try {
+            // Normalize the path to handle different path separators and relative paths
+            Path path = Paths.get(filePath).normalize();
+
+            // Check if path exists and is a regular file
+            if (Files.exists(path) && Files.isRegularFile(path)) {
+                return true;
+            } else if (!Files.exists(path)) {
+                // Display file not found message
+                StudentManagementView.displayFileNotFoundMessage();
+                return false;
+            } else {
+                // Display invalid file path message (not a regular file)
+                StudentManagementView.displayInvalidFilePathMessage();
+                return false;
+            }
+
+        } catch (InvalidPathException e) {
+            // Handle invalid file path format
+            StudentManagementView.displayInvalidFilePathMessage();
+            return false;
+        }
+    }
+
+    public static boolean validatingClassCode(String userInput) {
+        // Regular expression patterns for each part of the class code
+        String coursePattern = "[A-Z]+"; // One or more uppercase letters
+        String ftPtPattern = "(FT|PT)";
+        String yearPattern = "[12][A-Z]"; // One digit (1 or 2) followed by one uppercase letter
+        String classPattern = "\\d{2}"; // Two digits
+
+        // Combined regular expression for the whole class code
+        String classCodePattern = coursePattern + "/" + ftPtPattern + "/" + yearPattern + "/" + classPattern;
+
+        // Compile the pattern
+        Pattern pattern = Pattern.compile("^" + classCodePattern + "$");
+        // Match the given class code against the pattern
+        return pattern.matcher(userInput).matches();
+    }
+
     //--------------------------------------------------------------------------
     // Displaying All Student report 
     //--------------------------------------------------------------------------
@@ -269,25 +311,6 @@ public class StudentManagementModel {
         report.append("</html>");
 
         StudentManagementView.displayAllStudentInTabularFormat(report);
-    }
-
-    public static boolean validatingClassCode(String userInput) {
-        // Regular expression patterns for each part of the class code
-        String coursePattern = "[A-Z]+"; // One or more uppercase letters
-        String ftPtPattern = "(FT|PT)";
-        String yearPattern = "[12][A-Z]"; // One digit (1 or 2) followed by one uppercase letter
-        String classPattern = "\\d{2}"; // Two digits
-
-        // Combined regular expression for the whole class code
-        String classCodePattern = coursePattern + "/" + ftPtPattern + "/" + yearPattern + "/" + classPattern;
-
-        // Compile the pattern
-        Pattern pattern = Pattern.compile("^" + classCodePattern + "$");
-        System.out.println(classCodePattern);
-        System.out.println(pattern);
-        System.out.println(pattern.matcher(userInput).matches());
-        // Match the given class code against the pattern
-        return pattern.matcher(userInput).matches();
     }
     
     public static int getGradePoint(int mark) {
@@ -357,28 +380,4 @@ public class StudentManagementModel {
         return d > 0.0 && d <= max;
     }
 
-    public static boolean validateFilePath(String filePath) {
-        try {
-            // Normalize the path to handle different path separators and relative paths
-            Path path = Paths.get(filePath).normalize();
-
-            // Check if path exists and is a regular file
-            if (Files.exists(path) && Files.isRegularFile(path)) {
-                return true;
-            } else if (!Files.exists(path)) {
-                // Display file not found message
-                StudentManagementView.displayFileNotFoundMessage();
-                return false;
-            } else {
-                // Display invalid file path message (not a regular file)
-                StudentManagementView.displayInvalidFilePathMessage();
-                return false;
-            }
-
-        } catch (InvalidPathException e) {
-            // Handle invalid file path format
-            StudentManagementView.displayInvalidFilePathMessage();
-            return false;
-        }
-    }
 }
