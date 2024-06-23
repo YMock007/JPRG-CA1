@@ -574,10 +574,6 @@ public class StudentManagementController {
                     String moduleName = getModuleName(i, modules); // Get module name
                     Integer creditUnit = getCreditUnit(i); // Get credit unit
                     Integer studentMark = getMark(i); // Get student mark
-<<<<<<< HEAD
-=======
-                    System.out.println("hi");
->>>>>>> c9b84575c57a04cf780c46375919644529ed00ce
                     Module module = new Module(moduleCode, moduleName, creditUnit, studentMark); // Create module object
                     modules.add(module); // Add module to the list
                 }
@@ -610,11 +606,6 @@ public class StudentManagementController {
             }else if(!StudentManagementModel.checkDuplicateModuleCode(modules, mc)){
                 continue;
             }
-<<<<<<< HEAD
-=======
-
-
->>>>>>> c9b84575c57a04cf780c46375919644529ed00ce
             return mc.toUpperCase(); // Return valid module code
         }
     }

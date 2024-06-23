@@ -267,14 +267,7 @@ public class StudentManagementView {
         system,
         JOptionPane.ERROR_MESSAGE);
     }
-    
-    public static void displayModuleCodeError() {
-        String message = "Module code must be 6 characters long.";
-        JOptionPane.showMessageDialog(null, 
-                message, 
-                adminSystem,
-                JOptionPane.ERROR_MESSAGE);
-    }
+
     
     public static void displayFirst2CharacterModuleCodeError() {
         String message = "First 2 characters must be alphabets in module code.";

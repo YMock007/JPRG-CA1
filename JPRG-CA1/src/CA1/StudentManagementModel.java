@@ -45,6 +45,16 @@ public class StudentManagementModel {
         return true;
     }
 
+    // Check if a string contains only letters and digits, no special characters
+    public static boolean containsOnlyLettersAndDigits(String s) {
+        for (char c : s.toCharArray()) {
+            if (!Character.isLetter(c) && !Character.isDigit(c)) {
+                return false;
+            }
+            }
+        return true;
+    }
+
     // Check if first character is a digit and second character is a letter
     public static boolean containsOnlyAlphanumeric(String s) {
         return !(!Character.isDigit(s.charAt(0)) || !Character.isLetter(s.charAt(1)));
@@ -69,6 +79,12 @@ public class StudentManagementModel {
             }
         }
         return true;
+    }
+
+    public static boolean cannotAdminNumber(String adminNo){
+        if(adminNo.equals("p0000000")){
+            return true;
+        }else return false;
     }
 
     //Method to check if number is within range or not
@@ -119,7 +135,7 @@ public class StudentManagementModel {
 
         // Check if module code is 6 characters long
         if (mArray.length != 6) {
-            StudentManagementView.displayModuleCodeError();
+            StudentManagementView.displayCannotModuleCodeError(m);
             return false;
         } 
         // Check if the first 2 characters are alphabets
@@ -160,6 +176,10 @@ public class StudentManagementModel {
                     return false;
                 }
             }
+         if(m.equals("ST0000")){
+                StudentManagementView.displayCannotModuleCodeError(m);
+                return false;
+        }
         return true;
     }
     
